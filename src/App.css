@@ -28,3 +28,20 @@ html, body {
   background-color: red;
   flex: 1 1 auto;
 }
+
+#dashboard {
+  background-color: blue;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 43% 28.5% 28.5%;
+  grid-template-rows: 1fr 2fr;
+  grid-template-areas:
+    'profile friends games'
+    'events friends games'
+}
+
+#test {
+  grid-area: events;
+  background-color: green;
+  border-radius: 10px
+}
