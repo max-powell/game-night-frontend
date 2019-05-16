@@ -1,4 +1,6 @@
 import React from 'react'
+import '../css/Header.css'
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Header = () => (

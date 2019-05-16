@@ -1,0 +1,14 @@
+#header {
+  flex: 0 1 auto;
+  background-color: #3c0b0bfc;
+  min-height: 10vh;
+  color: white;
+  padding: 0 2vw;
+  display: flex;
+  align-items: center;
+}
+
+#header h1 {
+  font-size: 6vh;
+  margin-left: 4vh
+}
