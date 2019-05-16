@@ -1,12 +1,13 @@
-import React from 'react';
+import React from 'react'
 import '../css/Dashboard.css'
 
-import Profile from './Profile';
+import Profile from './Profile'
+import EventDisplay from './EventDisplay'
 
 const Dashboard = () => (
   <div id='dashboard'>
     <Profile />
-    <div id='test'></div>
+    <EventDisplay />
   </div>
 );
 

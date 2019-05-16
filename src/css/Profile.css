@@ -7,7 +7,7 @@
   margin: 1vw
 }
 
-img {
+#profile img {
   height: 20vh;
   max-width: 25vh;
   margin: 0 1vw
@@ -17,14 +17,10 @@ img {
   margin: 0 1
 }
 
-h2 {
-  font-size: 5vh
-}
-
-svg {
+#details svg {
   margin-right: 1vw
 }
 
-p{
+#details p{
   font-size: 3vh;
 }

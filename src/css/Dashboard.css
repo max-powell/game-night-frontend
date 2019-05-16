@@ -10,5 +10,18 @@
 }
 
 .dashboard-item {
-  border-radius: 20px
+  border-radius: 15px;
+  margin: 1vh
+}
+
+.dashboard-item-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.dashboard-item-banner * {
+  font-size: 5vh;
+  margin-top: 2vh;
+  margin-bottom: 1vh
 }

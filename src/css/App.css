@@ -11,11 +11,6 @@ html, body {
 
 #main-container {
   flex: 1 1 auto;
-  background-color: #551313fc
-}
-
-#test {
-  grid-area: events;
-  background-color: green;
-  border-radius: 10px
+  background-color: #551313fc;
+  height: 90vh
 }
