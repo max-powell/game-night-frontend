@@ -2,10 +2,10 @@ import React from 'react'
 import Dashboard from './Dashboard'
 import Login from './Login';
 
-const MainContainer = ({user, setUser}) => (
+const MainContainer = () => (
   <div id='main-container'>
     {
-      user ? <Dashboard /> : <Login setUser={setUser} />
+      localStorage.token ? <Dashboard /> : <Login />
     }
   </div>
 )
