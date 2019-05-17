@@ -14,7 +14,6 @@ const gnApi = (() => {
       .then(res => res.json())
       .then(({user, jwt}) => {
         localStorage.setItem('token', jwt)
-        return user
       })
   }
 
@@ -23,7 +22,6 @@ const gnApi = (() => {
       .then(res => res.json())
       .then(({user, jwt}) => {
         localStorage.setItem('token', jwt)
-        return user
       })
   }
 
