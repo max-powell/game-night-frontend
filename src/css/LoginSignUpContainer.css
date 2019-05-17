@@ -1,0 +1,20 @@
+#login-signup-container {
+  height: 50vh;
+  width: 30vw;
+  position: fixed;
+  left: 50%;
+  margin-left: -15vw;
+  top: 50%;
+  margin-top: -25vh;
+}
+
+#login-form {
+  background-color: white;
+  height: 100%;
+  border-radius: 0 10px 10px;
+  margin: 0
+}
+
+#login-form h2 {
+  margin-top: 0
+}

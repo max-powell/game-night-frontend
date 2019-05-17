@@ -1,9 +1,12 @@
 import React from 'react'
-import Dashboard from './Dashboard';
+import Dashboard from './Dashboard'
+import Login from './Login';
 
-const MainContainer = () => (
+const MainContainer = ({user, setUser}) => (
   <div id='main-container'>
-    <Dashboard />
+    {
+      user ? <Dashboard /> : <Login setUser={setUser} />
+    }
   </div>
 )
 
