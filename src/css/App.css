@@ -1,0 +1,16 @@
+html, body {
+  height: 100%;
+  margin: 0
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100vh
+}
+
+#main-container {
+  flex: 1 1 auto;
+  background-color: #551313fc;
+  height: 90vh
+}

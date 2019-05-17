@@ -1,0 +1,25 @@
+#profile {
+  grid-area: profile;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: flex-left;
+}
+
+#profile img {
+  height: 20vh;
+  max-width: 25vh;
+  margin: 0 1vw
+}
+
+#details {
+  margin: 0 1
+}
+
+#details svg {
+  margin-right: 1vw
+}
+
+#details p{
+  font-size: 3vh;
+}

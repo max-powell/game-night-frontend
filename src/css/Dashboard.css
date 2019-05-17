@@ -1,0 +1,28 @@
+#dashboard {
+  background-color: blue;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 43% 28.5% 28.5%;
+  grid-template-rows: 1fr 2fr;
+  grid-template-areas:
+    'profile friends games'
+    'events friends games'
+}
+
+.dashboard-item {
+  background-color: white;
+  border-radius: 15px;
+  margin: 1vh
+}
+
+.dashboard-item-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.dashboard-item-banner * {
+  font-size: 5vh;
+  margin-top: 2vh;
+  margin-bottom: 1vh
+}
