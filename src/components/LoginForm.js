@@ -21,6 +21,7 @@ class LoginForm extends Component {
 
     return (
       <div id='login-form'>
+        <h2>Login</h2>
         <div className='form-field'>
           <div>Username</div>
           <input type='text' name='username' onChange={handleInputChange} />
