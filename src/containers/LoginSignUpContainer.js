@@ -10,16 +10,17 @@ class LoginSignUpContainer extends Component {
     login: true
   }
 
-  showForm = bool => {this.setState({login: bool})}
+  showLogin = bool => {this.setState({login: bool})}
 
   render() {
 
     const {login} = this.state
     const {setUser} = this.props
+    const {showLogin} = this
 
     return (
       <div id='login-signup-container'>
-        <LoginSignUpButtons />
+        <LoginSignUpButtons showLogin={showLogin} />
         {
           login
           ? <LoginForm setUser={setUser} />
