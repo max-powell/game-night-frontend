@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Header = () => (
   <div id='header'>
-    <FontAwesomeIcon icon="dice-d20" size='3x' />
+    <FontAwesomeIcon icon="dice-d20" size='2x' />
     <h1>Game Night</h1>
   </div>
 );
