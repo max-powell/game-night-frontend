@@ -6,8 +6,9 @@ import EventDisplay from './EventDisplay'
 import FriendDisplay from './FriendDisplay'
 import GameDisplay from './GameDisplay'
 
-const Dashboard = () => (
+const Dashboard = ({history}) => (
   <div id='dashboard'>
+    {!!localStorage.token || history.push('/')}
     <Profile />
     <EventDisplay />
     <FriendDisplay />

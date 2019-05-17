@@ -12,19 +12,27 @@ const gnApi = (() => {
   const login = creds => {
     return fetch(_baseUrl + 'login', _configBuilder('POST', creds))
       .then(res => res.json())
-      .then(({user, jwt}) => {
-        localStorage.setItem('token', jwt)
-        return user
-      })
+      .then(({jwt, error}) => {
+        if (jwt) {
+          localStorage.setItem('token', jwt)
+        } else {
+          alert(error.join('\n'))
+        }
+      }
+    )
   }
 
   const createUser = creds => {
     return fetch(_baseUrl + 'users', _configBuilder('POST', creds))
       .then(res => res.json())
-      .then(({user, jwt}) => {
-        localStorage.setItem('token', jwt)
-        return user
-      })
+      .then(({jwt, error}) => {
+        if (jwt) {
+          localStorage.setItem('token', jwt)
+        } else {
+          alert(error.join('\n'))
+        }
+      }
+    )
   }
 
   return {
