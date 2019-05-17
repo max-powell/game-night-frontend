@@ -18,8 +18,18 @@ const gnApi = (() => {
       })
   }
 
+  const createUser = creds => {
+    return fetch(_baseUrl + 'users', _configBuilder('POST', creds))
+      .then(res => res.json())
+      .then(({user, jwt}) => {
+        localStorage.setItem('token', jwt)
+        return user
+      })
+  }
+
   return {
-    login
+    login,
+    createUser
   }
 })()
 

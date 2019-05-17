@@ -10,18 +10,30 @@ class LoginForm extends Component {
 
   handleInputChange = ({target: {name, value}}) => {this.setState({[name]: value})}
 
-  handleLogin = () => {
+  handleSubmit = () => {
+    this.props.login
+    ? this.login()
+    : this.signUp()
+  }
+
+  login = () => {
     gnApi.login(this.state)
+      .then(this.props.setUser)
+  }
+
+  signUp = () => {
+    gnApi.createUser(this.state)
       .then(this.props.setUser)
   }
 
   render() {
 
-    const {handleInputChange, handleLogin} = this
+    const {login} = this.props
+    const {handleInputChange, handleSubmit} = this
 
     return (
       <div id='login-form'>
-        <h2>Login</h2>
+        <h2>{login ? 'Login' : 'Sign Up'}</h2>
         <div className='form-field'>
           <div>Username</div>
           <input type='text' name='username' onChange={handleInputChange} />
@@ -30,7 +42,7 @@ class LoginForm extends Component {
           <div>Password</div>
           <input type='text' name='password' onChange={handleInputChange} />
         </div>
-        <button onClick={handleLogin} >Login</button>
+        <button onClick={handleSubmit} >{login ? 'Login' : 'Sign Up'}</button>
       </div>
     )
   }
