@@ -18,12 +18,10 @@ class LoginForm extends Component {
 
   login = () => {
     gnApi.login(this.state)
-      .then(this.props.setUser)
   }
 
   signUp = () => {
     gnApi.createUser(this.state)
-      .then(this.props.setUser)
   }
 
   render() {

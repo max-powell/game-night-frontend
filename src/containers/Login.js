@@ -4,9 +4,9 @@ import LoginSignUpContainer from './LoginSignUpContainer';
 
 import '../css/Login.css'
 
-const Login = ({setUser}) => (
+const Login = () => (
   <div id='login'>
-    <LoginSignUpContainer setUser={setUser} />
+    <LoginSignUpContainer />
   </div>
 );
 
