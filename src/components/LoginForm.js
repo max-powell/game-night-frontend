@@ -17,11 +17,12 @@ class LoginForm extends Component {
 
   render() {
 
+    const {login} = this.props
     const {handleInputChange, handleLogin} = this
 
     return (
       <div id='login-form'>
-        <h2>Login</h2>
+        <h2>{login ? 'Login' : 'Sign Up'}</h2>
         <div className='form-field'>
           <div>Username</div>
           <input type='text' name='username' onChange={handleInputChange} />
@@ -30,7 +31,7 @@ class LoginForm extends Component {
           <div>Password</div>
           <input type='text' name='password' onChange={handleInputChange} />
         </div>
-        <button onClick={handleLogin} >Login</button>
+        <button onClick={handleLogin} >{login ? 'Login' : 'Sign Up'}</button>
       </div>
     )
   }
