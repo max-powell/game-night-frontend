@@ -15,13 +15,14 @@ class LoginSignUpContainer extends Component {
   render() {
 
     const {login} = this.state
+    const {setUser} = this.props
 
     return (
       <div id='login-signup-container'>
         <LoginSignUpButtons />
         {
           login
-          ? <LoginForm />
+          ? <LoginForm setUser={setUser} />
           : 'Hi'
         }
       </div>

@@ -4,16 +4,23 @@ const gnApi = (() => {
   const _configBuilder = (method, body = '') => {
     return {
       method,
-      headers: 'application/json',
-      body: JSON.stringify(body)
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({user: body})
     }
   }
 
   const login = creds => {
-    fetch(_baseUrl + 'login')
+    return fetch(_baseUrl + 'login', _configBuilder('POST', creds))
+      .then(res => res.json())
+      .then(({user, jwt}) => {
+        localStorage.setItem('token', jwt)
+        return user
+      })
   }
 
   return {
-    post
+    login
   }
 })()
+
+export default gnApi

@@ -16,14 +16,17 @@ class App extends Component {
     user: null
   }
 
+  setUser = user => {this.setState({user})}
+
   render() {
 
     const {user} = this.state
+    const {setUser} = this
 
     return (
       <div className="App">
         <Header />
-        <MainContainer user={user} />
+        <MainContainer user={user} setUser={setUser}/>
       </div>
     )
   }
