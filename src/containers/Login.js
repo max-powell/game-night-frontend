@@ -4,9 +4,10 @@ import LoginSignUpContainer from './LoginSignUpContainer';
 
 import '../css/Login.css'
 
-const Login = () => (
+const Login = ({history}) => (
   <div id='login'>
-    <LoginSignUpContainer />
+    {!!localStorage.token && history.push('/dashboard')}
+    <LoginSignUpContainer history={history} />
   </div>
 );
 
