@@ -18,7 +18,10 @@ const gnApi = (() => {
       body: JSON.stringify(body)
     }
   }
-  const post = body => fetch(_baseUrl, _configBuilder('POST', body)).then(res => res.json())
+  const post = body => {
+    return fetch(_baseUrl, _configBuilder('POST', body))
+      .then(res => res.json())
+    }
   return {
     post
   }
