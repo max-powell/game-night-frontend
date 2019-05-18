@@ -4,7 +4,7 @@
   grid-template-rows: 1fr 2fr;
   grid-template-areas:
     'profile friends games'
-    'events friends games'
+    'events friends games';
 }
 
 .dashboard-item {
@@ -19,6 +19,7 @@
 }
 
 .dashboard-item-banner {
+  grid-area: banner;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -28,4 +29,37 @@
   font-size: 5vh;
   margin-top: 2vh;
   margin-bottom: 1vh
+}
+
+.dashboard-item-list {
+  grid-area: body;
+  margin: 1vw;
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+}
+
+.dashboard-list-item {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  border: 1px solid black;
+  margin-bottom: 1vh;
+}
+
+.dashboard-list-item img {
+  height: 10vh;
+  margin-left: 1vw
+}
+
+.dashboard-list-item div {
+  padding: 1vh 1vw
+}
+
+.dashboard-list-item p {
+  font-size: 2vh
+}
+
+.dashboard-list-item p svg {
+  margin-right: 0.5vw
 }
