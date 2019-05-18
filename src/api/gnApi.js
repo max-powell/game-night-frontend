@@ -16,7 +16,7 @@ const gnApi = (() => {
         if (jwt) {
           localStorage.setItem('token', jwt)
         } else {
-          alert(error.join('\n'))
+          alert(error)
         }
       }
     )
