@@ -37,6 +37,7 @@
   display: flex;
   flex-direction: column;
   overflow: scroll;
+  align-items: center;
 }
 
 .dashboard-list-item {
@@ -62,4 +63,12 @@
 
 .dashboard-list-item p svg {
   margin-right: 0.5vw
+}
+
+.dashboard-item-search {
+  grid-area: body;
+  margin-top: 2vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
