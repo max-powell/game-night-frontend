@@ -7,6 +7,7 @@ const Header = () => (
   <div id='header'>
     <FontAwesomeIcon icon="dice-d20" size='2x' />
     <h1>Game Night</h1>
+    {!!localStorage.token && <div>Logout</div>}
   </div>
 );
 
