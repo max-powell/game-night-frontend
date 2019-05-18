@@ -45,10 +45,16 @@ const gnApi = (() => {
       .then(res => res.json())
   }
 
+  const getItems = route => {
+    return fetch(_baseUrl + route, {headers: _auth()})
+      .then(res => res.json())
+  }
+
   return {
     login,
     createUser,
-    getProfile
+    getProfile,
+    getItems
   }
 })()
 
