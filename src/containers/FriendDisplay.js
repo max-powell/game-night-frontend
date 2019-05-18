@@ -8,13 +8,16 @@ import '../css/FriendDisplay.css'
 class FriendDisplay extends Component {
 
   state = {
-    friends: []
+    friends: [],
+    search: false
   }
 
   componentDidMount () {
     gnApi.getItems('friends')
       .then(friends => this.setState({friends}))
   }
+
+  toggleSearch = () => {this.setState({search: !this.state.search })}
 
   render() {
     return (
