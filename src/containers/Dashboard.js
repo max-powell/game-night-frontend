@@ -14,9 +14,9 @@ class Dashboard extends Component {
     profile: {}
   }
 
-  async componentDidMount () {
-    const profile = await gnApi.getProfile()
-    this.setState({profile})
+  componentDidMount () {
+    gnApi.getProfile()
+      .then(profile => this.setState({profile}))
   }
 
   render() {
@@ -27,7 +27,7 @@ class Dashboard extends Component {
     return (
       <div id='dashboard' className='main-container-item'>
         {!!localStorage.token || history.push('/')}
-        <Profile profile={profile} />
+        <Profile key={profile.id} profile={profile} />
         <EventDisplay />
         <FriendDisplay />
         <GameDisplay />
