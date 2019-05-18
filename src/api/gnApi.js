@@ -1,13 +1,11 @@
 const gnApi = (() => {
   const _baseUrl = 'http://localhost:3000/'
 
-  const _auth = {'Authorization': `Bearer ${localStorage.getItem('token')}`}
-
   const _configBuilder = (method, body = '') => {
     return {
       method,
       headers: {
-        ..._auth,
+        'Authorisation': `Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({user: body})
@@ -41,7 +39,7 @@ const gnApi = (() => {
   }
 
   const getProfile = () => {
-    return fetch(_baseUrl + 'profile', {headers: _auth})
+    return fetch(_baseUrl + 'profile', {headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`}})
       .then(res => res.json())
   }
 

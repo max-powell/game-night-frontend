@@ -16,7 +16,7 @@ const App = () => (
   <div className="App">
     <Router>
       <Route exact path='/' render={routerProps => <Layout routerProps={routerProps} display={'login'} />} />
-      <Route exact path='/dashboard' render={routerProps => <Layout routerProps={routerProps} display={'dashboard'} />} />
+      <Route path='/dashboard' render={routerProps => <Layout routerProps={routerProps} display={'dashboard'} />} />
     </Router>
   </div>
 )
