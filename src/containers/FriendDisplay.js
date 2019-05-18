@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import FriendDisplayBanner from '../components/FriendDisplayBanner'
+import FriendList from './FriendList'
 
 import gnApi from '../api/gnApi';
 
@@ -20,9 +21,13 @@ class FriendDisplay extends Component {
   toggleSearch = () => {this.setState({search: !this.state.search })}
 
   render() {
+
+    const { friends } = this.state;
+
     return (
       <div id='friend-display' className='dashboard-item'>
         <FriendDisplayBanner />
+        <FriendList friends={friends}/>
       </div>
     )
   }
