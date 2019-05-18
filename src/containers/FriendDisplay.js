@@ -22,13 +22,17 @@ class FriendDisplay extends Component {
 
   render() {
 
-    const { friends } = this.state
+    const { friends, search } = this.state
     const { toggleSearch } = this
 
     return (
       <div id='friend-display' className='dashboard-item'>
         <FriendDisplayBanner toggleSearch={toggleSearch} />
-        <FriendList friends={friends}/>
+        {
+          search
+          ? null
+          : <FriendList friends={friends}/>
+        }
       </div>
     )
   }
