@@ -12,3 +12,11 @@
   font-size: 6vh;
   margin-left: 4vh
 }
+
+#header button {
+  margin-left: auto;
+  background-color: #551313fc;
+  color: white;
+  height: 6vh;
+  vertical-align: middle;
+}

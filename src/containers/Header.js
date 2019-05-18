@@ -13,7 +13,7 @@ const Header = ({history}) => {
   return (<div id='header'>
     <FontAwesomeIcon icon="dice-d20" size='2x' />
     <h1>Game Night</h1>
-    {!!localStorage.token && <div onClick={logout}>Logout</div>}
+    {!!localStorage.token && <button onClick={logout}>Logout</button>}
   </div>)
 }
 
