@@ -13,7 +13,7 @@ html, body {
   height: 100vh
 }
 
-#main-container {
+.main-container-item {
   flex: 1 1 auto;
   background-color: #551313fc;
   height: 90vh
