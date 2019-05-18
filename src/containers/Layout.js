@@ -5,7 +5,7 @@ import Dashboard from './Dashboard';
 
 const Layout = ({routerProps, display}) => (
   <Fragment>
-    <Header />
+    <Header {...routerProps} />
     {
       (() => {
         switch (display) {
