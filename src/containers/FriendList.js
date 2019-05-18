@@ -5,7 +5,7 @@ import FriendListItem from '../components/FriendListItem.js';
 const FriendList = ({friends}) => (
   <div className='dashboard-item-list'>
     {
-      friends.map(f => <FriendListItem friend={f} />)
+      friends.map(f => <FriendListItem key={f.id} friend={f} />)
     }
   </div>
 )
