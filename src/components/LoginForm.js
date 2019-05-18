@@ -16,14 +16,14 @@ class LoginForm extends Component {
     : this.signUp()
   }
 
-  login = () => {
-    gnApi.login(this.state)
-      .then(this.props.history.push('/dashboard'))
+  login = async () => {
+    await gnApi.login(this.state)
+    this.props.history.push('/dashboard')
   }
 
-  signUp = () => {
-    gnApi.createUser(this.state)
-      .then(this.props.history.push('/dashboard'))
+  signUp = async () => {
+    await gnApi.createUser(this.state)
+    this.props.history.push('/dashboard')
   }
 
   render() {
