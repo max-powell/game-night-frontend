@@ -1,22 +1,32 @@
 import React, { Component } from 'react'
-import { Search } from 'semantic-ui-react'
+import { Form } from 'semantic-ui-react'
+
+import gnApi from '../api/gnApi'
 
 class FriendSearch extends Component {
 
   state = {
-    friends: [],
+    results: [],
     searchTerm: ''
   }
 
-  updateSearch = searchTerm => {this.setState({searchTerm})}
+  updateSearch = (e, {value: searchTerm}) => {this.setState({searchTerm})}
+
+  handleSubmit = () => {
+    gnApi.search(this.state.searchTerm)
+      .then(results => this.setState({results}))
+  }
 
   render() {
 
-    const { friends, searchTerm } = this.state
+    const { updateSearch, handleSubmit } = this
+    const { friends, searchTerm} = this.state
 
     return (
       <div className='dashboard-item-search'>
-        <input type='text' placeholder='Search users...' value={searchTerm}  />
+        <Form onSubmit={handleSubmit}>
+          <Form.Input icon='search' placeholder='Search users...' onChange={updateSearch} value={searchTerm} />
+        </Form>
       </div>
     )
   }

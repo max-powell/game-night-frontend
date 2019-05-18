@@ -50,11 +50,17 @@ const gnApi = (() => {
       .then(res => res.json())
   }
 
+  const search = searchTerm => {
+    return fetch(_baseUrl + 'search/' + searchTerm, {headers: _auth()})
+      .then(res => res.json())
+  }
+
   return {
     login,
     createUser,
     getProfile,
-    getItems
+    getItems,
+    search
   }
 })()
 
