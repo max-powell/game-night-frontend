@@ -10,7 +10,12 @@
 .dashboard-item {
   background-color: white;
   border-radius: 15px;
-  margin: 1vh
+  margin: 1vh;
+  display: grid;
+  grid-template-rows: 10vh auto;
+  grid-template-areas:
+    'banner'
+    'body';
 }
 
 .dashboard-item-banner {

@@ -1,7 +1,7 @@
 import React from 'react'
 
 const FriendList = ({friends}) => (
-  <div>
+  <div className='dashboard-item-list'>
     {
       friends.map(f => <div>{f.username}</div>)
     }
