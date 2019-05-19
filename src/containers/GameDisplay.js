@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import GameDisplayBanner from '../components/GameDisplayBanner'
 import GameList from './GameList'
+import GameSearch from './GameSearch';
 
 import gnApi from '../api/gnApi'
 
@@ -30,15 +31,22 @@ class GameDisplay extends Component {
     }
   }
 
+  showSearch = bool => {this.setState({search: bool })}
+
   render() {
 
     const { selectedFriend, selectFriend } = this.props
-    const { games } = this.state
+    const { games, search } = this.state
+    const { showSearch } = this
 
     return (
       <div id='game-display' className='dashboard-item'>
-        <GameDisplayBanner selectedFriend={selectedFriend} selectFriend={selectFriend} />
-        <GameList games={games} />
+        <GameDisplayBanner selectedFriend={selectedFriend} selectFriend={selectFriend} showSearch={showSearch} search={search} />
+        {
+          search
+          ? <GameSearch />
+          : <GameList games={games} />
+        }
       </div>
     )
   }

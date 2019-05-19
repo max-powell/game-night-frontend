@@ -18,11 +18,11 @@ class GameSearch extends Component {
   render() {
 
     const { searchTerm } = this.state
-    const { updateSearch } = this
+    const { updateSearch, handleSubmit } = this
 
     return (
       <div className='dashboard-item-search'>
-        <Search onChange={updateSearch} handleSubmit={handleSubmit} value={searchTerm} />
+        <Search updateSearch={updateSearch} handleSubmit={handleSubmit} searchTerm={searchTerm} />
       </div>
     )
   }
