@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import GameDisplayBanner from '../components/GameDisplayBanner'
+import GameList from './GameList'
 
 import gnApi from '../api/gnApi'
 
@@ -31,10 +32,12 @@ class GameDisplay extends Component {
   render() {
 
     const { selectedFriend, selectFriend } = this.props
+    const { games } = this.state
 
     return (
       <div id='game-display' className='dashboard-item'>
         <GameDisplayBanner selectedFriend={selectedFriend} selectFriend={selectFriend} />
+        <GameList games={games} />
       </div>
     )
   }
