@@ -4,7 +4,6 @@ const gnApi = (() => {
   const _auth = () => ({'Authorization': `Bearer ${localStorage.getItem('token')}`})
 
   const _configBuilder = (method, body = '', wrapper = 'user') => {
-    debugger;
     return {
       method,
       headers: {
@@ -16,7 +15,6 @@ const gnApi = (() => {
   }
 
   const login = creds => {
-    debugger;
     return fetch(_baseUrl + 'login', _configBuilder('POST', creds))
       .then(res => res.json())
       .then(({jwt, error}) => {
