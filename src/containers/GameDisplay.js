@@ -5,6 +5,14 @@ import '../css/GameDisplay.css'
 
 class GameDisplay extends Component {
 
+  state = {
+    games: []
+  }
+
+  componentDidMount () {
+    
+  }
+
   render() {
 
     const { selectedFriend, selectFriend } = this.props
