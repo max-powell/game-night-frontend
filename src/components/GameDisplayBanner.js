@@ -15,7 +15,7 @@ const GameDisplayBanner = ({selectedFriend, selectFriend}) => (
       Games
     </h2>
     {
-      selectedFriend
+      Object.keys(selectedFriend).length > 0
       ? <FontAwesomeIcon onClick={() => selectFriend({}) } icon="chevron-left" size='lg' />
       : <FontAwesomeIcon icon="plus" size='lg' />
     }

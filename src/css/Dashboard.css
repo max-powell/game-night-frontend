@@ -56,6 +56,10 @@
   padding: 1vh 1vw
 }
 
+.dashboard-list-item h2 {
+  font-size: 3vh;
+}
+
 .dashboard-list-item p {
   font-size: 2vh;
 }
