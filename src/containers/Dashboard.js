@@ -9,7 +9,7 @@ import GameDisplay from './GameDisplay'
 class Dashboard extends Component {
 
   state = {
-    selectedFriend: null
+    selectedFriend: {}
   }
 
   selectFriend = selectedFriend => {this.setState({selectedFriend})}

@@ -6,7 +6,7 @@ const GameDisplayBanner = ({selectedFriend, selectFriend}) => (
   <div className='dashboard-item-banner'>
     <h2>
       {
-        selectedFriend
+        Object.keys(selectedFriend).length > 0
         ? selectedFriend.username.endsWith('s')
           ? `${selectedFriend.username}' `
           : `${selectedFriend.username}'s `
@@ -16,7 +16,7 @@ const GameDisplayBanner = ({selectedFriend, selectFriend}) => (
     </h2>
     {
       selectedFriend
-      ? <FontAwesomeIcon onClick={() => selectFriend(null) } icon="chevron-left" size='lg' />
+      ? <FontAwesomeIcon onClick={() => selectFriend({}) } icon="chevron-left" size='lg' />
       : <FontAwesomeIcon icon="plus" size='lg' />
     }
     <FontAwesomeIcon icon="sort" size='lg' />
