@@ -23,13 +23,14 @@ class FriendSearch extends Component {
 
     const { updateSearch, handleSubmit } = this
     const { results, searchTerm} = this.state
+    const { addFriend } = this.props;
 
     return (
       <div className='dashboard-item-search'>
         <Form onSubmit={handleSubmit}>
           <Form.Input icon='search' placeholder='Search users...' onChange={updateSearch} value={searchTerm} />
         </Form>
-        <FriendSearchResults results={results} />
+        <FriendSearchResults results={results} addFriend={addFriend} />
       </div>
     )
   }

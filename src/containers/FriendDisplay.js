@@ -21,17 +21,21 @@ class FriendDisplay extends Component {
 
   showSearch = bool => {this.setState({search: bool })}
 
+  addFriend = friend => {
+    console.log(friend)
+  }
+
   render() {
 
     const { friends, search } = this.state
-    const { showSearch } = this
+    const { showSearch, addFriend } = this
 
     return (
       <div id='friend-display' className='dashboard-item'>
         <FriendDisplayBanner showSearch={showSearch} search={search} />
         {
           search
-          ? <FriendSearch />
+          ? <FriendSearch addFriend={addFriend} />
           : <FriendList friends={friends}/>
         }
       </div>

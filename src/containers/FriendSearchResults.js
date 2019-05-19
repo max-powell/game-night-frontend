@@ -2,11 +2,11 @@ import React from 'react'
 
 import FriendSearchItem from '../components/FriendSearchItem';
 
-const FriendSearchResults = ({results}) => (
+const FriendSearchResults = ({results, addFriend}) => (
   <div className='dashboard-search-results'>
     {
       results.length > 0 &&
-      results.map(r => <FriendSearchItem result={r} />)
+      results.map(r => <FriendSearchItem result={r} addFriend={addFriend} />)
     }
   </div>
 )
