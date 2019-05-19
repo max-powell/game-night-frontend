@@ -21,8 +21,14 @@ class FriendDisplay extends Component {
 
   showSearch = bool => {this.setState({search: bool })}
 
-  addFriend = friend => {
-    console.log(friend)
+  addFriend = friend_id => {
+    gnApi.addFriend(friend_id)
+      .then(friend => {
+        this.setState({
+          friends: [...this.state.friends, friend],
+          search: false
+        })
+      })
   }
 
   render() {
