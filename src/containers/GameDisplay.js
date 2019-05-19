@@ -10,6 +10,7 @@ class GameDisplay extends Component {
 
   state = {
     games: [],
+    search: false
   }
 
   componentDidMount () {
