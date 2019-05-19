@@ -27,8 +27,7 @@
 
 .dashboard-item-banner * {
   font-size: 5vh;
-  margin-top: 2vh;
-  margin-bottom: 1vh
+  margin: 0;
 }
 
 .dashboard-item-list {
@@ -75,6 +74,7 @@
 
 .dashboard-search-results {
   width: 100%;
+  margin-top: 1vh;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -85,7 +85,7 @@
 .dashboard-search-item {
   width: 90%;
   border: 1px solid black;
-  margin: 1vh;
+  margin-bottom: 1vh;
   padding: 1vh 1vw;
   display: flex;
   align-items: center;
