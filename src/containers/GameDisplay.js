@@ -9,7 +9,7 @@ class GameDisplay extends Component {
 
   state = {
     games: [],
-    message: 'HI'
+    count: 0
   }
 
   componentDidMount () {
@@ -18,10 +18,13 @@ class GameDisplay extends Component {
   }
 
   componentDidUpdate (prevProps) {
-    if (this.props.selectedFriend !== prevProps.selectFriend) {
-      // this.setState({
-      //   message: 'BYE'
-      // });
+    if (this.props.selectedFriend !== prevProps.selectedFriend) {
+      if (Object.keys(this.props.selectedFriend).length > 0) {
+        this.setState({games: []})
+      } else {
+        gnApi.getItems('games')
+          .then(games => this.setState({games}))
+      }
     }
   }
 
@@ -32,7 +35,7 @@ class GameDisplay extends Component {
     return (
       <div id='game-display' className='dashboard-item'>
         <GameDisplayBanner selectedFriend={selectedFriend} selectFriend={selectFriend} />
-        {this.state.message}
+        {this.state.count}
       </div>
     )
   }
