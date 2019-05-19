@@ -9,7 +9,6 @@ class GameDisplay extends Component {
 
   state = {
     games: [],
-    count: 0
   }
 
   componentDidMount () {
@@ -36,7 +35,6 @@ class GameDisplay extends Component {
     return (
       <div id='game-display' className='dashboard-item'>
         <GameDisplayBanner selectedFriend={selectedFriend} selectFriend={selectFriend} />
-        {this.state.count}
       </div>
     )
   }
