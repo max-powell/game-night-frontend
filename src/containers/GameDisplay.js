@@ -33,15 +33,20 @@ class GameDisplay extends Component {
 
   showSearch = bool => {this.setState({search: bool })}
 
+  showCurrentUserList = () => {
+    this.props.selectFriend({})
+    this.showSearch(false)
+  }
+
   render() {
 
-    const { selectedFriend, selectFriend } = this.props
+    const { selectedFriend } = this.props
     const { games, search } = this.state
-    const { showSearch } = this
+    const { showCurrentUserList, showSearch } = this
 
     return (
       <div id='game-display' className='dashboard-item'>
-        <GameDisplayBanner selectedFriend={selectedFriend} selectFriend={selectFriend} showSearch={showSearch} search={search} />
+        <GameDisplayBanner selectedFriend={selectedFriend} showCurrentUserList={showCurrentUserList} showSearch={showSearch} search={search} />
         {
           search
           ? <GameSearch />
