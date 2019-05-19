@@ -60,13 +60,19 @@ const gnApi = (() => {
       .then(res => res.json())
   }
 
+  const getFriendsGames = friend => {
+    return fetch(`${_baseUrl}/users/${friend.id}/games`, {headers: _auth()})
+      .then(res => res.json())
+  }
+
   return {
     login,
     createUser,
     getProfile,
     getItems,
     search,
-    addFriend
+    addFriend,
+    getFriendsGames
   }
 })()
 

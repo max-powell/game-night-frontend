@@ -20,7 +20,8 @@ class GameDisplay extends Component {
   componentDidUpdate (prevProps) {
     if (this.props.selectedFriend !== prevProps.selectedFriend) {
       if (Object.keys(this.props.selectedFriend).length > 0) {
-        this.setState({games: []})
+        gnApi.getFriendsGames(this.props.selectedFriend)
+          .then(games => this.setState({games}))
       } else {
         gnApi.getItems('games')
           .then(games => this.setState({games}))
