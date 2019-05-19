@@ -6,7 +6,7 @@ const FriendSearchResults = ({results, addFriend}) => (
   <div className='dashboard-search-results'>
     {
       results.length > 0 &&
-      results.map(r => <FriendSearchItem result={r} addFriend={addFriend} />)
+      results.map(r => <FriendSearchItem key={r.id} result={r} addFriend={addFriend} />)
     }
   </div>
 )
