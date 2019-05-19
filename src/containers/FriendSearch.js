@@ -16,7 +16,10 @@ class FriendSearch extends Component {
 
   handleSubmit = () => {
     gnApi.search(this.state.searchTerm)
-      .then(results => this.setState({results}))
+      .then(results => {
+        Array.isArray(results) && this.setState({results})
+      }
+    )
   }
 
   render() {
