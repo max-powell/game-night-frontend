@@ -3,18 +3,20 @@ const gnApi = (() => {
 
   const _auth = () => ({'Authorization': `Bearer ${localStorage.getItem('token')}`})
 
-  const _configBuilder = (method, body = '') => {
+  const _configBuilder = (method, body = '', wrapper = 'user') => {
+    debugger;
     return {
       method,
       headers: {
         ..._auth(),
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({user: body})
+      body: JSON.stringify({[wrapper]: body})
     }
   }
 
   const login = creds => {
+    debugger;
     return fetch(_baseUrl + 'login', _configBuilder('POST', creds))
       .then(res => res.json())
       .then(({jwt, error}) => {
@@ -55,12 +57,18 @@ const gnApi = (() => {
       .then(res => res.json())
   }
 
+  const addFriend = id => {
+    return fetch(_baseUrl + 'friends', _configBuilder('POST', {id}, 'friend'))
+      .then(res => res.json())
+  }
+
   return {
     login,
     createUser,
     getProfile,
     getItems,
-    search
+    search,
+    addFriend
   }
 })()
 
