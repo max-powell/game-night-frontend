@@ -26,7 +26,7 @@ class Dashboard extends Component {
         <Profile />
         <EventDisplay />
         <FriendDisplay selectFriend={selectFriend} />
-        <GameDisplay selectedFriend={selectedFriend}/>
+        <GameDisplay selectedFriend={selectedFriend} selectFriend={selectFriend}/>
       </div>
     );
   }

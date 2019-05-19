@@ -6,9 +6,12 @@ import '../css/GameDisplay.css'
 class GameDisplay extends Component {
 
   render() {
+
+    const { selectedFriend, selectFriend } = this.props
+
     return (
       <div id='game-display' className='dashboard-item'>
-        <GameDisplayBanner />
+        <GameDisplayBanner selectedFriend={selectedFriend} selectFriend={selectFriend} />
       </div>
     )
   }

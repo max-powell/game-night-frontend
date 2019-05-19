@@ -2,10 +2,10 @@ import React from 'react'
 
 import FriendListItem from '../components/FriendListItem.js';
 
-const FriendList = ({friends}) => (
+const FriendList = ({friends, selectFriend}) => (
   <div className='dashboard-item-list'>
     {
-      friends.map(f => <FriendListItem key={f.id} friend={f} />)
+      friends.map(f => <FriendListItem key={f.id} friend={f} selectFriend={selectFriend} />)
     }
   </div>
 )
