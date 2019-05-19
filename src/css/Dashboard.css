@@ -4,16 +4,22 @@
   grid-template-rows: 1fr 2fr;
   grid-template-areas:
     'profile friends games'
-    'events friends games'
+    'events friends games';
 }
 
 .dashboard-item {
   background-color: white;
   border-radius: 15px;
-  margin: 1vh
+  margin: 1vh;
+  display: grid;
+  grid-template-rows: 10vh auto;
+  grid-template-areas:
+    'banner'
+    'body';
 }
 
 .dashboard-item-banner {
+  grid-area: banner;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -23,4 +29,69 @@
   font-size: 5vh;
   margin-top: 2vh;
   margin-bottom: 1vh
+}
+
+.dashboard-item-list {
+  grid-area: body;
+  margin: 1vw;
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+  align-items: center;
+}
+
+.dashboard-list-item {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  border: 1px solid black;
+  margin-bottom: 1vh;
+}
+
+.dashboard-list-item img {
+  height: 10vh;
+  margin-left: 1vw
+}
+
+.dashboard-list-item div {
+  padding: 1vh 1vw
+}
+
+.dashboard-list-item p {
+  font-size: 2vh
+}
+
+.dashboard-list-item p svg {
+  margin-right: 0.5vw
+}
+
+.dashboard-item-search {
+  grid-area: body;
+  margin-top: 2vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dashboard-search-results {
+  width: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+  align-items: center;
+}
+
+.dashboard-search-item {
+  width: 90%;
+  border: 1px solid black;
+  margin: 1vh;
+  padding: 1vh 1vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dashboard-search-item img {
+  height: 8vh
 }
