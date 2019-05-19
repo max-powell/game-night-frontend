@@ -41,7 +41,7 @@ class FriendDisplay extends Component {
         <FriendDisplayBanner showSearch={showSearch} search={search} />
         {
           search
-          ? <FriendSearch addFriend={addFriend} />
+          ? <FriendSearch addFriend={addFriend} friends={friends.map(f => f.id)} />
           : <FriendList friends={friends}/>
         }
       </div>
