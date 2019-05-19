@@ -4,7 +4,7 @@ import Search from '../components/Search';
 class GameSearch extends Component {
 
   state ={
-    games: [],
+    results: [],
     searchTerm: ''
   }
 
