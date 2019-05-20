@@ -74,11 +74,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
 }
 
 .dashboard-search-results {
   width: 100%;
-  margin-top: 1vh;
+  margin: 1vh 1vw;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
