@@ -10,24 +10,21 @@ import '../css/GameDisplay.css'
 class GameDisplay extends Component {
 
   state = {
-    games: [],
+    currentUserGames: [],
+    selectedFriendGames: [],
     search: false
   }
 
   componentDidMount () {
     gnApi.getItems('games')
-      .then(games => this.setState({games}))
+      .then(currentUserGames => this.setState({currentUserGames}))
   }
 
   componentDidUpdate (prevProps) {
-    if (this.props.selectedFriend !== prevProps.selectedFriend) {
-      if (Object.keys(this.props.selectedFriend).length > 0) {
+    if (this.props.selectedFriend !== prevProps.selectedFriend
+    && Object.keys(this.props.selectedFriend).length > 0) {
         gnApi.getFriendsGames(this.props.selectedFriend)
-          .then(games => this.setState({games}))
-      } else {
-        gnApi.getItems('games')
-          .then(games => this.setState({games}))
-      }
+          .then(selectedFriendGames => this.setState({selectedFriendGames}))
     }
   }
 
@@ -38,19 +35,30 @@ class GameDisplay extends Component {
     this.showSearch(false)
   }
 
+  addGame = game => {
+    gnApi.addGame(game)
+      .then(this.setState({
+        currentUserGames: [...this.state.currentUserGames, game],
+        search: false
+      })
+    )
+  }
+
   render() {
 
     const { selectedFriend } = this.props
-    const { games, search } = this.state
-    const { showCurrentUserList, showSearch } = this
+    const { currentUserGames, selectedFriendGames, search } = this.state
+    const { showCurrentUserList, showSearch, addGame } = this
+
+    const displayedGames = Object.keys(this.props.selectedFriend).length > 0 ? selectedFriendGames : currentUserGames
 
     return (
       <div id='game-display' className='dashboard-item'>
         <GameDisplayBanner selectedFriend={selectedFriend} showCurrentUserList={showCurrentUserList} showSearch={showSearch} search={search} />
         {
           search
-          ? <GameSearch />
-          : <GameList games={games} />
+          ? <GameSearch addGame={addGame} excludedGames={currentUserGames} />
+        : <GameList games={displayedGames} />
         }
       </div>
     )

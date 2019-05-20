@@ -1,25 +1,28 @@
 import React from 'react'
 
-const GameSearchItem = ({result}) => (
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+const GameSearchItem = ({result, addGame}) => (
   <div className='dashboard-search-item'>
     <img src={result.imageUrl} alt='game art' />
     <div>
       <p>Name: {result.name}</p>
       <p>
-      Player range: {
+      Players: {
         result.minPlayers && result.maxPlayers
         ? `${result.minPlayers}-${result.maxPlayers}`
         : 'unavailable'
       }
       </p>
       <p>
-      Player range: {
+      Playtime: {
         result.minPlaytime && result.maxPlaytime
         ? `${result.minPlaytime}-${result.maxPlaytime}`
         : 'unavailable'
       }
       </p>
     </div>
+    <FontAwesomeIcon icon='plus' onClick={() => addGame(result)}/>
   </div>
 )
 

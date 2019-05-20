@@ -70,6 +70,12 @@ const gnApi = (() => {
       .then(res => res.json())
   }
 
+  const addGame = game => {
+    debugger;
+    return fetch(_baseUrl + 'games', _configBuilder('POST', game, 'game'))
+      .then(res => res.json())
+  }
+
   return {
     login,
     createUser,
@@ -78,7 +84,8 @@ const gnApi = (() => {
     search,
     addFriend,
     getFriendsGames,
-    searchGames
+    searchGames,
+    addGame
   }
 })()
 

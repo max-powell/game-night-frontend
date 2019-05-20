@@ -1,9 +1,9 @@
 import React from 'react'
 import GameSearchItem from '../components/GameSearchItem';
 
-const GameSearchResults = ({results}) => (
+const GameSearchResults = ({results, addGame}) => (
   <div className='dashboard-search-results'>
-    {results.map(r => <GameSearchItem result={r} />)}
+    {results.map(r => <GameSearchItem key={r.id} result={r} addGame={addGame} />)}
   </div>
 )
 
