@@ -22,7 +22,15 @@ class NewEvent extends Component {
     gnApi.getItems('friends')
       .then(notInvited => this.setState({notInvited}))
       gnApi.getItems('games')
-      .then(availableGames => this.setState({availableGames}))
+      .then(games => this.setState({
+        availableGames: games.map(g => {
+          return {
+            ...g,
+            owner: 'You'
+          }
+        })
+      })
+    )
   }
 
   handleInputChange = (e, {name, value}) => {
