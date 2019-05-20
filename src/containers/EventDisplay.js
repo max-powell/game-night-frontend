@@ -7,9 +7,12 @@ import '../css/EventDisplay.css'
 class EventDisplay extends Component {
 
   render() {
+
+    const { history } = this.props
+
     return (
       <div id='event-display' className='dashboard-item'>
-        <EventDisplayBanner />
+        <EventDisplayBanner history={history} />
         <EventList />
       </div>
     )
