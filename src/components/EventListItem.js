@@ -2,10 +2,10 @@ import React from 'react'
 
 const EventListItem = ({event}) => (
   <div className='event-list-item'>
-    <p>
+    <h3>
     {event.dateTime.toDateString()} ({
       Math.floor((event.dateTime - Date.now())/(1000 * 60 * 60 * 24))
-    } days to go)</p>
+    } days to go)</h3>
     <p>Time: {event.dateTime.toTimeString().slice(0,5)}</p>
     <p>Where: {event.location}</p>
     <p>Game: {event.game.name}</p>
