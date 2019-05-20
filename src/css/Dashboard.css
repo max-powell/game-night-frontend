@@ -35,7 +35,7 @@
   margin: 1vw;
   display: flex;
   flex-direction: column;
-  overflow: scroll;
+  overflow-y: scroll;
   align-items: center;
 }
 
@@ -68,6 +68,22 @@
   margin-right: 0.5vw
 }
 
+.event-list-item {
+  width: 90%;
+  border: 1px solid black;
+  margin-bottom: 1vh;
+}
+
+.event-list-item h3 {
+  margin: 1vh;
+  font-size: 2.5vh
+}
+
+.event-list-item p {
+  margin: 1vh;
+  font-size: 2vh
+}
+
 .dashboard-item-search {
   grid-area: body;
   margin-top: 2vh;
@@ -83,7 +99,7 @@
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  overflow: scroll;
+  overflow-y: scroll;
   align-items: center;
 }
 
