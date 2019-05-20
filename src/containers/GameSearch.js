@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
-import Search from '../components/Search';
+import Search from '../components/Search'
+import GameSearchResults from './GameSearchResults';
+
+import gnApi from '../api/gnApi';
 
 class GameSearch extends Component {
 
@@ -11,18 +14,20 @@ class GameSearch extends Component {
   updateSearch = (e, {value: searchTerm}) => {this.setState({searchTerm})}
 
   handleSubmit = () => {
-    console.log(this.state.searchTerm)
+    gnApi.searchGames(this.state.searchTerm)
+      .then(results => this.setState({results}))
   }
 
 
   render() {
 
-    const { searchTerm } = this.state
+    const { searchTerm, results } = this.state
     const { updateSearch, handleSubmit } = this
 
     return (
       <div className='dashboard-item-search'>
         <Search updateSearch={updateSearch} handleSubmit={handleSubmit} searchTerm={searchTerm} />
+        <GameSearchResults results={results} />
       </div>
     )
   }

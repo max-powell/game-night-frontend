@@ -65,6 +65,11 @@ const gnApi = (() => {
       .then(res => res.json())
   }
 
+  const searchGames = searchTerm => {
+    return fetch(`${_baseUrl}/games?name=${searchTerm}`, {headers: _auth()})
+      .then(res => res.json())
+  }
+
   return {
     login,
     createUser,
@@ -72,7 +77,8 @@ const gnApi = (() => {
     getItems,
     search,
     addFriend,
-    getFriendsGames
+    getFriendsGames,
+    searchGames
   }
 })()
 
