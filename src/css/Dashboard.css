@@ -97,6 +97,15 @@
   justify-content: space-between;
 }
 
-.dashboard-search-item img {
+#friend-display .dashboard-search-item img {
   height: 8vh
+}
+
+#game-display .dashboard-search-item img {
+  width: 6vw
+}
+
+#game-display .dashboard-search-item p {
+  font-size: 2vh;
+  margin: 1vw
 }
