@@ -1,0 +1,26 @@
+#new-event {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 15vh auto;
+  grid-template-areas:
+    'title button'
+    'area1 area2'
+}
+
+#new-event-title {
+  grid-area: title;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+#new-event-title h1 {
+  color: white;
+  font-size: 6vh
+}
+
+#area1 {
+  background-color: blue;
+  grid-area: area1
+}
