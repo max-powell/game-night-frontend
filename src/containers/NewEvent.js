@@ -4,6 +4,8 @@ import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import '../css/NewEvent.css'
 
+import gnApi from '../api/gnApi'
+
 class NewEvent extends Component {
 
   state = {
@@ -12,7 +14,15 @@ class NewEvent extends Component {
     invited: [],
     notInvited: [],
     gameId: 0,
-    gameOwner: ''
+    gameOwner: '',
+    availableGames: []
+  }
+
+  componentDidMount () {
+    gnApi.getItems('friends')
+      .then(notInvited => this.setState({notInvited}))
+      gnApi.getItems('games')
+      .then(availableGames => this.setState({availableGames}))
   }
 
   handleInputChange = (e, {name, value}) => {
