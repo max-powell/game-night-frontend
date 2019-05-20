@@ -1,7 +1,8 @@
 import React, {Fragment} from 'react'
 import Header from './Header'
 import Login from './Login'
-import Dashboard from './Dashboard';
+import Dashboard from './Dashboard'
+import NewEvent from './NewEvent'
 
 const Layout = ({routerProps, display}) => (
   <Fragment>
@@ -9,10 +10,12 @@ const Layout = ({routerProps, display}) => (
     {
       (() => {
         switch (display) {
-        case 'login':
-          return <Login {...routerProps} />
         case 'dashboard':
           return <Dashboard {...routerProps} />
+        case 'new-event':
+          return <NewEvent {...routerProps} />
+        default:
+          return <Login {...routerProps} />
         }
       })()
     }

@@ -16,8 +16,9 @@ library.add(faDiceD20, faUser, faCalendarPlus, faPlus, faSort, faChevronLeft)
 const App = () => (
   <div className="App">
     <Router>
-      <Route exact path='/' render={routerProps => <Layout routerProps={routerProps} display={'login'} />} />
+      <Route exact path='/' render={routerProps => <Layout routerProps={routerProps} />} />
       <Route path='/dashboard' render={routerProps => <Layout routerProps={routerProps} display={'dashboard'} />} />
+      <Route path='/new-event' render={routerProps => <Layout routerProps={routerProps} display={'new-event'} />} />
     </Router>
   </div>
 )
