@@ -25,7 +25,7 @@ class FriendSearch extends Component {
   render() {
 
     const { updateSearch, handleSubmit } = this
-    const { results, searchTerm} = this.state
+    const { results, searchTerm } = this.state
     const { addFriend, friends } = this.props;
 
     const filteredResults = results.filter(r => !friends.includes(r.id))

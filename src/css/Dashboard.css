@@ -27,8 +27,7 @@
 
 .dashboard-item-banner * {
   font-size: 5vh;
-  margin-top: 2vh;
-  margin-bottom: 1vh
+  margin: 0;
 }
 
 .dashboard-item-list {
@@ -57,8 +56,12 @@
   padding: 1vh 1vw
 }
 
+.dashboard-list-item h2 {
+  font-size: 3vh;
+}
+
 .dashboard-list-item p {
-  font-size: 2vh
+  font-size: 2vh;
 }
 
 .dashboard-list-item p svg {
@@ -71,10 +74,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
 }
 
 .dashboard-search-results {
   width: 100%;
+  margin: 1vh 1vw;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -85,13 +90,22 @@
 .dashboard-search-item {
   width: 90%;
   border: 1px solid black;
-  margin: 1vh;
+  margin-bottom: 1vh;
   padding: 1vh 1vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.dashboard-search-item img {
+#friend-display .dashboard-search-item img {
   height: 8vh
+}
+
+#game-display .dashboard-search-item img {
+  width: 6vw
+}
+
+#game-display .dashboard-search-item p {
+  font-size: 2vh;
+  margin: 1vw
 }
