@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react'
 import GamePickerList from './GamePickerList'
 
-const GamePickerContainer = ({games, selectGame}) => (
+const GamePickerContainer = ({games, selectGame, selectedGame}) => (
   <Fragment>
   <div id='game-picker-header'>
     <h2>Available games:</h2>
@@ -9,7 +9,7 @@ const GamePickerContainer = ({games, selectGame}) => (
   </div>
   <div id='game-picker-body'>
     <div id='game-picker-container'>
-      <GamePickerList games={games} selectGame={selectGame} />
+      <GamePickerList games={games} selectGame={selectGame} selectedGame={selectedGame}/>
     </div>
   </div>
   </Fragment>

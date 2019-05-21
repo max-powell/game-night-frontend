@@ -79,7 +79,7 @@ class NewEvent extends Component {
 
   render() {
 
-    const { location, dateTime, invited, notInvited, gameId, gameOwner, availableGames } = this.state
+    const { location, dateTime, invited, notInvited, gameId, availableGames } = this.state
     const { handleLocationChange, changeDateTime, invite, uninvite, selectGame } = this
 
     return (
@@ -91,7 +91,7 @@ class NewEvent extends Component {
             <Invitations invited={invited} notInvited={notInvited} invite={invite} uninvite={uninvite}/>
           </div>
           <div id='area2'>
-            <GamePickerContainer games={availableGames} selectGame={selectGame} />
+            <GamePickerContainer games={availableGames} selectGame={selectGame} selectedGame={gameId} />
           </div>
       </div>
     )
