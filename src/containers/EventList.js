@@ -11,15 +11,7 @@ class EventList extends Component {
 
   componentDidMount () {
     gnApi.getItems('events')
-      .then(events => this.setState({
-        events: events.map(e => {
-          return {
-            ...e,
-            dateTime: new Date(e.dateTime)
-          }
-        })
-      })
-    )
+      .then(events => this.setState({events}))
   }
 
   render() {

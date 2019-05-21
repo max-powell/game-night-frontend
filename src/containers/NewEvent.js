@@ -17,7 +17,7 @@ class NewEvent extends Component {
     dateTime: new Date(),
     invited: [],
     notInvited: [],
-    gameId: 0,
+    gameId: null,
     gameOwner: '',
     availableGames: []
   }

@@ -80,7 +80,7 @@ const gnApi = (() => {
       .then(res => res.json())
       .then(json => {
         if (json.error) {
-          alert(json.error)
+          alert(json.error.join('\n'))
         } else {
           return json
         }
