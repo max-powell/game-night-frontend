@@ -78,10 +78,20 @@ class NewEvent extends Component {
     })
   }
 
+  handleSubmit = () => {
+    const event = {
+      location: this.state.location,
+      dateTime: this.state.dateTime.toString(),
+      gameId: this.state.gameId,
+      gameOwner: this.state.gameOwner,
+      attendee_ids: this.state.invited.map(i => i.id)
+    }
+  }
+
   render() {
 
     const { location, dateTime, invited, notInvited, gameId, availableGames } = this.state
-    const { handleLocationChange, changeDateTime, invite, uninvite, selectGame } = this
+    const { handleLocationChange, changeDateTime, invite, uninvite, selectGame, handleSubmit } = this
 
     return (
       <div id='new-event' className='main-container-item'>
@@ -93,7 +103,7 @@ class NewEvent extends Component {
           </div>
           <div id='area2'>
             <GamePickerContainer games={availableGames} selectGame={selectGame} selectedGame={gameId} />
-            <SubmitButton />
+            <SubmitButton handleSubmit={handleSubmit} />
           </div>
       </div>
     )
