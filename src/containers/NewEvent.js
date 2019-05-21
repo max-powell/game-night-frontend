@@ -86,6 +86,8 @@ class NewEvent extends Component {
       gameOwner: this.state.gameOwner,
       attendee_ids: this.state.invited.map(i => i.id)
     }
+    gnApi.createEvent(event)
+      .then(event => {debugger})
   }
 
   render() {

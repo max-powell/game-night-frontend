@@ -75,6 +75,11 @@ const gnApi = (() => {
       .then(res => res.json())
   }
 
+  const createEvent = event => {
+    return fetch(_baseUrl + 'events', _configBuilder('POST', event, 'event'))
+      .then(res => res.json())
+  }
+
   return {
     login,
     createUser,
@@ -84,7 +89,8 @@ const gnApi = (() => {
     addFriend,
     getFriendsGames,
     searchGames,
-    addGame
+    addGame,
+    createEvent
   }
 })()
 
