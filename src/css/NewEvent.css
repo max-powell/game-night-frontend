@@ -91,12 +91,12 @@
 
 #area2 {
   grid-area: area2;
-  background-color: green;
-  display: grid;
-  grid-template-rows: 15vh auto;
-  grid-template-areas:
-    'header'
-    'body'
+  margin: 1vw 5vw 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  overflow: hidden;
 }
 
 #game-picker-header {
@@ -114,6 +114,35 @@
 }
 
 #game-picker-container {
-  grid-area: body;
-  background-color: blue
+  height: 50vh;
+  width: 40vw;
+  border: 1px solid black;
+  background-color: white;
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+#game-picker-list {
+  margin: 1vh 1vw;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+}
+
+.game-picker-item {
+  display: flex;
+  align-items: center;
+  border: 1px solid black;
+  margin-bottom: 1vh;
+  font-size: 2vh
+}
+
+.game-picker-item img {
+  width: 7vw;
+  margin: 1vh 2vw;
+}
+
+.game-picker-item h2 {
+  font-size: 3vh
 }
