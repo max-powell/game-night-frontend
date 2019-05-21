@@ -1,15 +1,15 @@
 import React, {Fragment} from 'react'
 
-const BoardGamePickerContainer = ({}) => (
+const GamePickerContainer = ({}) => (
   <Fragment>
-  <div id='boardgame-picker-header'>
+  <div id='game-picker-header'>
     <h2>Available games:</h2>
     <p>More games will become available as invite more friends</p>
   </div>
-  <div id='boardgame-picker-container'>
-    
+  <div id='game-picker-container'>
+
   </div>
   </Fragment>
 )
 
-export default BoardGamePickerContainer
+export default GamePickerContainer

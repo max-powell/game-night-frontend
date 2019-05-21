@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import LocationInput from '../components/LocationInput'
 import DateTimePicker from '../components/DateTimePicker'
 import Invitations from './Invitations'
-import BoardGamePickerContainer from './BoardGamePickerContainer'
+import GamePickerContainer from './GamePickerContainer'
 
 import 'react-datepicker/dist/react-datepicker.css'
 import '../css/NewEvent.css'
@@ -84,7 +84,7 @@ class NewEvent extends Component {
             <Invitations invited={invited} notInvited={notInvited} invite={invite} uninvite={uninvite}/>
           </div>
           <div id='area2'>
-            <BoardGamePickerContainer />
+            <GamePickerContainer />
           </div>
       </div>
     )

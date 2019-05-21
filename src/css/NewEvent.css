@@ -99,21 +99,21 @@
     'body'
 }
 
-#boardgame-picker-header {
+#game-picker-header {
   grid-area: header;
   color: white;
 }
 
-#boardgame-picker-header h2 {
+#game-picker-header h2 {
   margin-top: 3vh;
   font-size: 4vh
 }
 
-#boardgame-picker-header p {
+#game-picker-header p {
   font-style: italic;
 }
 
-#boardgame-picker-container {
+#game-picker-container {
   grid-area: body;
   background-color: blue
 }
