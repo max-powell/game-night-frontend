@@ -78,6 +78,13 @@ const gnApi = (() => {
   const createEvent = event => {
     return fetch(_baseUrl + 'events', _configBuilder('POST', event, 'event'))
       .then(res => res.json())
+      .then(json => {
+        if (json.error) {
+          alert(json.error)
+        } else {
+          return json
+        }
+      })
   }
 
   return {
