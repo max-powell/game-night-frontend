@@ -1,7 +1,7 @@
 import React from 'react';
 
-const GamePickerItem = ({game}) => (
-  <div className='game-picker-item'>
+const GamePickerItem = ({game, selectGame}) => (
+  <div className='game-picker-item' onClick={() => selectGame(game)}>
     <img src={game.imageUrl} alt='game pic' />
     <div>
       <h2>{game.name}</h2>
