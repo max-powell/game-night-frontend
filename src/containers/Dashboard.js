@@ -24,7 +24,7 @@ class Dashboard extends Component {
       <div id='dashboard' className='main-container-item'>
         {!!localStorage.token || history.push('/')}
         <Profile />
-        <EventDisplay />
+        <EventDisplay history={history} />
         <FriendDisplay selectFriend={selectFriend} />
         <GameDisplay selectedFriend={selectedFriend} selectFriend={selectFriend}/>
       </div>

@@ -71,9 +71,20 @@ const gnApi = (() => {
   }
 
   const addGame = game => {
-    debugger;
     return fetch(_baseUrl + 'games', _configBuilder('POST', game, 'game'))
       .then(res => res.json())
+  }
+
+  const createEvent = event => {
+    return fetch(_baseUrl + 'events', _configBuilder('POST', event, 'event'))
+      .then(res => res.json())
+      .then(json => {
+        if (json.error) {
+          alert(json.error.join('\n'))
+        } else {
+          return json
+        }
+      })
   }
 
   return {
@@ -85,7 +96,8 @@ const gnApi = (() => {
     addFriend,
     getFriendsGames,
     searchGames,
-    addGame
+    addGame,
+    createEvent
   }
 })()
 

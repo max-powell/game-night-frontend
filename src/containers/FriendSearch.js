@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { Form } from 'semantic-ui-react'
 
-import FriendSearchResults from './FriendSearchResults';
+import Search from '../components/Search'
+import FriendSearchResults from './FriendSearchResults'
 
 import gnApi from '../api/gnApi'
 
@@ -32,9 +33,7 @@ class FriendSearch extends Component {
 
     return (
       <div className='dashboard-item-search'>
-        <Form onSubmit={handleSubmit}>
-          <Form.Input icon='search' placeholder='Search users...' onChange={updateSearch} value={searchTerm} />
-        </Form>
+        <Search updateSearch={updateSearch} handleSubmit={handleSubmit} searchTerm={searchTerm} />
         <FriendSearchResults results={filteredResults} addFriend={addFriend} />
       </div>
     )
