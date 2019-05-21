@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Invitations = ({}) => (
+const Invitations = ({invited, notInvited}) => (
   <div id='invitations'>
     <div className='invitation-list'>
     </div>
