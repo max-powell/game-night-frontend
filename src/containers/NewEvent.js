@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import LocationInput from '../components/LocationInput'
 import DateTimePicker from '../components/DateTimePicker'
 import Invitations from './Invitations'
+import SubmitButton from '../components/SubmitButton'
 import GamePickerContainer from './GamePickerContainer'
 
 import 'react-datepicker/dist/react-datepicker.css'
@@ -92,6 +93,7 @@ class NewEvent extends Component {
           </div>
           <div id='area2'>
             <GamePickerContainer games={availableGames} selectGame={selectGame} selectedGame={gameId} />
+            <SubmitButton />
           </div>
       </div>
     )
