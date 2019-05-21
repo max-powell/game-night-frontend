@@ -1,3 +1,4 @@
 #event-display {
   grid-area: events;
+  overflow: hidden
 }
