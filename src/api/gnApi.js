@@ -71,7 +71,6 @@ const gnApi = (() => {
   }
 
   const addGame = game => {
-    debugger;
     return fetch(_baseUrl + 'games', _configBuilder('POST', game, 'game'))
       .then(res => res.json())
   }

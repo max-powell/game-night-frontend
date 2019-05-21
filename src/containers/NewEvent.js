@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Input } from 'semantic-ui-react'
 import DatePicker from 'react-datepicker'
+import Invitations from './Invitations'
+
 import 'react-datepicker/dist/react-datepicker.css'
 import '../css/NewEvent.css'
 
@@ -10,7 +12,7 @@ class NewEvent extends Component {
 
   state = {
     location: '',
-    dateTime: new Date,
+    dateTime: new Date(),
     invited: [],
     notInvited: [],
     gameId: 0,
@@ -39,17 +41,38 @@ class NewEvent extends Component {
     })
   }
 
-  test = (...args) => {
-    const state = this.state
-    debugger
+  changeDateTime = dateTime => {this.setState({dateTime})}
+
+  invite = friend => {
+    gnApi.getFriendsGames(friend)
+      .then(games => this.setState({
+        availableGames: [
+          ...this.state.availableGames,
+          ...games.map(g => {
+            return {
+              ...g,
+              owner: friend.username
+            }
+          })
+        ],
+        invited: [...this.state.invited, friend],
+        notInvited: this.state.notInvited.filter(f => f.id !== friend.id)
+      })
+    )
   }
 
-  changeDateTime = dateTime => {this.setState({dateTime})}
+  uninvite = friend => {
+    this.setState({
+      invited: this.state.invited.filter(f => f.id!== friend.id),
+      notInvited: [...this.state.notInvited, friend],
+      availableGames: this.state.availableGames.filter(g => g.owner !== friend.username)
+    })
+  }
 
   render() {
 
     const { location, dateTime, invited, notInvited, gameId, gameOwner } = this.state
-    const { handleInputChange, changeDateTime } = this
+    const { handleInputChange, changeDateTime, invite, uninvite } = this
 
     return (
       <div id='new-event' className='main-container-item'>
@@ -70,7 +93,7 @@ class NewEvent extends Component {
               onChange={changeDateTime}
               />
             </div>
-            <div onClick={this.test}>HI</div>
+            <Invitations invited={invited} notInvited={notInvited} invite={invite} uninvite={uninvite}/>
           </div>
       </div>
     )
