@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { Input } from 'semantic-ui-react'
-import DatePicker from 'react-datepicker'
+import LocationInput from '../components/LocationInput'
+import DateTimePicker from '../components/DateTimePicker'
 import Invitations from './Invitations'
+import BoardGamePickerContainer from './BoardGamePickerContainer'
 
 import 'react-datepicker/dist/react-datepicker.css'
 import '../css/NewEvent.css'
@@ -35,9 +36,9 @@ class NewEvent extends Component {
     )
   }
 
-  handleInputChange = (e, {name, value}) => {
+  handleLocationChange = (e, {value}) => {
     this.setState({
-      [name]: value
+      location: value
     })
   }
 
@@ -72,28 +73,18 @@ class NewEvent extends Component {
   render() {
 
     const { location, dateTime, invited, notInvited, gameId, gameOwner } = this.state
-    const { handleInputChange, changeDateTime, invite, uninvite } = this
+    const { handleLocationChange, changeDateTime, invite, uninvite } = this
 
     return (
       <div id='new-event' className='main-container-item'>
         <div id='new-event-title'><h1>Schedule a game night</h1></div>
           <div id='area1'>
-            <div>
-            <label>Location: </label>
-              <Input name='location' value={location} onChange={handleInputChange} />
-            </div>
-            <div>
-            <label>When: </label>
-              <DatePicker
-              selected={dateTime}
-              showTimeInput
-              dateFormat='dd/MM/yy h:mm aa'
-              minDate={new Date()}
-              name='dateTime'
-              onChange={changeDateTime}
-              />
-            </div>
+            <LocationInput location={location} handleLocationChange={handleLocationChange} />
+            <DateTimePicker changeDateTime={changeDateTime} dateTime={dateTime} />
             <Invitations invited={invited} notInvited={notInvited} invite={invite} uninvite={uninvite}/>
+          </div>
+          <div id='area2'>
+            <BoardGamePickerContainer />
           </div>
       </div>
     )

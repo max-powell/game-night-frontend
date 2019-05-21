@@ -1,4 +1,5 @@
 #new-event {
+  font-size: 3vh;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 15vh auto;
@@ -8,7 +9,8 @@
 }
 
 #new-event label {
-  color: white
+  color: white;
+  font-size: 4vh
 }
 
 #new-event-title {
@@ -25,7 +27,6 @@
 }
 
 #area1 {
-  font-size: 3vh;
   grid-area: area1;
   margin: 1vw 5vw 0;
   display: flex;
@@ -86,4 +87,33 @@
 .invitee-item :nth-child(2) {
   flex-grow: 1;
   text-align: center;
+}
+
+#area2 {
+  grid-area: area2;
+  background-color: green;
+  display: grid;
+  grid-template-rows: 15vh auto;
+  grid-template-areas:
+    'header'
+    'body'
+}
+
+#boardgame-picker-header {
+  grid-area: header;
+  color: white;
+}
+
+#boardgame-picker-header h2 {
+  margin-top: 3vh;
+  font-size: 4vh
+}
+
+#boardgame-picker-header p {
+  font-style: italic;
+}
+
+#boardgame-picker-container {
+  grid-area: body;
+  background-color: blue
 }
