@@ -6,12 +6,16 @@ class LoginSignUpButtons extends Component {
 
   render() {
 
-    const {showLogin} = this.props
+    const {showLogin, login} = this.props
+
+    let loginTabClass = 'login-signup-button'
+    let signUpTabClass = 'login-signup-button'
+    login ? loginTabClass += ' selected' : signUpTabClass += ' selected'
 
     return (
       <div id='login-signup-buttons'>
-        <div className='login-signup-button' onClick={() => showLogin(true)}><div>Login</div></div>
-        <div className='login-signup-button' onClick={() => showLogin(false)}><div>Signup</div></div>
+        <div className={loginTabClass} onClick={() => showLogin(true)}><div>Login</div></div>
+        <div className={signUpTabClass} onClick={() => showLogin(false)}><div>Signup</div></div>
       </div>
     )
   }
