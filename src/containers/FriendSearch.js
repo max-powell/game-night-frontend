@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Form } from 'semantic-ui-react'
 
 import Search from '../components/Search'
 import FriendSearchResults from './FriendSearchResults'

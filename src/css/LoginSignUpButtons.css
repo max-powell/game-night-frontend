@@ -12,7 +12,11 @@
   outline: none
 }
 
+.selected {
+  background-color: white
+}
+
 .login-signup-button div {
-  padding-top: 5%;
+  padding-top: 1.5vh;
   padding-left: 15%
 }

@@ -20,7 +20,7 @@ class LoginSignUpContainer extends Component {
 
     return (
       <div id='login-signup-container'>
-        <LoginSignUpButtons showLogin={showLogin} />
+        <LoginSignUpButtons showLogin={showLogin} login={login} />
         <LoginForm login={login} history={history}/>
       </div>
     )
