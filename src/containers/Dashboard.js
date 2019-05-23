@@ -26,9 +26,21 @@ class Dashboard extends Component {
 
   selectFriend = selectedFriend => {this.setState({selectedFriend})}
 
+  addFriend = friend => {
+    this.setState({
+      currentUser: {
+        ...this.state.currentUser,
+        friends: [
+          ...this.state.currentUser.friends,
+          friend
+        ]
+      }
+    })
+  }
+
   render() {
 
-    const { selectFriend } = this
+    const { selectFriend, addFriend } = this
     const { history } = this.props
     const { currentUser, selectedFriend } = this.state
     const { events, friends, games } = currentUser
@@ -38,7 +50,7 @@ class Dashboard extends Component {
         {!!localStorage.token || history.push('/')}
         <Profile user={currentUser} />
         <EventDisplay history={history} events={events} />
-        <FriendDisplay selectFriend={selectFriend} friends={friends} />
+        <FriendDisplay selectFriend={selectFriend} friends={friends} addFriend={addFriend} />
         <GameDisplay selectedFriend={selectedFriend} selectFriend={selectFriend}/>
       </div>
     );

@@ -28,6 +28,8 @@ class FriendSearch extends Component {
     const { results, searchTerm } = this.state
     const { addFriend, friends } = this.props;
 
+    debugger;
+
     const filteredResults = results.filter(r => !friends.includes(r.id))
 
     return (
