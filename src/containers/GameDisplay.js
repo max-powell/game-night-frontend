@@ -10,14 +10,8 @@ import '../css/GameDisplay.css'
 class GameDisplay extends Component {
 
   state = {
-    currentUserGames: [],
     selectedFriendGames: [],
     search: false
-  }
-
-  componentDidMount () {
-    gnApi.getItems('games')
-      .then(currentUserGames => this.setState({currentUserGames}))
   }
 
   componentDidUpdate (prevProps) {
@@ -35,29 +29,20 @@ class GameDisplay extends Component {
     this.showSearch(false)
   }
 
-  addGame = game => {
-    gnApi.addGame(game)
-      .then(this.setState({
-        currentUserGames: [...this.state.currentUserGames, game],
-        search: false
-      })
-    )
-  }
-
   render() {
 
-    const { selectedFriend } = this.props
-    const { currentUserGames, selectedFriendGames, search } = this.state
-    const { showCurrentUserList, showSearch, addGame } = this
+    const { selectedFriend, userGames, addGame } = this.props
+    const { selectedFriendGames, search } = this.state
+    const { showCurrentUserList, showSearch } = this
 
-    const displayedGames = Object.keys(this.props.selectedFriend).length > 0 ? selectedFriendGames : currentUserGames
+    const displayedGames = Object.keys(this.props.selectedFriend).length > 0 ? selectedFriendGames : userGames
 
     return (
       <div id='game-display' className='dashboard-item'>
         <GameDisplayBanner selectedFriend={selectedFriend} showCurrentUserList={showCurrentUserList} showSearch={showSearch} search={search} />
         {
           search
-          ? <GameSearch addGame={addGame} excludedGames={currentUserGames} />
+          ? <GameSearch addGame={addGame} excludedGames={userGames} showSearch={showSearch} />
         : <GameList games={displayedGames} />
         }
       </div>

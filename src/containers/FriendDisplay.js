@@ -1,41 +1,23 @@
 import React, { Component } from 'react'
 import FriendDisplayBanner from '../components/FriendDisplayBanner'
 import FriendList from './FriendList'
-import FriendSearch from './FriendSearch';
-
-import gnApi from '../api/gnApi';
+import FriendSearch from './FriendSearch'
 
 import '../css/FriendDisplay.css'
 
 class FriendDisplay extends Component {
 
   state = {
-    friends: [],
     search: false
-  }
-
-  componentDidMount () {
-    gnApi.getItems('friends')
-      .then(friends => this.setState({friends}))
   }
 
   showSearch = bool => {this.setState({search: bool })}
 
-  addFriend = friend_id => {
-    gnApi.addFriend(friend_id)
-      .then(friend => {
-        this.setState({
-          friends: [...this.state.friends, friend],
-          search: false
-        })
-      })
-  }
-
   render() {
 
-    const { friends, search } = this.state
-    const { selectFriend } = this.props
-    const { showSearch, addFriend } = this
+    const { search } = this.state
+    const { friends, selectFriend, addFriend } = this.props
+    const { showSearch } = this
 
     return (
       <div id='friend-display' className='dashboard-item'>

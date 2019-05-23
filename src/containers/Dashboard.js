@@ -6,27 +6,64 @@ import EventDisplay from './EventDisplay'
 import FriendDisplay from './FriendDisplay'
 import GameDisplay from './GameDisplay'
 
+import gnApi from '../api/gnApi';
+
 class Dashboard extends Component {
 
   state = {
+    currentUser: {
+      games: [],
+      friends: [],
+      events: []
+    },
     selectedFriend: {}
+  }
+
+  componentDidMount () {
+    gnApi.getProfile()
+      .then(currentUser => this.setState({currentUser}))
   }
 
   selectFriend = selectedFriend => {this.setState({selectedFriend})}
 
+  addFriend = friend => {
+    this.setState({
+      currentUser: {
+        ...this.state.currentUser,
+        friends: [
+          ...this.state.currentUser.friends,
+          friend
+        ]
+      }
+    })
+  }
+
+  addGame = game => {
+    this.setState({
+      currentUser: {
+        ...this.state.currentUser,
+        games: [
+          ...this.state.currentUser.games,
+          game
+        ]
+      }
+    })
+  }
+
   render() {
 
-    const { selectFriend } = this
+    const { selectFriend, addFriend, addGame } = this
     const { history } = this.props
-    const { selectedFriend } = this.state
+    const { currentUser, selectedFriend } = this.state
+    const { events, friends, games } = currentUser
 
     return (
       <div id='dashboard' className='main-container-item'>
         {!!localStorage.token || history.push('/')}
-        <Profile />
-        <EventDisplay history={history} />
-        <FriendDisplay selectFriend={selectFriend} />
-        <GameDisplay selectedFriend={selectedFriend} selectFriend={selectFriend}/>
+        <Profile user={currentUser} />
+        <EventDisplay history={history} events={events} />
+        <FriendDisplay selectFriend={selectFriend} friends={friends} addFriend={addFriend} />
+        <GameDisplay selectedFriend={selectedFriend} selectFriend={selectFriend} userGames={games} addGame={addGame} />
       </div>
     );
   }
