@@ -38,7 +38,7 @@ class Dashboard extends Component {
         {!!localStorage.token || history.push('/')}
         <Profile user={currentUser} />
         <EventDisplay history={history} events={events} />
-        <FriendDisplay selectFriend={selectFriend} />
+        <FriendDisplay selectFriend={selectFriend} friends={friends} />
         <GameDisplay selectedFriend={selectedFriend} selectFriend={selectFriend}/>
       </div>
     );

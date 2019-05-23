@@ -10,13 +10,7 @@ import '../css/FriendDisplay.css'
 class FriendDisplay extends Component {
 
   state = {
-    friends: [],
     search: false
-  }
-
-  componentDidMount () {
-    gnApi.getItems('friends')
-      .then(friends => this.setState({friends}))
   }
 
   showSearch = bool => {this.setState({search: bool })}
@@ -33,8 +27,8 @@ class FriendDisplay extends Component {
 
   render() {
 
-    const { friends, search } = this.state
-    const { selectFriend } = this.props
+    const { search } = this.state
+    const { friends, selectFriend } = this.props
     const { showSearch, addFriend } = this
 
     return (
