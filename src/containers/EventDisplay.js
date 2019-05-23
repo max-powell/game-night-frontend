@@ -8,12 +8,12 @@ class EventDisplay extends Component {
 
   render() {
 
-    const { history } = this.props
+    const { history, events } = this.props
 
     return (
       <div id='event-display' className='dashboard-item'>
         <EventDisplayBanner history={history} />
-        <EventList />
+        <EventList events={events} />
       </div>
     )
   }

@@ -12,8 +12,7 @@ const EventListItem = ({event}) => {
       } to go)</h3>
     <p>Time: {event.dateTime.match(/\d{2}:\d{2}/)[0]}</p>
       <p>Where: {event.location}</p>
-      <p>Game: {event.game.name}</p>
-      <p>Who's bringing the game?: {event.gameOwner}</p>
+      <p>Game: {event.game}</p>
     </div>
   )
 }
