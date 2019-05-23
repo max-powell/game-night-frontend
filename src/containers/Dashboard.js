@@ -38,9 +38,21 @@ class Dashboard extends Component {
     })
   }
 
+  addGame = game => {
+    this.setState({
+      currentUser: {
+        ...this.state.currentUser,
+        games: [
+          ...this.state.currentUser.games,
+          game
+        ]
+      }
+    })
+  }
+
   render() {
 
-    const { selectFriend, addFriend } = this
+    const { selectFriend, addFriend, addGame } = this
     const { history } = this.props
     const { currentUser, selectedFriend } = this.state
     const { events, friends, games } = currentUser
@@ -51,7 +63,7 @@ class Dashboard extends Component {
         <Profile user={currentUser} />
         <EventDisplay history={history} events={events} />
         <FriendDisplay selectFriend={selectFriend} friends={friends} addFriend={addFriend} />
-        <GameDisplay selectedFriend={selectedFriend} selectFriend={selectFriend} games={games}/>
+        <GameDisplay selectedFriend={selectedFriend} selectFriend={selectFriend} userGames={games} addGame={addGame} />
       </div>
     );
   }
