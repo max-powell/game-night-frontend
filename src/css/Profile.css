@@ -23,3 +23,15 @@
 #details p{
   font-size: 3vh;
 }
+
+#alerts {
+  margin-left: 2vw;
+}
+
+#dot {
+  border-radius: 50%;
+  background-color: red;
+  height: 1.5vh;
+  width: 1.5vh;
+  transform: translate(1.3vw, -1.6vh);
+}

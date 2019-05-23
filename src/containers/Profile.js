@@ -10,6 +10,12 @@ const Profile = ({user}) => (
       <p><FontAwesomeIcon icon='user'/>{user.friends.length} friends</p>
       <p><FontAwesomeIcon icon='dice-d20'/>{user.games.length} games</p>
     </div>
+    <div id='alerts'>
+      <FontAwesomeIcon icon='bell' size='lg'/>
+      {(user.eventInvites.length > 0 ||
+        user.friendRequests.length > 0) &&
+        <div id='dot'/>}
+    </div>
   </div>
 )
 

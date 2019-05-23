@@ -14,7 +14,9 @@ class Dashboard extends Component {
     currentUser: {
       games: [],
       friends: [],
-      events: []
+      events: [],
+      friendRequests: [],
+      eventInvites: []
     },
     selectedFriend: {}
   }
