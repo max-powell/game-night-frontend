@@ -60,16 +60,3 @@ class LoginForm extends Component {
 }
 
 export default LoginForm
-
-{/*<div id='login-form'>
-  <h2>{login ? 'Login' : 'Sign Up'}</h2>
-  <div className='form-field'>
-  <div>Username</div>
-  <input type='text' name='username' onChange={handleInputChange} />
-  </div>
-  <div className='form-field'>
-  <div>Password</div>
-  <input type='text' name='password' onChange={handleInputChange} />
-  </div>
-  <button onClick={handleSubmit} >{login ? 'Login' : 'Sign Up'}</button>
-  </div>*/}

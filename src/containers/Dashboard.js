@@ -6,10 +6,21 @@ import EventDisplay from './EventDisplay'
 import FriendDisplay from './FriendDisplay'
 import GameDisplay from './GameDisplay'
 
+import gnApi from '../api/gnApi';
+
 class Dashboard extends Component {
 
   state = {
+    currentUser: {
+      games: [],
+      friends: []
+    },
     selectedFriend: {}
+  }
+
+  componentDidMount () {
+    gnApi.getProfile()
+      .then(currentUser => this.setState({currentUser}))
   }
 
   selectFriend = selectedFriend => {this.setState({selectedFriend})}
@@ -18,12 +29,12 @@ class Dashboard extends Component {
 
     const { selectFriend } = this
     const { history } = this.props
-    const { selectedFriend } = this.state
+    const { currentUser, selectedFriend } = this.state
 
     return (
       <div id='dashboard' className='main-container-item'>
         {!!localStorage.token || history.push('/')}
-        <Profile />
+        <Profile user={currentUser} />
         <EventDisplay history={history} />
         <FriendDisplay selectFriend={selectFriend} />
         <GameDisplay selectedFriend={selectedFriend} selectFriend={selectFriend}/>
