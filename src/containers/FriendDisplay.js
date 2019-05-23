@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import FriendDisplayBanner from '../components/FriendDisplayBanner'
 import FriendList from './FriendList'
-import FriendSearch from './FriendSearch';
-
-import gnApi from '../api/gnApi';
+import FriendSearch from './FriendSearch'
 
 import '../css/FriendDisplay.css'
 
@@ -14,10 +12,6 @@ class FriendDisplay extends Component {
   }
 
   showSearch = bool => {this.setState({search: bool })}
-
-  addFriend = friend_id => {
-    
-  }
 
   render() {
 

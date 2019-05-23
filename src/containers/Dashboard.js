@@ -51,7 +51,7 @@ class Dashboard extends Component {
         <Profile user={currentUser} />
         <EventDisplay history={history} events={events} />
         <FriendDisplay selectFriend={selectFriend} friends={friends} addFriend={addFriend} />
-        <GameDisplay selectedFriend={selectedFriend} selectFriend={selectFriend}/>
+        <GameDisplay selectedFriend={selectedFriend} selectFriend={selectFriend} games={games}/>
       </div>
     );
   }
