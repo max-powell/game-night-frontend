@@ -88,7 +88,7 @@ const gnApi = (() => {
   }
 
   const acceptFriendRequest = fR => {
-    return fetch(`${_baseUrl}friend_request/${fR.id}`, _configBuilder('PATCH'))
+    return fetch(`${_baseUrl}friend_requests/${fR.id}`, _configBuilder('PATCH'))
       .then(res => res.json())
   }
 

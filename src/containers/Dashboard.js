@@ -53,7 +53,6 @@ class Dashboard extends Component {
   }
 
   acceptFriendRequest = friendRequest => {
-    // debugger;
     gnApi.acceptFriendRequest(friendRequest)
       .then(friend => {this.setState({
         currentUser: {
