@@ -52,9 +52,40 @@ class Dashboard extends Component {
     })
   }
 
+  acceptFriendRequest = friendRequest => {
+    // debugger;
+    gnApi.acceptFriendRequest(friendRequest)
+      .then(friend => {this.setState({
+        currentUser: {
+          ...this.state.currentUser,
+          friends: [
+            ...this.state.currentUser.friends,
+            friend
+          ],
+          friendRequests: this.state.currentUser.friendRequests.filter(fR => fR.id !== friendRequest.id)
+        }
+      })
+    })
+  }
+
+  acceptEventInvite = eventInvite => {
+    gnApi.acceptEventInvite(eventInvite)
+      .then(event => {this.setState({
+        currentUser: {
+          ...this.state.currentUser,
+          events: [
+            ...this.state.currentUser.events,
+            event
+          ],
+          eventInvites: this.state.currentUser.eventInvites.filter(eI => eI.id !== eventInvite.id)
+        }
+      })
+    })
+  }
+
   render() {
 
-    const { selectFriend, addFriend, addGame } = this
+    const { selectFriend, addFriend, addGame, acceptFriendRequest, acceptEventInvite } = this
     const { history } = this.props
     const { currentUser, selectedFriend } = this.state
     const { events, friends, games } = currentUser
@@ -62,7 +93,7 @@ class Dashboard extends Component {
     return (
       <div id='dashboard' className='main-container-item'>
         {!!localStorage.token || history.push('/')}
-        <Profile user={currentUser} />
+        <Profile user={currentUser} acceptFriendRequest={acceptFriendRequest} acceptEventInvite={acceptEventInvite} />
         <EventDisplay history={history} events={events} />
         <FriendDisplay selectFriend={selectFriend} friends={friends} addFriend={addFriend} />
         <GameDisplay selectedFriend={selectedFriend} selectFriend={selectFriend} userGames={games} addGame={addGame} />

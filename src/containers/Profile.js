@@ -3,7 +3,7 @@ import AlertMenu from './AlertMenu';
 import '../css/Profile.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const Profile = ({user}) => (
+const Profile = ({user, acceptFriendRequest, acceptEventInvite}) => (
   <div id='profile' className='dashboard-item'>
     <img src='https://imgflip.com/s/meme/Futurama-Fry.jpg' alt='user avatar' />
     <div id='details'>
@@ -16,7 +16,7 @@ const Profile = ({user}) => (
       {(user.eventInvites.length > 0 ||
         user.friendRequests.length > 0) &&
         <div id='dot' />}
-      <AlertMenu user={user} />
+      <AlertMenu user={user} acceptFriendRequest={acceptFriendRequest} acceptEventInvite={acceptEventInvite} />
     </div>
   </div>
 )

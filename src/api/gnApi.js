@@ -87,6 +87,16 @@ const gnApi = (() => {
       })
   }
 
+  const acceptFriendRequest = fR => {
+    return fetch(`${_baseUrl}friend_request/${fR.id}`, _configBuilder('PATCH'))
+      .then(res => res.json())
+  }
+
+  const acceptEventInvite = eI => {
+    return fetch(`${_baseUrl}event_invites/${eI.id}`, _configBuilder('PATCH'))
+      .then(res => res.json())
+  }
+
   return {
     login,
     createUser,
@@ -97,7 +107,9 @@ const gnApi = (() => {
     getFriendsGames,
     searchGames,
     addGame,
-    createEvent
+    createEvent,
+    acceptFriendRequest,
+    acceptEventInvite
   }
 })()
 
