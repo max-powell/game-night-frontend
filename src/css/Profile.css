@@ -37,7 +37,6 @@
 }
 
 #alert-menu {
-  width: 15vw;
   background-color: white;
   border: 1px solid black;
   border-radius: 10px;
@@ -49,5 +48,10 @@
 #alert-menu h3 {
   border-bottom: 1px solid black;
   margin: 0;
-  text-align: center
+  text-align: center;
+}
+
+.alert-item {
+  font-size: 2vh;
+  padding: 0.5vh
 }
