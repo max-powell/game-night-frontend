@@ -1,29 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react'
 
-import { Header, Segment, Portal } from 'semantic-ui-react'
-
-class AlertMenu extends Component {
-
-  state = {
-    open: false
-  }
-
-  render() {
-    return (
-      <Portal
-        closeOnTriggerClick
-        openOnTriggerClick
-        trigger={
-          <Button
-            content={open ? 'Close Portal' : 'Open Portal'}
-            negative={open}
-            positive={!open}
-          />
-        }
-      />
-    )
-  }
-
-}
+const AlertMenu = ({user}) => (
+  <div id='alert-menu'>
+  <h3>Friend Requests</h3>
+  <h3>Event Invites</h3>
+  </div>
+)
 
 export default AlertMenu

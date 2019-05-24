@@ -1,4 +1,5 @@
 import React from 'react'
+import AlertMenu from './AlertMenu';
 import '../css/Profile.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
@@ -15,6 +16,7 @@ const Profile = ({user}) => (
       {(user.eventInvites.length > 0 ||
         user.friendRequests.length > 0) &&
         <div id='dot' />}
+      <AlertMenu user={user} />
     </div>
   </div>
 )
