@@ -39,9 +39,9 @@
 #alert-menu {
   background-color: white;
   border: 1px solid black;
-  border-radius: 10px;
+  border-radius: 0 10px 10px;
   position: absolute;
-  top: 25vh;
+  top: 25.5vh;
   left: 54vh
 }
 
