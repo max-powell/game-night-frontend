@@ -48,10 +48,29 @@
 #alert-menu h3 {
   border-bottom: 1px solid black;
   margin: 0;
+  padding: 0 1vw;
   text-align: center;
+}
+
+#alert-menu h3:nth-of-type(2) {
+  border-top: 1px solid black;
 }
 
 .alert-item {
   font-size: 2vh;
-  padding: 0.5vh
+  padding: 0.5vh;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.alert-text {
+  margin-right: auto
+}
+
+.alert-button {
+  margin-left: 1vw
+}
+
+.no-alerts {
+  justify-content: center;
 }

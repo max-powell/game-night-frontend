@@ -7,13 +7,13 @@ const AlertMenu = ({user}) => (
     {
       user.friendRequests.length > 0
       ? user.friendRequests.map(r => <AlertItem key={`r${r.id}`} request={r} />)
-      : <div>No friend requests</div>
+      : <div className='alert-item no-alerts'>No friend requests</div>
     }
   <h3>Event Invites</h3>
   {
     user.eventInvites.length > 0
     ? user.eventInvites.map(i => <AlertItem key={`i${i.id}`} invite={i} />)
-    : <div>No event invites</div>
+    : <div className='alert-item no-alerts'>No event invites</div>
   }
   </div>
 )

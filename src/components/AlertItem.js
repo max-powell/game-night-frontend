@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 class AlertItem extends Component {
 
 
@@ -21,8 +23,16 @@ class AlertItem extends Component {
 
     return (
       <div className='alert-item'>
-      {request && `${request.user.username} sent you a friend request`}
-      {invite && `${invite.event.host.username} invited you to a game night on ${getFormattedDateString(invite.event.dateTime)}`}
+        <div className='alert-text'>
+          {request && `${request.user.username} sent you a friend request`}
+          {invite && `${invite.event.host.username} invited you to a game night on ${getFormattedDateString(invite.event.dateTime)}`}
+        </div>
+        <div className='alert-button'>
+          <FontAwesomeIcon icon='check-circle' color='green' size='lg'/>
+        </div>
+        <div className='alert-button'>
+          <FontAwesomeIcon icon='times-circle' color='red' size='lg'/>
+        </div>
       </div>
     )
   }
