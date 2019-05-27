@@ -102,6 +102,10 @@ const gnApi = (() => {
       .then(res => res.json())
   }
 
+  const cancelFriendRequest = fR => {
+    return fetch(`${_baseUrl}friend_requests/${fR.id}`, _configBuilder('DELETE'))
+  }
+
   return {
     login,
     createUser,
@@ -114,6 +118,7 @@ const gnApi = (() => {
     addGame,
     createEvent,
     sendFriendRequest,
+    cancelFriendRequest,
     acceptFriendRequest,
     acceptEventInvite
   }
