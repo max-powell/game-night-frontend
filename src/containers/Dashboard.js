@@ -14,6 +14,7 @@ class Dashboard extends Component {
     currentUser: {
       games: [],
       friends: [],
+      pendingFriends: [],
       events: [],
       friendRequests: [],
       eventInvites: []
@@ -32,8 +33,8 @@ class Dashboard extends Component {
     this.setState({
       currentUser: {
         ...this.state.currentUser,
-        friends: [
-          ...this.state.currentUser.friends,
+        pendingFriends: [
+          ...this.state.currentUser.pendingFriends,
           friend
         ]
       }
@@ -87,14 +88,14 @@ class Dashboard extends Component {
     const { selectFriend, addFriend, addGame, acceptFriendRequest, acceptEventInvite } = this
     const { history } = this.props
     const { currentUser, selectedFriend } = this.state
-    const { events, friends, games } = currentUser
+    const { events, friends, pendingFriends, games } = currentUser
 
     return (
       <div id='dashboard' className='main-container-item'>
         {!!localStorage.token || history.push('/')}
         <Profile user={currentUser} acceptFriendRequest={acceptFriendRequest} acceptEventInvite={acceptEventInvite} />
         <EventDisplay history={history} events={events} />
-        <FriendDisplay selectFriend={selectFriend} friends={friends} addFriend={addFriend} />
+        <FriendDisplay selectFriend={selectFriend} friends={friends} addFriend={addFriend} pendingFriends={pendingFriends} />
         <GameDisplay selectedFriend={selectedFriend} selectFriend={selectFriend} userGames={games} addGame={addGame} />
       </div>
     );
