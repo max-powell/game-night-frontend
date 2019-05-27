@@ -89,6 +89,7 @@ const gnApi = (() => {
 
   const sendFriendRequest = friend => {
     return fetch(_baseUrl + 'friend_requests', _configBuilder('POST', {friend_id: friend.id}, 'friendRequest'))
+      .then(res => res.json())
   }
 
   const acceptFriendRequest = fR => {
