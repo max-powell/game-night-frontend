@@ -102,6 +102,10 @@ const gnApi = (() => {
       .then(res => res.json())
   }
 
+  const rejectEventInvite = eI => {
+    return fetch(`${_baseUrl}event_invites/${eI.id}`, _configBuilder('DELETE'))
+  }
+
   const cancelFriendRequest = fR => {
     return fetch(`${_baseUrl}friend_requests/${fR.id}`, _configBuilder('DELETE'))
   }
@@ -118,9 +122,10 @@ const gnApi = (() => {
     addGame,
     createEvent,
     sendFriendRequest,
-    cancelFriendRequest,
     acceptFriendRequest,
-    acceptEventInvite
+    cancelFriendRequest,
+    acceptEventInvite,
+    rejectEventInvite
   }
 })()
 

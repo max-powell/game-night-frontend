@@ -105,9 +105,20 @@ class Dashboard extends Component {
     })
   }
 
+  rejectEventInvite = eventInvite => {
+    gnApi.rejectEventInvite(eventInvite)
+      .then(event => {this.setState({
+        currentUser: {
+          ...this.state.currentUser,
+          eventInvites: this.state.currentUser.eventInvites.filter(eI => eI.id !== eventInvite.id)
+        }
+      })
+    })
+  }
+
   render() {
 
-    const { selectFriend, addSentFriendRequest, cancelFriendRequest, addGame, acceptFriendRequest, rejectFriendRequest, acceptEventInvite } = this
+    const { selectFriend, addSentFriendRequest, cancelFriendRequest, addGame, acceptFriendRequest, rejectFriendRequest, acceptEventInvite, rejectEventInvite } = this
     const { history } = this.props
     const { currentUser, selectedFriend } = this.state
     const { events, friends, sentFriendRequests, games } = currentUser
@@ -115,10 +126,30 @@ class Dashboard extends Component {
     return (
       <div id='dashboard' className='main-container-item'>
         {!!localStorage.token || history.push('/')}
-        <Profile user={currentUser} acceptFriendRequest={acceptFriendRequest} rejectFriendRequest={rejectFriendRequest} acceptEventInvite={acceptEventInvite} />
-        <EventDisplay history={history} events={events} />
-        <FriendDisplay selectFriend={selectFriend} friends={friends} addSentFriendRequest={addSentFriendRequest} sentFriendRequests={sentFriendRequests} cancelFriendRequest={cancelFriendRequest} />
-        <GameDisplay selectedFriend={selectedFriend} selectFriend={selectFriend} userGames={games} addGame={addGame} />
+        <Profile
+          user={currentUser}
+          acceptFriendRequest={acceptFriendRequest}
+          rejectFriendRequest={rejectFriendRequest}
+          acceptEventInvite={acceptEventInvite}
+          rejectEventInvite={rejectEventInvite}
+        />
+        <EventDisplay
+          history={history}
+          events={events}
+        />
+        <FriendDisplay
+          selectFriend={selectFriend}
+          friends={friends}
+          addSentFriendRequest={addSentFriendRequest}
+          sentFriendRequests={sentFriendRequests}
+          cancelFriendRequest={cancelFriendRequest}
+        />
+        <GameDisplay
+          selectedFriend={selectedFriend}
+          selectFriend={selectFriend}
+          userGames={games}
+          addGame={addGame}
+        />
       </div>
     );
   }

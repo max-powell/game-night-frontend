@@ -14,7 +14,7 @@ class Profile extends Component {
 
   render() {
 
-    const {user, acceptFriendRequest, rejectFriendRequest, acceptEventInvite} = this.props
+    const {user, acceptFriendRequest, rejectFriendRequest, acceptEventInvite, rejectEventInvite} = this.props
     const { alerts } = this.state
     const { showAlerts } = this
 
@@ -31,7 +31,16 @@ class Profile extends Component {
           {(user.eventInvites.length > 0 ||
             user.friendRequests.length > 0) &&
             <div id='dot' />}
-          {alerts && <AlertMenu user={user} acceptFriendRequest={acceptFriendRequest} rejectFriendRequest={rejectFriendRequest} acceptEventInvite={acceptEventInvite} />}
+          {
+            alerts &&
+            <AlertMenu
+              user={user}
+              acceptFriendRequest={acceptFriendRequest}
+              rejectFriendRequest={rejectFriendRequest}
+              acceptEventInvite={acceptEventInvite}
+              rejectEventInvite={rejectEventInvite}
+            />
+          }
         </div>
       </div>
     )
