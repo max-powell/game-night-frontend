@@ -26,14 +26,14 @@ class FriendSearch extends Component {
 
     const { updateSearch, handleSubmit } = this
     const { results, searchTerm } = this.state
-    const { addFriend, friends, pendingFriends } = this.props;
+    const { addSentFriendRequest, friends, sentFriendRequests } = this.props
 
     const filteredResults = results.filter(r => !friends.includes(r.id))
 
     return (
       <div className='dashboard-item-search'>
         <Search updateSearch={updateSearch} handleSubmit={handleSubmit} searchTerm={searchTerm} />
-        <FriendSearchResults results={filteredResults} addFriend={addFriend} pendingFriends={pendingFriends} />
+        <FriendSearchResults results={filteredResults} addSentFriendRequest={addSentFriendRequest} sentFriendRequests={sentFriendRequests} />
       </div>
     )
   }

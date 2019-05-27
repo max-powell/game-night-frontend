@@ -16,7 +16,7 @@ class FriendDisplay extends Component {
   render() {
 
     const { search } = this.state
-    const { friends, selectFriend, addFriend, pendingFriends } = this.props
+    const { friends, selectFriend, addSentFriendRequest, sentFriendRequests } = this.props
     const { showSearch } = this
 
     return (
@@ -24,7 +24,7 @@ class FriendDisplay extends Component {
         <FriendDisplayBanner showSearch={showSearch} search={search} />
         {
           search
-          ? <FriendSearch addFriend={addFriend} friends={friends.map(f => f.id)} pendingFriends={pendingFriends} />
+          ? <FriendSearch addSentFriendRequest={addSentFriendRequest} friends={friends.map(f => f.id)} sentFriendRequests={sentFriendRequests} />
         : <FriendList friends={friends} selectFriend={selectFriend}/>
         }
       </div>

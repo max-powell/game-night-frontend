@@ -8,14 +8,14 @@ class FriendSearchItem extends Component {
 
   handleClick = () => {
     gnApi.sendFriendRequest(this.props.result)
-      .then(this.props.addFriend)
+      .then(this.props.addSentFriendRequest)
   }
 
   render() {
 
-    const { result, pendingFriends } = this.props
+    const { result, sentFriendRequests } = this.props
 
-    const requestSent = pendingFriends.map(f => f.id).includes(result.id)
+    const requestSent = sentFriendRequests.map(fR => fR.friend.id).includes(result.id)
 
     return (
       <div className='dashboard-search-item'>

@@ -14,7 +14,7 @@ class Dashboard extends Component {
     currentUser: {
       games: [],
       friends: [],
-      pendingFriends: [],
+      sentFriendRequests: [],
       events: [],
       friendRequests: [],
       eventInvites: []
@@ -29,13 +29,13 @@ class Dashboard extends Component {
 
   selectFriend = selectedFriend => {this.setState({selectedFriend})}
 
-  addFriend = friend => {
+  addSentFriendRequest = fR => {
     this.setState({
       currentUser: {
         ...this.state.currentUser,
-        pendingFriends: [
-          ...this.state.currentUser.pendingFriends,
-          friend
+        sentFriendRequests: [
+          ...this.state.currentUser.sentFriendRequests,
+          fR
         ]
       }
     })
@@ -85,17 +85,17 @@ class Dashboard extends Component {
 
   render() {
 
-    const { selectFriend, addFriend, addGame, acceptFriendRequest, acceptEventInvite } = this
+    const { selectFriend, addSentFriendRequest, addGame, acceptFriendRequest, acceptEventInvite } = this
     const { history } = this.props
     const { currentUser, selectedFriend } = this.state
-    const { events, friends, pendingFriends, games } = currentUser
+    const { events, friends, sentFriendRequests, games } = currentUser
 
     return (
       <div id='dashboard' className='main-container-item'>
         {!!localStorage.token || history.push('/')}
         <Profile user={currentUser} acceptFriendRequest={acceptFriendRequest} acceptEventInvite={acceptEventInvite} />
         <EventDisplay history={history} events={events} />
-        <FriendDisplay selectFriend={selectFriend} friends={friends} addFriend={addFriend} pendingFriends={pendingFriends} />
+        <FriendDisplay selectFriend={selectFriend} friends={friends} addSentFriendRequest={addSentFriendRequest} sentFriendRequests={sentFriendRequests} />
         <GameDisplay selectedFriend={selectedFriend} selectFriend={selectFriend} userGames={games} addGame={addGame} />
       </div>
     );
