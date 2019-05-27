@@ -1,14 +1,14 @@
 import React from 'react'
 import AlertItem from '../components/AlertItem'
 
-const AlertMenu = ({user, acceptFriendRequest, acceptEventInvite}) => {
+const AlertMenu = ({user, acceptFriendRequest, rejectFriendRequest, acceptEventInvite}) => {
 
   return (
     <div id='alert-menu'>
     <h3>Friend Requests</h3>
       {
         user.friendRequests.length > 0
-        ? user.friendRequests.map(r => <AlertItem key={`r${r.id}`} item={r} accept={acceptFriendRequest} type='fR' />)
+        ? user.friendRequests.map(r => <AlertItem key={`r${r.id}`} item={r} accept={acceptFriendRequest} reject={rejectFriendRequest} type='fR' />)
         : <div className='alert-item no-alerts'>No friend requests</div>
       }
     <h3>Event Invites</h3>

@@ -17,7 +17,7 @@ class AlertItem extends Component {
 
   render() {
 
-    const { item, type, accept } = this.props
+    const { item, type, accept, reject } = this.props
     const { getFormattedDateString } = this
 
     return (
@@ -30,7 +30,7 @@ class AlertItem extends Component {
           <FontAwesomeIcon icon='check-circle' color='green' size='lg' onClick={() => accept(item)} />
         </div>
         <div className='alert-button'>
-          <FontAwesomeIcon icon='times-circle' color='red' size='lg'/>
+          <FontAwesomeIcon icon='times-circle' color='red' size='lg' onClick={() => reject(item)}/>
         </div>
       </div>
     )
