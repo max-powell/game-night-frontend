@@ -1,5 +1,5 @@
 import React from 'react'
-import { Dropdown } from 'semantic-ui-react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const EventListItem = ({event}) => {
 
@@ -19,8 +19,7 @@ const EventListItem = ({event}) => {
           <p>Game: {event.game}</p>
       </div>
       <div className='event-options'>
-        <Dropdown icon='ellipsis horizontal'>
-        </Dropdown>
+        <FontAwesomeIcon icon="ellipsis-h" />
       </div>
     </div>
   )
