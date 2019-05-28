@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import gnApi from '../api/gnApi';
 import LocationInput from '../components/LocationInput'
 import DateTimePicker from '../components/DateTimePicker'
+import GamePickerContainer from './GamePickerContainer'
 
 class EventModal extends Component {
 
@@ -38,7 +39,7 @@ class EventModal extends Component {
 
   render() {
 
-    const { location, dateTime, attendees, invited } = this.state
+    const { location, dateTime, attendees, invited, availableGames } = this.state
     const { handleLocationChange, changeDateTime } = this
 
     return (
@@ -70,6 +71,7 @@ class EventModal extends Component {
               </Fragment>
             }
           </div>
+          <GamePickerContainer games={availableGames} />
         </Modal.Content>
       </Modal>
     )
