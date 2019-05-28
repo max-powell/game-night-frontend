@@ -5,8 +5,8 @@ import Invitations from './Invitations'
 import SubmitButton from '../components/SubmitButton'
 import GamePickerContainer from './GamePickerContainer'
 
-import 'react-datepicker/dist/react-datepicker.css'
-import '../css/NewEvent.css'
+// import 'react-datepicker/dist/react-datepicker.css'
+// import '../css/NewEvent.css'
 
 import gnApi from '../api/gnApi'
 

@@ -3,6 +3,9 @@ import LocationInput from '../components/LocationInput'
 import DateTimePicker from '../components/DateTimePicker'
 import Invitations from './Invitations'
 
+import 'react-datepicker/dist/react-datepicker.css'
+
+
 class NewEventForm extends Component {
 
   state = {
