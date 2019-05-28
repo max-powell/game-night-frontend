@@ -2,10 +2,20 @@ import React from 'react'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const EventDisplayBanner = ({history}) => (
+const EventDisplayBanner = ({newEvent, showNewEvent}) => (
   <div className='dashboard-item-banner'>
-    <h2>Upcoming Game Nights</h2>
-    <FontAwesomeIcon icon="calendar-plus" size='2x' onClick={() => history.push('/new-event')} />
+    <h2>
+      {
+        newEvent
+        ? 'New Event'
+        : 'Upcoming Game Nights'
+      }
+    </h2>
+    {
+      newEvent
+      ? <FontAwesomeIcon icon="chevron-left" size='2x' onClick={() => showNewEvent(false)} />
+      : <FontAwesomeIcon icon="calendar-plus" size='2x' onClick={() => showNewEvent(true)} />
+    }
   </div>
 )
 
