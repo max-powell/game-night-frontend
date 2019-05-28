@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { Button, Header, Modal } from 'semantic-ui-react'
+import { Button, Header, Icon, Modal } from 'semantic-ui-react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import gnApi from '../api/gnApi';
 import LocationInput from '../components/LocationInput'
@@ -11,7 +11,7 @@ class EventModal extends Component {
   state = {
     location: '',
     dateTime: null,
-    game: null,
+    gameId: null,
     attendees: [],
     invited: [],
     availableGames: [],
@@ -24,7 +24,7 @@ class EventModal extends Component {
         this.setState({
           location: event.location,
           dateTime: new Date(event.dateTime),
-          game: event.game ,
+          gameId: event.game ? event.game.id : null,
           attendees: event.attendees,
           invited: event.invitedGuests,
           availableGames: event.availableGames,
@@ -37,10 +37,12 @@ class EventModal extends Component {
 
   changeDateTime = dateTime => {this.setState({dateTime})}
 
+  selectGame = game => {this.setState({gameId: game.id})}
+
   render() {
 
-    const { location, dateTime, attendees, invited, availableGames } = this.state
-    const { handleLocationChange, changeDateTime } = this
+    const { location, dateTime, attendees, invited, availableGames, gameId, host } = this.state
+    const { handleLocationChange, changeDateTime, selectGame } = this
 
     return (
       <Modal trigger={<FontAwesomeIcon icon="ellipsis-h" />} >
@@ -71,8 +73,22 @@ class EventModal extends Component {
               </Fragment>
             }
           </div>
-          <GamePickerContainer games={availableGames} />
+          <GamePickerContainer
+            games={availableGames}
+            selectGame={selectGame}
+            selectedGame={gameId}
+          />
         </Modal.Content>
+        <Modal.Actions>
+          {host &&
+            <Button color='green'>
+              <Icon name='checkmark' />Update Event
+            </Button>
+          }
+          <Button color='red'>
+            <Icon name='close' />{host ? 'Cancel Event' : 'Leave Event'}
+          </Button>
+        </Modal.Actions>
       </Modal>
     )
   }
