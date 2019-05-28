@@ -16,7 +16,7 @@ class EventDisplay extends Component {
   handleSubmit = event => {
     this.props.createEvent(event)
     event.location !== '' &&
-    event.invited_guests.length > 0 &&
+    event.invited.length > 0 &&
     this.setState({
       newEvent: false
     })
@@ -28,13 +28,15 @@ class EventDisplay extends Component {
     const { newEvent } = this.state
     const { showNewEvent, handleSubmit } = this
 
+    const displayedEvents = events.filter(e => new Date(e.dateTime) > new Date()).sort((a, b) => new Date(a.dateTime) - new Date(b.dateTime))
+
     return (
       <div id='event-display' className='dashboard-item'>
         <EventDisplayBanner newEvent={newEvent} showNewEvent={showNewEvent} />
         {
           newEvent
           ? <NewEventForm friends={friends} handleSubmit={handleSubmit} />
-          : <EventList events={events} />
+        : <EventList events={displayedEvents} />
         }
       </div>
     )
