@@ -116,9 +116,32 @@ class Dashboard extends Component {
     })
   }
 
+  createEvent = event => {
+    const newEvent = {
+      location: event.location,
+      dateTime: event.dateTime.toString(),
+      invited_guest_ids: event.invited.map(i => i.id)
+    }
+
+    gnApi.createEvent(newEvent)
+      .then(event => {
+        event &&
+        this.setState({
+          currentUser: {
+            ...this.state.currentUser,
+            events: [
+              ...this.state.currentUser.events,
+              event
+            ]
+          }
+      })
+    })
+  }
+
+
   render() {
 
-    const { selectFriend, addSentFriendRequest, cancelFriendRequest, addGame, acceptFriendRequest, rejectFriendRequest, acceptEventInvite, rejectEventInvite } = this
+    const { selectFriend, addSentFriendRequest, cancelFriendRequest, addGame, acceptFriendRequest, rejectFriendRequest, acceptEventInvite, rejectEventInvite, createEvent } = this
     const { history } = this.props
     const { currentUser, selectedFriend } = this.state
     const { events, friends, sentFriendRequests, games } = currentUser
@@ -134,8 +157,9 @@ class Dashboard extends Component {
           rejectEventInvite={rejectEventInvite}
         />
         <EventDisplay
-          history={history}
           events={events}
+          friends={friends}
+          createEvent={createEvent}
         />
         <FriendDisplay
           selectFriend={selectFriend}

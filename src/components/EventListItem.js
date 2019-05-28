@@ -12,7 +12,7 @@ const EventListItem = ({event}) => {
       {`${dateString.slice(0,3)},${dateString.slice(3,15)}`} ({
         daysToGo === 1 ? `${daysToGo} day` : `${daysToGo} days`
       } to go)</h3>
-    <p>Time: {event.dateTime.match(/\d{2}:\d{2}/)[0]}</p>
+      <p>Time: {event.dateTime.match(/\d{2}:\d{2}/)[0]}</p>
       <p>Where: {event.location}</p>
       <p>Game: {event.game}</p>
     </div>
