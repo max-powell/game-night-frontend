@@ -38,7 +38,7 @@ class NewEventForm extends Component {
   render() {
 
     const { location, dateTime, invited } = this.state
-    const { friends } = this.props
+    const { friends, handleSubmit } = this.props
     const { handleLocationChange, changeDateTime, invite, uninvite } = this
 
     const notInvited = friends.filter(f => {
@@ -63,7 +63,7 @@ class NewEventForm extends Component {
           invite={invite}
           uninvite={uninvite}
         />
-        <Button>Create event</Button>
+        <Button onClick={() => handleSubmit(this.state)}>Create event</Button>
       </div>
     )
   }

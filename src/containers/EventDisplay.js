@@ -13,18 +13,25 @@ class EventDisplay extends Component {
 
   showNewEvent = bool => {this.setState({newEvent: bool})}
 
+  handleSubmit = event => {
+    this.props.createEvent(event)
+    this.setState({
+      newEvent: false
+    })
+  }
+
   render() {
 
     const { events, friends } = this.props
     const { newEvent } = this.state
-    const { showNewEvent } = this
+    const { showNewEvent, handleSubmit } = this
 
     return (
       <div id='event-display' className='dashboard-item'>
         <EventDisplayBanner newEvent={newEvent} showNewEvent={showNewEvent} />
         {
           newEvent
-          ? <NewEventForm friends={friends} />
+          ? <NewEventForm friends={friends} handleSubmit={handleSubmit} />
           : <EventList events={events} />
         }
       </div>
