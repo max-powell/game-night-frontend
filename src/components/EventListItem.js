@@ -1,5 +1,5 @@
 import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import EventModal from '../containers/EventModal'
 
 const EventListItem = ({event}) => {
 
@@ -19,7 +19,7 @@ const EventListItem = ({event}) => {
           <p>Game: {event.game}</p>
       </div>
       <div className='event-options'>
-        <FontAwesomeIcon icon="ellipsis-h" />
+        <EventModal />
       </div>
     </div>
   )
