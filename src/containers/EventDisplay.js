@@ -15,6 +15,8 @@ class EventDisplay extends Component {
 
   handleSubmit = event => {
     this.props.createEvent(event)
+    event.location !== '' &&
+    event.invited_guests.length > 0 &&
     this.setState({
       newEvent: false
     })

@@ -122,7 +122,22 @@ class Dashboard extends Component {
       dateTime: event.dateTime.toString(),
       invited_guest_ids: event.invited.map(i => i.id)
     }
+
+    gnApi.createEvent(newEvent)
+      .then(event => {
+        event &&
+        this.setState({
+          currentUser: {
+            ...this.state.currentUser,
+            events: [
+              ...this.state.currentUser.events,
+              event
+            ]
+          }
+      })
+    })
   }
+
 
   render() {
 
