@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import EventDisplayBanner from '../components/EventDisplayBanner'
 import EventList from './EventList'
+import NewEventForm from './NewEventForm'
 
 import '../css/EventDisplay.css'
 
@@ -21,7 +22,11 @@ class EventDisplay extends Component {
     return (
       <div id='event-display' className='dashboard-item'>
         <EventDisplayBanner newEvent={newEvent} showNewEvent={showNewEvent} />
-        <EventList events={events} />
+        {
+          newEvent
+          ? <NewEventForm />
+          : <EventList events={events} />
+        }
       </div>
     )
   }

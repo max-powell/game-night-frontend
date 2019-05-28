@@ -125,3 +125,7 @@
   font-size: 2vh;
   margin: 1vw
 }
+
+#new-event {
+  background-color: red
+}
