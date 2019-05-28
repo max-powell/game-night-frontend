@@ -7,7 +7,7 @@ const EventDisplayBanner = ({newEvent, showNewEvent}) => (
     <h2>
       {
         newEvent
-        ? 'New Event'
+        ? 'Schedule a Game Night'
         : 'Upcoming Game Nights'
       }
     </h2>

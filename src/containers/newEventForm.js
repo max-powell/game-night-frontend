@@ -3,8 +3,9 @@ import LocationInput from '../components/LocationInput'
 import DateTimePicker from '../components/DateTimePicker'
 import Invitations from './Invitations'
 
-import 'react-datepicker/dist/react-datepicker.css'
+import { Button } from 'semantic-ui-react'
 
+import 'react-datepicker/dist/react-datepicker.css'
 
 class NewEventForm extends Component {
 
@@ -40,7 +41,11 @@ class NewEventForm extends Component {
     const { friends } = this.props
     const { handleLocationChange, changeDateTime, invite, uninvite } = this
 
-    const notInvited = friends.filter(f => !invited.map(i => i.id).includes(f.id))
+    const notInvited = friends.filter(f => {
+      return !invited.map(i => i.id).includes(f.id)
+    }).sort((a,b) => {
+      return a.username.toUpperCase() < b.username.toUpperCase() ? -1 : 1
+    })
 
     return (
       <div id='new-event' className='dashboard-item-search'>
@@ -58,6 +63,7 @@ class NewEventForm extends Component {
           invite={invite}
           uninvite={uninvite}
         />
+        <Button>Create event</Button>
       </div>
     )
   }
