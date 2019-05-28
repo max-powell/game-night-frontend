@@ -65,3 +65,13 @@
   flex-grow: 1;
   text-align: center;
 }
+
+#guests {
+  display: flex
+}
+
+#guests ul {
+  list-style-type: none;
+  padding: 0 1vw;
+  margin: 0;
+}
