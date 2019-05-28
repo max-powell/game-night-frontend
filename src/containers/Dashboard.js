@@ -134,8 +134,8 @@ class Dashboard extends Component {
           rejectEventInvite={rejectEventInvite}
         />
         <EventDisplay
-          history={history}
           events={events}
+          friends={friends}
         />
         <FriendDisplay
           selectFriend={selectFriend}

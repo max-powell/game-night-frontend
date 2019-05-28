@@ -15,7 +15,7 @@ class EventDisplay extends Component {
 
   render() {
 
-    const { events } = this.props
+    const { events, friends } = this.props
     const { newEvent } = this.state
     const { showNewEvent } = this
 
@@ -24,7 +24,7 @@ class EventDisplay extends Component {
         <EventDisplayBanner newEvent={newEvent} showNewEvent={showNewEvent} />
         {
           newEvent
-          ? <NewEventForm />
+          ? <NewEventForm friends={friends} />
           : <EventList events={events} />
         }
       </div>

@@ -19,10 +19,25 @@ class NewEventForm extends Component {
 
   changeDateTime = dateTime => {this.setState({dateTime})}
 
+  invite = friend => {
+    this.setState({
+      invited: [...this.state.invited, friend]
+    })
+  }
+
+  uninvite = friend => {
+    this.setState({
+      invited: this.state.invited.filter(f => f.id!== friend.id)
+    })
+  }
+
   render() {
 
     const { location, dateTime, invited } = this.state
-    const { handleLocationChange, changeDateTime } = this
+    const { friends } = this.props
+    const { handleLocationChange, changeDateTime, invite, uninvite } = this
+
+    const notInvited = friends.filter(f => !invited.map(i => i.id).includes(f.id))
 
     return (
       <div id='new-event' className='dashboard-item-search'>
@@ -33,6 +48,12 @@ class NewEventForm extends Component {
         <DateTimePicker
           dateTime={dateTime}
           changeDateTime={changeDateTime}
+        />
+        <Invitations
+          invited={invited}
+          notInvited={notInvited}
+          invite={invite}
+          uninvite={uninvite}
         />
       </div>
     )
