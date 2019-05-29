@@ -140,11 +140,22 @@ class Dashboard extends Component {
 
   updateEvent = event => {
     const updatedEvent = {
+      id: event.id,
       dateTime: event.dateTime.toString(),
       location: event.location,
       gameId: event.gameId
     }
-    debugger;
+
+    gnApi.updateEvent(event)
+      .then(event => {
+        event &&
+        this.setState({
+          currentUser: {
+            ...this.state.currentUser,
+            events: [...this.state.currentUser.events.filter(e => e.id !== event.id), event]
+          }
+        })
+      })
   }
 
 

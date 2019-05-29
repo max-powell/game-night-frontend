@@ -138,6 +138,7 @@ const gnApi = (() => {
     searchGames,
     addGame,
     createEvent,
+    updateEvent,
     getEvent,
     sendFriendRequest,
     acceptFriendRequest,
