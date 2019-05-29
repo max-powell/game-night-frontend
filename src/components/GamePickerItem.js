@@ -18,7 +18,6 @@ class GamePickerItem extends Component {
           <h2>{game.name}</h2>
           <p>Player range: {game.minPlayers}-{game.maxPlayers}</p>
           <p>Playtime: {game.minPlaytime}-{game.maxPlaytime} mins</p>
-          <p>Owner: {game.owner}</p>
         </div>
       </div>
     )
