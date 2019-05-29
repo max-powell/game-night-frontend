@@ -146,7 +146,7 @@ class Dashboard extends Component {
       gameId: event.gameId
     }
 
-    gnApi.updateEvent(event)
+    gnApi.updateEvent(updatedEvent)
       .then(event => {
         event &&
         this.setState({
