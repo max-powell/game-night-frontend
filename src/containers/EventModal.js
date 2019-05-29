@@ -46,6 +46,13 @@ class EventModal extends Component {
     const { handleLocationChange, changeDateTime, selectGame } = this
     const { updateEvent, leaveEvent } = this.props
 
+    const uniqueAvailableGames = []
+    availableGames.forEach(g => {
+      if (!uniqueAvailableGames.map(g => g.id).includes(g.id)) {
+        uniqueAvailableGames.push(g)
+      }
+    })
+
     return (
       <Modal trigger={<FontAwesomeIcon icon="ellipsis-h" />} >
         <Modal.Header>
@@ -60,7 +67,7 @@ class EventModal extends Component {
               gameId={gameId}
               attendees={attendees}
               invited={invited}
-              availableGames={availableGames}
+              availableGames={uniqueAvailableGames}
               handleLocationChange={handleLocationChange}
               changeDateTime={changeDateTime}
               selectGame={selectGame}
