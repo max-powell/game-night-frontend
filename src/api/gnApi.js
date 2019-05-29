@@ -87,6 +87,28 @@ const gnApi = (() => {
       })
   }
 
+  const updateEvent = event => {
+    return fetch(`${_baseUrl}events/${event.id}`, _configBuilder('PATCH', event, 'event'))
+      .then(res => res.json())
+      .then(json => {
+        if (json.error) {
+          alert(json.error.join('\n'))
+        } else {
+          return json
+        }
+      })
+  }
+
+  const leaveEvent = event => {
+    return fetch(`${_baseUrl}events/${event.id}`, _configBuilder('DELETE'))
+      .then(res => res.json())
+  }
+
+  const getEvent = event => {
+    return fetch(`${_baseUrl}events/${event.id}`, {headers: _auth()})
+      .then(res => res.json())
+  }
+
   const sendFriendRequest = friend => {
     return fetch(_baseUrl + 'friend_requests', _configBuilder('POST', {friend_id: friend.id}, 'friendRequest'))
       .then(res => res.json())
@@ -121,6 +143,9 @@ const gnApi = (() => {
     searchGames,
     addGame,
     createEvent,
+    updateEvent,
+    leaveEvent,
+    getEvent,
     sendFriendRequest,
     acceptFriendRequest,
     cancelFriendRequest,

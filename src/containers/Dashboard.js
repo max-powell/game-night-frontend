@@ -138,10 +138,42 @@ class Dashboard extends Component {
     })
   }
 
+  updateEvent = event => {
+    const updatedEvent = {
+      id: event.id,
+      dateTime: event.dateTime.toString(),
+      location: event.location,
+      gameId: event.gameId
+    }
+
+    gnApi.updateEvent(updatedEvent)
+      .then(event => {
+        event &&
+        this.setState({
+          currentUser: {
+            ...this.state.currentUser,
+            events: [...this.state.currentUser.events.filter(e => e.id !== event.id), event]
+          }
+        })
+      })
+  }
+
+  leaveEvent = event => {
+    gnApi.leaveEvent(event)
+      .then(message => {
+        message &&
+        this.setState({
+          currentUser: {
+            ...this.state.currentUser,
+            events: [...this.state.currentUser.events.filter(e => e.id !== event.id)]
+          }
+        })
+      })
+  }
 
   render() {
 
-    const { selectFriend, addSentFriendRequest, cancelFriendRequest, addGame, acceptFriendRequest, rejectFriendRequest, acceptEventInvite, rejectEventInvite, createEvent } = this
+    const { selectFriend, addSentFriendRequest, cancelFriendRequest, addGame, acceptFriendRequest, rejectFriendRequest, acceptEventInvite, rejectEventInvite, createEvent, updateEvent, leaveEvent } = this
     const { history } = this.props
     const { currentUser, selectedFriend } = this.state
     const { events, friends, sentFriendRequests, games } = currentUser
@@ -160,6 +192,8 @@ class Dashboard extends Component {
           events={events}
           friends={friends}
           createEvent={createEvent}
+          updateEvent={updateEvent}
+          leaveEvent={leaveEvent}
         />
         <FriendDisplay
           selectFriend={selectFriend}

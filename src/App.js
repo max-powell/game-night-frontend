@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Route} from 'react-router-dom'
 
 
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faDiceD20, faUser, faCalendarPlus, faPlus, faSort, faChevronLeft, faBell, faCheckCircle, faTimesCircle, faTimes } from '@fortawesome/free-solid-svg-icons'
+import { faDiceD20, faUser, faCalendarPlus, faPlus, faSort, faChevronLeft, faBell, faCheckCircle, faTimesCircle, faTimes, faEllipsisH } from '@fortawesome/free-solid-svg-icons'
 
 import 'semantic-ui-css/semantic.min.css'
 
@@ -11,7 +11,7 @@ import Layout from './containers/Layout'
 
 import './css/App.css';
 
-library.add(faDiceD20, faUser, faCalendarPlus, faPlus, faSort, faChevronLeft, faBell, faCheckCircle, faTimesCircle, faTimes)
+library.add(faDiceD20, faUser, faCalendarPlus, faPlus, faSort, faChevronLeft, faBell, faCheckCircle, faTimesCircle, faTimes, faEllipsisH)
 
 const App = () => (
   <div className="App">

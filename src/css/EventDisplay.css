@@ -65,3 +65,76 @@
   flex-grow: 1;
   text-align: center;
 }
+
+#guests {
+  display: flex
+}
+
+#guests ul {
+  list-style-type: none;
+  padding: 0 1vw;
+  margin: 0;
+}
+
+
+#game-picker-header h3 {
+  margin-top: 3vh;
+  /* font-size: 4vh */
+}
+
+#game-picker-header p {
+  font-style: italic;
+}
+
+#game-picker-header label {
+  font-size: 2vh;
+  margin-right: 0.5vw
+}
+
+#game-picker-container {
+  height: 40vh;
+  width: 40vw;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: white;
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+#game-picker-list {
+  margin: 1vh 1vw;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+}
+
+.game-picker-item {
+  display: flex;
+  align-items: center;
+  border: 1px solid black;
+  margin-bottom: 1vh;
+  font-size: 1.5vh
+}
+
+.game-picker-item img {
+  width: 5vw;
+  margin: 1vh 2vw;
+}
+
+.game-picker-item h2 {
+  font-size: 2vh
+}
+
+.game-picker-item div {
+  margin: 1vh
+}
+
+.selected-game {
+  border: 5px solid black
+}
+
+.content > * {
+  margin-top: 1vh;
+  font-size: 2vh
+}

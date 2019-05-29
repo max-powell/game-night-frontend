@@ -72,6 +72,7 @@
   width: 90%;
   border: 1px solid black;
   margin-bottom: 1vh;
+  display: flex
 }
 
 .event-list-item h3 {
@@ -82,6 +83,11 @@
 .event-list-item p {
   margin: 1vh;
   font-size: 2vh
+}
+
+.event-options {
+  padding: 0.5vh 0.5vw;
+  margin-left: auto
 }
 
 .dashboard-item-search {
