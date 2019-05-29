@@ -41,9 +41,9 @@
   background-color: white;
   border: 1px solid black;
   border-radius: 0 10px 10px;
-  /* position: absolute;
+  position: absolute;
   top: 25.5vh;
-  left: 54vh */
+  left: 54vh
 }
 
 #alert-menu h3 {
