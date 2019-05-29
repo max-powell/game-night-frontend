@@ -50,7 +50,7 @@ class EventModal extends Component {
     return (
       <Modal trigger={<FontAwesomeIcon icon="ellipsis-h" />} >
         <Modal.Header>
-          Edit Event
+          {host ? 'Edit Event' : 'Event Details'}
         </Modal.Header>
         <Modal.Content>
           <LocationInput
