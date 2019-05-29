@@ -43,6 +43,7 @@ class EventModal extends Component {
 
     const { location, dateTime, attendees, invited, availableGames, gameId, host } = this.state
     const { handleLocationChange, changeDateTime, selectGame } = this
+    const { updateEvent } = this.props
 
     return (
       <Modal trigger={<FontAwesomeIcon icon="ellipsis-h" />} >
@@ -81,7 +82,7 @@ class EventModal extends Component {
         </Modal.Content>
         <Modal.Actions>
           {host &&
-            <Button color='green'>
+            <Button color='green' onClick={() => updateEvent(this.state)}>
               <Icon name='checkmark' />Update Event
             </Button>
           }

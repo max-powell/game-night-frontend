@@ -1,7 +1,7 @@
 import React from 'react'
 import EventModal from '../containers/EventModal'
 
-const EventListItem = ({event}) => {
+const EventListItem = ({event, updateEvent}) => {
 
   const daysToGo = (new Date(event.dateTime).setHours(0,0,0,0) - new Date().setHours(0,0,0,0))/(1000 * 60 * 60 * 24)
 
@@ -19,7 +19,7 @@ const EventListItem = ({event}) => {
           <p>Game: {event.game}</p>
       </div>
       <div className='event-options'>
-        <EventModal event={event} />
+        <EventModal event={event} updateEvent={updateEvent} />
       </div>
     </div>
   )

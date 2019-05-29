@@ -138,10 +138,19 @@ class Dashboard extends Component {
     })
   }
 
+  updateEvent = event => {
+    const updatedEvent = {
+      dateTime: event.dateTime.toString(),
+      location: event.location,
+      gameId: event.gameId
+    }
+    debugger;
+  }
+
 
   render() {
 
-    const { selectFriend, addSentFriendRequest, cancelFriendRequest, addGame, acceptFriendRequest, rejectFriendRequest, acceptEventInvite, rejectEventInvite, createEvent } = this
+    const { selectFriend, addSentFriendRequest, cancelFriendRequest, addGame, acceptFriendRequest, rejectFriendRequest, acceptEventInvite, rejectEventInvite, createEvent, updateEvent } = this
     const { history } = this.props
     const { currentUser, selectedFriend } = this.state
     const { events, friends, sentFriendRequests, games } = currentUser
@@ -160,6 +169,7 @@ class Dashboard extends Component {
           events={events}
           friends={friends}
           createEvent={createEvent}
+          updateEvent={updateEvent}
         />
         <FriendDisplay
           selectFriend={selectFriend}

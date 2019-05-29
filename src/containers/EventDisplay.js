@@ -24,7 +24,7 @@ class EventDisplay extends Component {
 
   render() {
 
-    const { events, friends } = this.props
+    const { events, friends, updateEvent } = this.props
     const { newEvent } = this.state
     const { showNewEvent, handleSubmit } = this
 
@@ -36,7 +36,7 @@ class EventDisplay extends Component {
         {
           newEvent
           ? <NewEventForm friends={friends} handleSubmit={handleSubmit} />
-        : <EventList events={displayedEvents} />
+          : <EventList events={displayedEvents} updateEvent={updateEvent} />
         }
       </div>
     )

@@ -4,8 +4,8 @@ import GamePickerList from './GamePickerList'
 const GamePickerContainer = ({games, selectGame, selectedGame}) => (
   <Fragment>
   <div id='game-picker-header'>
-    <h2>Available games:</h2>
-    <p>More games will become available as invite more friends</p>
+    <h3>Available games:</h3>
+    <p>More games will become available as guests accept their invitations:</p>
   </div>
   <div id='game-picker-body'>
     <div id='game-picker-container'>
