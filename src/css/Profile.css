@@ -25,7 +25,9 @@
 }
 
 #alerts {
+  height: 100%;
   margin-left: 2vw;
+  padding-top: 10vh;
   flex-grow: auto
 }
 
@@ -34,27 +36,14 @@
   background-color: red;
   height: 1.5vh;
   width: 1.5vh;
-  transform: translate(1.3vw, -1.6vh);
+  transform: translate(1.3vw, 3.6vh);
 }
 
-#alert-menu {
-  background-color: white;
-  border: 1px solid black;
-  border-radius: 0 10px 10px;
-  /* position: absolute;
-  top: 25.5vh;
-  left: 54vh */
-}
-
-#alert-menu h3 {
-  border-bottom: 1px solid black;
-  margin: 0;
-  padding: 0 1vw;
-  text-align: center;
-}
-
-#alert-menu h3:nth-of-type(2) {
-  border-top: 1px solid black;
+#clear-dot {
+  border-radius: 50%;
+  height: 1.5vh;
+  width: 1.5vh;
+  transform: translate(1.3vw, 3.6vh);
 }
 
 .alert-item {
