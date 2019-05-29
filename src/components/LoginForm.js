@@ -7,9 +7,14 @@ class LoginForm extends Component {
   state = {
     username: '',
     password: '',
+    avatarUrl: undefined
   }
 
-  handleInputChange = ({target: {name, value}}) => {this.setState({[name]: value})}
+  handleInputChange = ({target: {name, value}}) => {
+    this.setState({
+      [name]: value === '' ? undefined : value
+    })
+  }
 
   handleSubmit = () => {
     this.props.login
@@ -22,15 +27,15 @@ class LoginForm extends Component {
     this.props.history.push('/dashboard')
   }
 
-  signUp = async () => {
-    await gnApi.createUser(this.state)
-    this.props.history.push('/dashboard')
+  signUp = () => {
+    gnApi.createUser(this.state)
+      .then(() => this.props.history.push('/dashboard'))
   }
 
   render() {
 
     const {login} = this.props
-    const { username, password } = this.state
+    const { username, password, avatarUrl } = this.state
     const {handleInputChange, handleSubmit} = this
 
     return (
@@ -48,7 +53,7 @@ class LoginForm extends Component {
             !login &&
             <Form.Field>
               <label>Avatar:</label>
-              <input />
+              <input value={avatarUrl} name='avatarUrl' onChange={handleInputChange} />
             </Form.Field>
           }
           <Button type='submit'>{login ? 'Login' : 'Sign Up'}</Button>

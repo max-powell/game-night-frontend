@@ -17,7 +17,7 @@ class FriendSearchItem extends Component {
 
     return (
       <div className='dashboard-search-item'>
-        <img src='https://imgflip.com/s/meme/Futurama-Fry.jpg' alt='user avatar' />
+        <img src={result.avatarUrl} alt='user avatar' />
         <div>{result.username}</div>
         {
           sentFriendRequest

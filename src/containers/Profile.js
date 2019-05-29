@@ -20,7 +20,7 @@ class Profile extends Component {
 
     return (
       <div id='profile' className='dashboard-item'>
-        <img src='https://imgflip.com/s/meme/Futurama-Fry.jpg' alt='user avatar' />
+        <img src={user.avatarUrl} alt='user avatar' />
         <div id='details'>
           <h2>{user.username}</h2>
           <p><FontAwesomeIcon icon='user'/>{user.friends.length} friends</p>
