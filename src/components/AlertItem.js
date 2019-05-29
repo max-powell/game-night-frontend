@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import gnApi from '../api/gnApi'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
