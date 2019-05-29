@@ -76,13 +76,10 @@
   margin: 0;
 }
 
-#game-picker-header {
-  grid-area: header;
-}
 
-#game-picker-header h2 {
+#game-picker-header h3 {
   margin-top: 3vh;
-  font-size: 4vh
+  /* font-size: 4vh */
 }
 
 #game-picker-header p {
@@ -112,16 +109,16 @@
   align-items: center;
   border: 1px solid black;
   margin-bottom: 1vh;
-  font-size: 2vh
+  font-size: 1.5vh
 }
 
 .game-picker-item img {
-  width: 7vw;
+  width: 5vw;
   margin: 1vh 2vw;
 }
 
 .game-picker-item h2 {
-  font-size: 3vh
+  font-size: 2vh
 }
 
 .game-picker-item div {
@@ -130,4 +127,9 @@
 
 .selected-game {
   border: 5px solid black
+}
+
+.content > * {
+  margin-top: 1vh;
+  font-size: 2vh
 }
