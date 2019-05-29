@@ -86,8 +86,13 @@
   font-style: italic;
 }
 
+#game-picker-header label {
+  font-size: 2vh;
+  margin-right: 0.5vw
+}
+
 #game-picker-container {
-  height: 50vh;
+  height: 40vh;
   width: 40vw;
   border: 1px solid black;
   border-radius: 10px;

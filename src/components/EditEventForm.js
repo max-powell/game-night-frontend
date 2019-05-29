@@ -3,7 +3,7 @@ import LocationInput from './LocationInput'
 import DateTimePicker from './DateTimePicker'
 import GamePickerContainer from '../containers/GamePickerContainer'
 
-const EditEventForm = ({location, dateTime, gameId, attendees, invited, availableGames, handleLocationChange, changeDateTime, selectGame}) => (
+const EditEventForm = ({location, dateTime, gameId, attendees, invited, availableGames, showFilter, handleLocationChange, changeDateTime, selectGame, changeFilter}) => (
   <Fragment>
     <LocationInput
       location={location}
@@ -32,6 +32,8 @@ const EditEventForm = ({location, dateTime, gameId, attendees, invited, availabl
       games={availableGames}
       selectGame={selectGame}
       selectedGame={gameId}
+      showFilter={showFilter}
+      changeFilter={changeFilter}
     />
   </Fragment>
 )

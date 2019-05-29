@@ -15,7 +15,8 @@ class EventModal extends Component {
     attendees: [],
     invited: [],
     availableGames: [],
-    host: false
+    host: false,
+    showFilter: false
   }
 
   componentDidMount () {
@@ -40,10 +41,12 @@ class EventModal extends Component {
 
   selectGame = game => {this.setState({gameId: game.id})}
 
+  changeFilter = () => {this.setState({showFilter: !this.state.showFilter})}
+
   render() {
 
-    const { location, dateTime, attendees, invited, availableGames, gameId, host } = this.state
-    const { handleLocationChange, changeDateTime, selectGame } = this
+    const { location, dateTime, attendees, invited, availableGames, gameId, host, showFilter } = this.state
+    const { handleLocationChange, changeDateTime, selectGame, changeFilter } = this
     const { updateEvent, leaveEvent } = this.props
 
     const uniqueAvailableGames = []
@@ -51,6 +54,11 @@ class EventModal extends Component {
       if (!uniqueAvailableGames.map(g => g.id).includes(g.id)) {
         uniqueAvailableGames.push(g)
       }
+    })
+
+    const filteredGames = uniqueAvailableGames.filter(g => {
+      return (g.minPlayers <= attendees.length &&
+      g.maxPlayers >= attendees.length)
     })
 
     return (
@@ -67,10 +75,12 @@ class EventModal extends Component {
               gameId={gameId}
               attendees={attendees}
               invited={invited}
-              availableGames={uniqueAvailableGames}
+              availableGames={showFilter ? filteredGames : uniqueAvailableGames}
+              showFilter={showFilter}
               handleLocationChange={handleLocationChange}
               changeDateTime={changeDateTime}
               selectGame={selectGame}
+              changeFilter={changeFilter}
               />
             : <EventDetails
               location={location}
