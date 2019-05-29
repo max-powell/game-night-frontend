@@ -9,6 +9,7 @@ import GamePickerContainer from './GamePickerContainer'
 class EventModal extends Component {
 
   state = {
+    id: null,
     location: '',
     dateTime: null,
     gameId: null,
@@ -22,6 +23,7 @@ class EventModal extends Component {
     gnApi.getEvent(this.props.event)
       .then(event => {
         this.setState({
+          id: event.id,
           location: event.location,
           dateTime: new Date(event.dateTime),
           gameId: event.game ? event.game.id : null,
