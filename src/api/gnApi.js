@@ -87,6 +87,18 @@ const gnApi = (() => {
       })
   }
 
+  const updateEvent = event => {
+    return fetch(`${_baseUrl}events/${event.id}`, _configBuilder('PATCH', event, 'event'))
+      .then(res => res.json())
+      .then(json => {
+        if (json.error) {
+          alert(json.error.join('\n'))
+        } else {
+          return json
+        }
+      })
+  }
+
   const getEvent = event => {
     return fetch(`${_baseUrl}events/${event.id}`, {headers: _auth()})
       .then(res => res.json())
