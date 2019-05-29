@@ -99,6 +99,11 @@ const gnApi = (() => {
       })
   }
 
+  const leaveEvent = event => {
+    return fetch(`${_baseUrl}events/${event.id}`, _configBuilder('DELETE'))
+      .then(res => res.json())
+  }
+
   const getEvent = event => {
     return fetch(`${_baseUrl}events/${event.id}`, {headers: _auth()})
       .then(res => res.json())
@@ -139,6 +144,7 @@ const gnApi = (() => {
     addGame,
     createEvent,
     updateEvent,
+    leaveEvent,
     getEvent,
     sendFriendRequest,
     acceptFriendRequest,

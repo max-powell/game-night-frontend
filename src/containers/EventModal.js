@@ -45,7 +45,7 @@ class EventModal extends Component {
 
     const { location, dateTime, attendees, invited, availableGames, gameId, host } = this.state
     const { handleLocationChange, changeDateTime, selectGame } = this
-    const { updateEvent } = this.props
+    const { updateEvent, leaveEvent } = this.props
 
     return (
       <Modal trigger={<FontAwesomeIcon icon="ellipsis-h" />} >
@@ -88,7 +88,7 @@ class EventModal extends Component {
               <Icon name='checkmark' />Update Event
             </Button>
           }
-          <Button color='red'>
+          <Button color='red' onClick={() => leaveEvent(this.state)}>
             <Icon name='close' />{host ? 'Cancel Event' : 'Leave Event'}
           </Button>
         </Modal.Actions>
