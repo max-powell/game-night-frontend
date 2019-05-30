@@ -19,7 +19,6 @@ const GameDisplayBanner = ({selectedFriend, search, showSearch, showCurrentUserL
       ? <FontAwesomeIcon onClick={showCurrentUserList} icon="chevron-left" size='lg' />
       : <FontAwesomeIcon onClick={() => showSearch(true)} icon="plus" size='lg' />
     }
-    <FontAwesomeIcon icon="sort" size='lg' />
   </div>
 )
 
