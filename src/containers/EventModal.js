@@ -19,8 +19,8 @@ class EventModal extends Component {
     showFilter: false
   }
 
-  componentDidMount () {
-    gnApi.getEvent(this.props.event)
+  async componentDidMount () {
+    await gnApi.getEvent(this.props.event)
       .then(event => {
         this.setState({
           id: event.id,
@@ -33,6 +33,7 @@ class EventModal extends Component {
           host: event['host?']
         })
       })
+    this.gameStillValid()
   }
 
   handleLocationChange = ({target: {value}}) => {this.setState({location: value})}
@@ -43,10 +44,16 @@ class EventModal extends Component {
 
   changeFilter = () => {this.setState({showFilter: !this.state.showFilter})}
 
+  gameStillValid = () => {
+    if (this.state.host && this.state.gameId && !this.state.availableGames.map(g => g.id).includes(this.state.gameId)) {
+      alert(`The user who owns the selected game for your game night on ${this.state.dateTime.toDateString()} has left the event. Please select another game.`)
+    }
+  }
+
   render() {
 
     const { location, dateTime, attendees, invited, availableGames, gameId, host, showFilter } = this.state
-    const { handleLocationChange, changeDateTime, selectGame, changeFilter } = this
+    const { handleLocationChange, changeDateTime, selectGame, changeFilter, gameStillValid } = this
     const { updateEvent, leaveEvent } = this.props
 
     const uniqueAvailableGames = []

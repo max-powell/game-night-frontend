@@ -19,7 +19,13 @@ const EventDetails = ({location, dateTime, attendees, invited, gameId, available
         </Fragment>
       }
     </div>
-    <p>Game: {gameId ? availableGames.find(g => g.id === gameId).name : 'TBD'}</p>
+    <p>Game: {
+        gameId &&
+        availableGames.find(g => g.id === gameId)
+        ? availableGames.find(g => g.id === gameId).name
+        : 'TBD'
+      }
+    </p>
   </Fragment>
 )
 
