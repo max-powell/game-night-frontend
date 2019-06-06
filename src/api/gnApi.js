@@ -1,5 +1,5 @@
 const gnApi = (() => {
-  const _baseUrl = 'https://gamenightapi.com/'
+  const _baseUrl = 'https://gamenightapi.herokuapp.com/'
 
   const _auth = () => ({'Authorization': `Bearer ${localStorage.getItem('token')}`})
 
