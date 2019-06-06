@@ -7,7 +7,7 @@ import { Button } from 'semantic-ui-react'
 
 import 'react-datepicker/dist/react-datepicker.css'
 
-class NewEventForm extends Component {
+class NewEvent extends Component {
 
   state = {
     location: '',
@@ -70,4 +70,4 @@ class NewEventForm extends Component {
 
 }
 
-export default NewEventForm
+export default NewEvent
