@@ -35,7 +35,7 @@ class EventDisplay extends Component {
         <EventDisplayBanner newEvent={newEvent} showNewEvent={showNewEvent} />
         {
           newEvent
-          ? <NewEventForm friends={friends} handleSubmit={handleSubmit} />
+          ? <NewEvent friends={friends} handleSubmit={handleSubmit} />
         : <EventList events={displayedEvents} updateEvent={updateEvent} leaveEvent={leaveEvent} />
         }
       </div>
