@@ -2,39 +2,17 @@ import React, { Component } from 'react'
 import LocationInput from '../components/LocationInput'
 import DateTimePicker from '../components/DateTimePicker'
 import Invitations from './Invitations'
-import SubmitButton from '../components/SubmitButton'
-import GamePickerContainer from './GamePickerContainer'
 
-// import 'react-datepicker/dist/react-datepicker.css'
-// import '../css/NewEvent.css'
+import { Button } from 'semantic-ui-react'
 
-import gnApi from '../api/gnApi'
+import 'react-datepicker/dist/react-datepicker.css'
 
-class NewEvent extends Component {
+class NewEventForm extends Component {
 
   state = {
     location: '',
     dateTime: new Date(),
-    invited: [],
-    notInvited: [],
-    gameId: null,
-    gameOwner: '',
-    availableGames: []
-  }
-
-  componentDidMount () {
-    gnApi.getItems('friends')
-      .then(notInvited => this.setState({notInvited}))
-      gnApi.getItems('games')
-      .then(games => this.setState({
-        availableGames: games.map(g => {
-          return {
-            ...g,
-            owner: 'You'
-          }
-        })
-      })
-    )
+    invited: []
   }
 
   handleLocationChange = (e, {value}) => {
@@ -46,74 +24,50 @@ class NewEvent extends Component {
   changeDateTime = dateTime => {this.setState({dateTime})}
 
   invite = friend => {
-    gnApi.getFriendsGames(friend)
-      .then(games => this.setState({
-        availableGames: [
-          ...this.state.availableGames,
-          ...games.map(g => {
-            return {
-              ...g,
-              owner: friend.username
-            }
-          })
-        ],
-        invited: [...this.state.invited, friend],
-        notInvited: this.state.notInvited.filter(f => f.id !== friend.id)
-      })
-    )
+    this.setState({
+      invited: [...this.state.invited, friend]
+    })
   }
 
   uninvite = friend => {
     this.setState({
-      invited: this.state.invited.filter(f => f.id!== friend.id),
-      notInvited: [...this.state.notInvited, friend],
-      availableGames: this.state.availableGames.filter(g => g.owner !== friend.username)
+      invited: this.state.invited.filter(f => f.id!== friend.id)
     })
-  }
-
-  selectGame = game => {
-    this.setState({
-      gameId: game.id,
-      gameOwner: game.owner
-    })
-  }
-
-  handleSubmit = () => {
-    const event = {
-      location: this.state.location,
-      dateTime: this.state.dateTime.toString(),
-      gameId: this.state.gameId,
-      gameOwner: this.state.gameOwner,
-      attendee_ids: this.state.invited.map(i => i.id)
-    }
-
-    gnApi.createEvent(event)
-      .then(event => {
-        event && this.props.history.push('/dashboard')
-      })
   }
 
   render() {
 
-    const { location, dateTime, invited, notInvited, gameId, availableGames } = this.state
-    const { handleLocationChange, changeDateTime, invite, uninvite, selectGame, handleSubmit } = this
+    const { location, dateTime, invited } = this.state
+    const { friends, handleSubmit } = this.props
+    const { handleLocationChange, changeDateTime, invite, uninvite } = this
+
+    const notInvited = friends.filter(f => {
+      return !invited.map(i => i.id).includes(f.id)
+    }).sort((a,b) => {
+      return a.username.toUpperCase() < b.username.toUpperCase() ? -1 : 1
+    })
 
     return (
-      <div id='new-event' className='main-container-item'>
-        <div id='new-event-title'><h1>Schedule a game night</h1></div>
-          <div id='area1'>
-            <LocationInput location={location} handleLocationChange={handleLocationChange} />
-            <DateTimePicker changeDateTime={changeDateTime} dateTime={dateTime} />
-            <Invitations invited={invited} notInvited={notInvited} invite={invite} uninvite={uninvite}/>
-          </div>
-          <div id='area2'>
-            <GamePickerContainer games={availableGames} selectGame={selectGame} selectedGame={gameId} />
-            <SubmitButton handleSubmit={handleSubmit} />
-          </div>
+      <div id='new-event' className='dashboard-item-search'>
+        <LocationInput
+          location={location}
+          handleLocationChange={handleLocationChange}
+        />
+        <DateTimePicker
+          dateTime={dateTime}
+          changeDateTime={changeDateTime}
+        />
+        <Invitations
+          invited={invited}
+          notInvited={notInvited}
+          invite={invite}
+          uninvite={uninvite}
+        />
+        <Button onClick={() => handleSubmit(this.state)}>Create event</Button>
       </div>
     )
   }
 
 }
 
-export default NewEvent
+export default NewEventForm
