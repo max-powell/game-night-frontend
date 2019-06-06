@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import EventDisplayBanner from '../components/EventDisplayBanner'
 import EventList from './EventList'
-import NewEventForm from './NewEventForm'
+import NewEventForm from './NewEventForm.js'
 
 import '../css/EventDisplay.css'
 
