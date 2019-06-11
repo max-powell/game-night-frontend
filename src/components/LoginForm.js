@@ -47,7 +47,10 @@ class LoginForm extends Component {
         <Form onSubmit={handleSubmit}>
           <Form.Field>
             <label>Username:</label>
-            <input value={username} name='username' onChange={handleInputChange} />
+            <input
+              name='username'
+              value={username}
+              onChange={handleInputChange} />
           </Form.Field>
           <Form.Field>
             <label>Password:</label>
