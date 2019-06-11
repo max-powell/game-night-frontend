@@ -5,5 +5,6 @@ const addEvent = (state, action) => {
 }
 
 export default createReducer([], {
+  ADD_EVENT: addEvent,
   ACCEPT_EVENT_INVITE: addEvent
 })
