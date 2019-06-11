@@ -15,9 +15,7 @@ import './css/App.css';
 
 library.add(faDiceD20, faUser, faCalendarPlus, faPlus, faSort, faChevronLeft, faBell, faCheckCircle, faTimesCircle, faTimes, faEllipsisH)
 
-const App = (props) => {
-  debugger;
-  return (
+const App = (props) => (
   <div className="App">
     <Header showLogout={!!props.userId} />
     {
@@ -26,6 +24,6 @@ const App = (props) => {
       : <Login />
     }
   </div>
-)}
+)
 
 export default connect(state => ({userId: state.currentUser.id}))(App)

@@ -19,3 +19,7 @@ export const signup = creds => {
       }))
   }
 }
+
+export const logout = () => {
+  return {type: 'LOGOUT'}
+}
