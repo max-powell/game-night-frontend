@@ -15,15 +15,17 @@ import './css/App.css';
 
 library.add(faDiceD20, faUser, faCalendarPlus, faPlus, faSort, faChevronLeft, faBell, faCheckCircle, faTimesCircle, faTimes, faEllipsisH)
 
-const App = () => (
+const App = (props) => {
+  debugger;
+  return (
   <div className="App">
     <Header />
-    <Dashboard />
+    {
+      props.userId
+      ? <Dashboard />
+      : <Login />
+    }
   </div>
-)
+)}
 
-const mapStateToProps = state => {
-
-}
-
-export default connect()(App)
+export default connect(state => ({userId: state.currentUser.id}))(App)

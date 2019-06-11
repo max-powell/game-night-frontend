@@ -6,8 +6,6 @@ class LoginSignUpButtons extends Component {
 
   render() {
 
-    debugger;
-
     const {showLogin, changeShowLogin} = this.props
 
     let loginTabClass = 'login-signup-button'
