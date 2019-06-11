@@ -21,7 +21,7 @@ class LoginForm extends Component {
   }
 
   handleSubmit = () => {
-    this.props.login
+    this.props.showLogin
     ? this.props.login(this.state)
     : this.signUp()
   }
