@@ -9,3 +9,13 @@ export const login = creds => {
       }))
   }
 }
+
+export const signup = creds => {
+  return dispatch => {
+    gnApi.createUser(creds)
+      .then(user => dispatch({
+        type: 'SET_USER',
+        user
+      }))
+  }
+}
