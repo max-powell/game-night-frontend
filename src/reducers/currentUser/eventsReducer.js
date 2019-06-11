@@ -14,7 +14,7 @@ const updateEvent = (state, action) => {
 
 export default createReducer([], {
   ADD_EVENT: addEvent,
-  ACCEPT_EVENT_INVITE: addEvent
+  ACCEPT_EVENT_INVITE: addEvent,
   UPDATE_EVENT: updateEvent,
   LEAVE_EVENT: removeEvent
 })
