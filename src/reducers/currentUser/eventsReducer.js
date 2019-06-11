@@ -12,7 +12,12 @@ const updateEvent = (state, action) => {
   return [...removeEvent(state,action), action.event]
 }
 
+const setEvents = (state, action) => {
+  return action.user.events
+}
+
 export default createReducer([], {
+  SET_USER: setEvents,
   ADD_EVENT: addEvent,
   ACCEPT_EVENT_INVITE: addEvent,
   UPDATE_EVENT: updateEvent,
