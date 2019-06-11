@@ -2,9 +2,7 @@ import React, { Component } from 'react'
 import { Form, Button } from 'semantic-ui-react'
 
 import { connect } from 'react-redux'
-import { login } from '../actions/userActions'
-
-import gnApi from '../api/gnApi'
+import { login, signup } from '../actions/userActions'
 
 class LoginForm extends Component {
 
@@ -23,22 +21,12 @@ class LoginForm extends Component {
   handleSubmit = () => {
     this.props.showLogin
     ? this.props.login(this.state)
-    : this.signUp()
-  }
-
-  login = async () => {
-    await gnApi.login(this.state)
-    this.props.history.push('/dashboard')
-  }
-
-  signUp = () => {
-    gnApi.createUser(this.state)
-      .then(() => this.props.history.push('/dashboard'))
+    : this.props.signUp(this.state)
   }
 
   render() {
 
-    const {login} = this.props
+    const {showLogin} = this.props
     const { username, password, avatarUrl } = this.state
     const {handleInputChange, handleSubmit} = this
 
@@ -46,24 +34,44 @@ class LoginForm extends Component {
       <div id='login-form'>
         <Form onSubmit={handleSubmit}>
           <Form.Field>
-            <label>Username:</label>
+            <label>
+              Username:
+            </label>
             <input
               name='username'
               value={username}
               onChange={handleInputChange} />
           </Form.Field>
           <Form.Field>
-            <label>Password:</label>
-            <input type='password' value={password} name='password' onChange={handleInputChange} />
+            <label>
+              Password:
+            </label>
+            <input
+              name='password'
+              type='password'
+              value={password}
+              onChange={handleInputChange} />
           </Form.Field>
           {
-            !login &&
+            !showLogin &&
             <Form.Field>
-              <label>Avatar:</label>
-              <input value={avatarUrl} name='avatarUrl' onChange={handleInputChange} />
+              <label>
+                Avatar:
+              </label>
+              <input
+                name='avatarUrl'
+                value={avatarUrl}
+                onChange={handleInputChange}
+              />
             </Form.Field>
           }
-          <Button type='submit'>{login ? 'Login' : 'Sign Up'}</Button>
+          <Button
+            type='submit'
+          >
+            {
+              login ? 'Login' : 'Sign Up'
+            }
+          </Button>
         </Form>
       </div>
     )
@@ -71,4 +79,4 @@ class LoginForm extends Component {
 
 }
 
-export default connect(null, {login})(LoginForm)
+export default connect(null, {login, signup})(LoginForm)
