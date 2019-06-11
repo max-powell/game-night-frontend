@@ -18,7 +18,10 @@ const Header = props => {
   return (<div id='header'>
     <FontAwesomeIcon icon="dice-d20" size='2x' />
     <h1>Game Night</h1>
-    {props.showLogout && <button onClick={logout}>Logout</button>}
+    {
+      props.showLogout &&
+      <button onClick={logout}>Logout</button>
+    }
   </div>)
 }
 
