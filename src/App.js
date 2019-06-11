@@ -19,7 +19,7 @@ const App = (props) => {
   debugger;
   return (
   <div className="App">
-    <Header />
+    <Header showLogout={!!props.userId} />
     {
       props.userId
       ? <Dashboard />
