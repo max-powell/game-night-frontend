@@ -5,11 +5,13 @@ import friendsReducer from './friendsReducer'
 import eventsReducer from './eventsReducer'
 import friendRequestsReducer from './friendRequestsReducer'
 import sentFriendRequestsReducer from './sentFriendRequestsReducer'
+import eventInvitesReducer from './eventInvitesReducer'
 
 export default combineReducers({
   games: gamesReducer,
   friends: friendsReducer,
   events: eventsReducer,
   friendRequests: friendRequestsReducer,
-  sentFriendRequests: sentFriendRequestsReducer
+  sentFriendRequests: sentFriendRequestsReducer,
+  eventInvites: eventInvitesReducer
 })
