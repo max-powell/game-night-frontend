@@ -1,4 +1,4 @@
-import createReducer from './createReducer'
+import createReducer from '../createReducer'
 
 const removeFriendRequest = (state, action) => {
   return state.filter(fR => fR.id !== action.friendRequest.id)
