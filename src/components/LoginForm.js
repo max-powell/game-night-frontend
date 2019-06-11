@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
 import { Form, Button } from 'semantic-ui-react'
+
+import { connect } from 'react-redux'
+import { login } from '../actions/userActions'
+
 import gnApi from '../api/gnApi'
 
 class LoginForm extends Component {
@@ -18,7 +22,7 @@ class LoginForm extends Component {
 
   handleSubmit = () => {
     this.props.login
-    ? this.login()
+    ? this.props.login(this.state)
     : this.signUp()
   }
 
@@ -64,4 +68,4 @@ class LoginForm extends Component {
 
 }
 
-export default LoginForm
+export default connect(null, {login})(LoginForm)
