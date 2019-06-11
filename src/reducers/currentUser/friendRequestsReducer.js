@@ -6,5 +6,5 @@ const removeFriendRequest = (state, action) => {
 
 export default createReducer([], {
   ACCEPT_FRIEND_REQUEST: removeFriendRequest,
-  REJECT_FRIEND-REQUEST: removeFriendRequest
+  REJECT_FRIEND_REQUEST: removeFriendRequest
 })
