@@ -7,3 +7,11 @@ export const fetchUser = () => {
       user: user
     }))
 }
+
+export const login = creds => {
+  return gnApi.login(creds)
+    .then(user => dispatch({
+      type: 'SET_USER',
+      user
+    }))
+}
