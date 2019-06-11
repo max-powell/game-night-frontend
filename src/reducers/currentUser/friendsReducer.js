@@ -5,7 +5,7 @@ const addFriend = (state, action) => {
 }
 
 const setFriends = (state, action) => {
-  return action.friends
+  return action.user.friends
 }
 
 export default createReducer([], {
