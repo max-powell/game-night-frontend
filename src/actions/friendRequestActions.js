@@ -12,3 +12,15 @@ export const acceptFriendRequest = friendRequest => {
       })
   }
 }
+
+export const rejectFriendRequest = friendRequest => {
+  return dispatch => {
+    gnApi.cancelFriendRequest(friendRequest)
+      .then(() => {
+        dispatch({
+          type: 'REJECT_FRIEND_REQUEST',
+          friendRequest
+        })
+      })
+  }
+}
