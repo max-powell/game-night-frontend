@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
 
-import { idReducer } from './userDetailReducers'
+import { idReducer, usernameReducer } from './userDetailReducers'
 import gamesReducer from './gamesReducer'
 import friendsReducer from './friendsReducer'
 import eventsReducer from './eventsReducer'
@@ -10,6 +10,7 @@ import eventInvitesReducer from './eventInvitesReducer'
 
 export default combineReducers({
   id: idReducer,
+  username: usernameReducer,
   games: gamesReducer,
   friends: friendsReducer,
   events: eventsReducer,
