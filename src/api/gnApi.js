@@ -47,18 +47,8 @@ const gnApi = (() => {
       .then(res => res.json())
   }
 
-  const getItems = route => {
-    return fetch(_baseUrl + route, {headers: _auth()})
-      .then(res => res.json())
-  }
-
   const search = searchTerm => {
     return fetch(_baseUrl + 'search/' + searchTerm, {headers: _auth()})
-      .then(res => res.json())
-  }
-
-  const addFriend = id => {
-    return fetch(_baseUrl + 'friends', _configBuilder('POST', {id}, 'friend'))
       .then(res => res.json())
   }
 
@@ -138,9 +128,7 @@ const gnApi = (() => {
     login,
     createUser,
     getProfile,
-    getItems,
     search,
-    addFriend,
     getFriendsGames,
     searchGames,
     addGame,
