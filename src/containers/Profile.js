@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+
 import AlertModal from './AlertModal'
 import UserDetails from '../components/UserDetails'
 
 import '../css/Profile.css'
-
 
 class Profile extends Component {
 
@@ -35,4 +36,9 @@ class Profile extends Component {
 
 }
 
-export default Profile
+export default connect(
+  state => ({
+    user: state.currentUser
+  }),
+  null
+)(Profile)
