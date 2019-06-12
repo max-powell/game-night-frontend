@@ -30,7 +30,7 @@ class GameSearch extends Component {
     return (
       <div className='dashboard-item-search'>
         <Search updateSearch={updateSearch} handleSubmit={handleSubmit} searchTerm={searchTerm} />
-        <GameSearchResults results={filteredResults} addGame={addGame} showSearch={showSearch} />
+        <GameSearchResults results={filteredResults} addGame={addGame} />
       </div>
     )
   }

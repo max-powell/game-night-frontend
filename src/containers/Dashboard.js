@@ -42,19 +42,12 @@ class Dashboard extends Component {
   }
 
   render() {
-
-    const { addGame } = this
-    const { currentUser } = this.state
-    const { games } = currentUser
-
     return (
       <div id='dashboard' className='main-container-item'>
         <Profile />
         <EventDisplay />
         <FriendDisplay />
-        <GameDisplay
-          addGame={addGame}
-        />
+        <GameDisplay />
       </div>
     );
   }

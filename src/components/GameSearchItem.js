@@ -5,15 +5,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class GameSearchItem extends Component {
 
-  handleClick = () => {
-    gnApi.addGame(this.props.result)
-      .then(this.props.addGame)
-    this.props.showSearch(false)
-  }
-
   render() {
 
-    const { result } = this.props
+    const { result, addGame } = this.props
     const { handleClick } = this
 
     return (
@@ -36,7 +30,7 @@ class GameSearchItem extends Component {
           }
           </p>
         </div>
-        <FontAwesomeIcon icon='plus' onClick={handleClick}/>
+        <FontAwesomeIcon icon='plus' onClick={() => addGame(result)}/>
       </div>
     )
   }
