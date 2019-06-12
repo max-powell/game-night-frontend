@@ -1,7 +1,7 @@
 import createReducer from '../createReducer'
 
 const removeEventInvite = (state, action) => {
-  return state.filter(eI => eI.id !== action.invite.id)
+  return state.filter(eI => eI.id !== action.eventInvite.id)
 }
 
 const setEventInvites = (state, action) => {
