@@ -64,32 +64,6 @@ class Dashboard extends Component {
     })
   }
 
-  acceptFriendRequest = friendRequest => {
-    gnApi.acceptFriendRequest(friendRequest)
-      .then(friend => {this.setState({
-        currentUser: {
-          ...this.state.currentUser,
-          friends: [
-            ...this.state.currentUser.friends,
-            friend
-          ],
-          friendRequests: this.state.currentUser.friendRequests.filter(fR => fR.id !== friendRequest.id)
-        }
-      })
-    })
-  }
-
-  rejectFriendRequest = friendRequest => {
-    gnApi.cancelFriendRequest(friendRequest)
-      .then(friend => {this.setState({
-        currentUser: {
-          ...this.state.currentUser,
-          friendRequests: this.state.currentUser.friendRequests.filter(fR => fR.id !== friendRequest.id)
-        }
-      })
-    })
-  }
-
   render() {
 
     const { selectFriend, addSentFriendRequest, cancelFriendRequest, addGame } = this
