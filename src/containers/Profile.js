@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import AlertModal from './AlertModal'
+import UserDetails from '../components/UserDetails'
+
 import '../css/Profile.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 class Profile extends Component {
@@ -12,12 +13,7 @@ class Profile extends Component {
 
     return (
       <div id='profile' className='dashboard-item'>
-        <img src={user.avatarUrl} alt='user avatar' />
-        <div id='details'>
-          <h2>{user.username}</h2>
-          <p><FontAwesomeIcon icon='user'/>{user.friends.length} friends</p>
-          <p><FontAwesomeIcon icon='dice-d20'/>{user.games.length} games</p>
-        </div>
+        <UserDetails user={user} />
         <div id='alerts'>
           {
             (user.eventInvites.length > 0 ||
