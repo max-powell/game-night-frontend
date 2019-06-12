@@ -1,11 +1,11 @@
 import createReducer from '../createReducer'
 
 const addSentFriendRequest = (state, action) => {
-  return [...state, action.request]
+  return [...state, action.friendRequest]
 }
 
 const removeSentFriendRequest = (state, action) => {
-  return state.filter(fR => fR.id !== action.request.id)
+  return state.filter(fR => fR.id !== action.friendRequest.id)
 }
 
 const setSentFriendRequests = (state, action) => {
