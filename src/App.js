@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'
+
+import { fetchUser } from './actions/userActions'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faDiceD20, faUser, faCalendarPlus, faPlus, faSort, faChevronLeft, faBell, faCheckCircle, faTimesCircle, faTimes, faEllipsisH } from '@fortawesome/free-solid-svg-icons'
@@ -15,15 +17,39 @@ import './css/App.css';
 
 library.add(faDiceD20, faUser, faCalendarPlus, faPlus, faSort, faChevronLeft, faBell, faCheckCircle, faTimesCircle, faTimes, faEllipsisH)
 
-const App = (props) => (
-  <div className="App">
-    <Header showLogout={!!props.userId} />
-    {
-      props.userId
-      ? <Dashboard />
-      : <Login />
-    }
-  </div>
-)
+class App extends Component {
 
-export default connect(state => ({userId: state.currentUser.id}))(App)
+  componentDidMount () {
+    if (!!localStorage.getItem('token') && !this.props.userId) {
+      this.props.fetchUser()
+    }
+  }
+
+  render() {
+
+    const { userId } = this.props
+
+    return (
+      <div className="App">
+        <Header showLogout={!!userId} />
+        {
+          userId
+          ? <Dashboard />
+          : <Login />
+        }
+      </div>
+    )
+  }
+
+}
+
+const mapStateToProps = state => {
+  return {
+    userId: state.currentUser.id
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  { fetchUser }
+)(App)
