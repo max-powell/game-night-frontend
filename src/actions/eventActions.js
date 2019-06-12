@@ -9,13 +9,13 @@ export const createEvent = event => {
 
   return dispatch => {
     gnApi.createEvent(newEvent)
-    .then(event => {
-      event &&
-      dispatch({
-        type: 'ADD_EVENT',
-        event
+      .then(event => {
+        event &&
+        dispatch({
+          type: 'ADD_EVENT',
+          event
+        })
       })
-    })
   }
 }
 
@@ -29,12 +29,25 @@ export const updateEvent = event => {
 
   return dispatch => {
     gnApi.updateEvent(updatedEvent)
-    .then(event => {
-      event &&
-      dispatch({
-        type: 'UPDATE_EVENT',
-        event
+      .then(event => {
+        event &&
+        dispatch({
+          type: 'UPDATE_EVENT',
+          event
+        })
       })
-    })
+  }
+}
+
+export const leaveEvent = event => {
+  return dispatch => {
+    gnApi.leaveEvent(event)
+      .then(message => {
+        message &&
+        dispatch({
+          type: 'LEAVE_EVENT',
+          event
+        })
+      })
   }
 }
