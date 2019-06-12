@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
 import GameDisplayBanner from '../components/GameDisplayBanner'
 import GameList from './GameList'
-import GameSearch from './GameSearch';
+import GameSearch from './GameSearch'
 
 import gnApi from '../api/gnApi'
 
@@ -60,4 +61,10 @@ class GameDisplay extends Component {
 
 }
 
-export default GameDisplay
+const mapStateToProps = state => {
+  return {
+    selectedFriend: state.selectedFriend
+  }
+}
+
+export default connect(mapStateToProps)(GameDisplay)

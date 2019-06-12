@@ -53,7 +53,6 @@ class Dashboard extends Component {
         <EventDisplay />
         <FriendDisplay />
         <GameDisplay
-          selectedFriend={selectedFriend}
           selectFriend={selectFriend}
           userGames={games}
           addGame={addGame}
