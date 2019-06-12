@@ -2,7 +2,7 @@ import React from 'react'
 
 import FriendSearchItem from '../components/FriendSearchItem';
 
-const FriendSearchResults = ({results, sendFriendRequest, addSentFriendRequest, sentFriendRequests, cancelFriendRequest}) => (
+const FriendSearchResults = ({results, sendFriendRequest, sentFriendRequests, cancelFriendRequest}) => (
   <div className='dashboard-search-results'>
     {
       results.map(r => (
