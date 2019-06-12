@@ -35,13 +35,13 @@ class GameDisplay extends Component {
 
   render() {
 
-    const { selectedFriend, userGames, addGame } = this.props
+    const { selectedFriend, games, addGame } = this.props
     const { selectedFriendGames, search } = this.state
     const { showCurrentUserList, showSearch } = this
 
     const displayedGames = Object.keys(this.props.selectedFriend).length > 0
       ? selectedFriendGames
-      : userGames
+      : games
 
     return (
       <div id='game-display' className='dashboard-item'>
@@ -54,7 +54,7 @@ class GameDisplay extends Component {
           search
           ? <GameSearch
             addGame={addGame}
-            excludedGames={userGames}
+            excludedGames={games}
             showSearch={showSearch}
           />
         : <GameList games={displayedGames} />
@@ -67,7 +67,8 @@ class GameDisplay extends Component {
 
 const mapStateToProps = state => {
   return {
-    selectedFriend: state.selectedFriend
+    selectedFriend: state.selectedFriend,
+    games: state.currentUser.games
   }
 }
 
