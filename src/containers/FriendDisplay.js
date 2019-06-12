@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
+import { selectFriend } from '../actions/friendActions'
+
 import FriendDisplayBanner from '../components/FriendDisplayBanner'
 import FriendList from './FriendList'
 import FriendSearch from './FriendSearch'
@@ -41,4 +43,9 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(FriendDisplay)
+export default connect(
+  mapStateToProps,
+  {
+    selectFriend
+  }
+  )(FriendDisplay)
