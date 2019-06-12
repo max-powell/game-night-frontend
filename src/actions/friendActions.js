@@ -6,3 +6,15 @@ export const selectFriend = friend => {
     friend
   }
 }
+
+export const sendFriendRequest = user => {
+  return dispatch => {
+    gnApi.sendFriendRequest(user)
+      .then(friendRequest => {
+        dispatch({
+          type: 'SEND_FRIEND_REQUEST',
+          friendRequest
+        })
+      })
+  }
+}

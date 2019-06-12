@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { selectFriend } from '../actions/friendActions'
+import { selectFriend, sendFriendRequest } from '../actions/friendActions'
 
 import FriendDisplayBanner from '../components/FriendDisplayBanner'
 import FriendList from './FriendList'
@@ -20,7 +20,7 @@ class FriendDisplay extends Component {
   render() {
 
     const { search } = this.state
-    const { friends, selectFriend, addSentFriendRequest, sentFriendRequests, cancelFriendRequest } = this.props
+    const { friends, selectFriend, sendFriendRequest, sentFriendRequests, cancelFriendRequest } = this.props
     const { showSearch } = this
 
     return (
@@ -28,8 +28,16 @@ class FriendDisplay extends Component {
         <FriendDisplayBanner showSearch={showSearch} search={search} />
         {
           search
-          ? <FriendSearch addSentFriendRequest={addSentFriendRequest} friends={friends.map(f => f.id)} sentFriendRequests={sentFriendRequests} cancelFriendRequest={cancelFriendRequest} />
-        : <FriendList friends={friends} selectFriend={selectFriend}/>
+          ? <FriendSearch
+            friends={friends.map(f => f.id)}
+            sentFriendRequests={sentFriendRequests}
+            sendFriendRequest={sendFriendRequest}
+            cancelFriendRequest={cancelFriendRequest}
+          />
+          : <FriendList
+            friends={friends}
+            selectFriend={selectFriend}
+          />
         }
       </div>
     )
@@ -47,6 +55,7 @@ const mapStateToProps = state => {
 export default connect(
   mapStateToProps,
   {
-    selectFriend
+    selectFriend,
+    sendFriendRequest
   }
   )(FriendDisplay)
