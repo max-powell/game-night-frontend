@@ -14,7 +14,6 @@ class LoginSignUpContainer extends Component {
 
   render() {
 
-    const {history} = this.props
     const {showLogin} = this.state
     const {changeShowLogin} = this
 
@@ -24,10 +23,7 @@ class LoginSignUpContainer extends Component {
           changeShowLogin={changeShowLogin}
           showLogin={showLogin}
         />
-      <LoginForm
-        showLogin={showLogin}
-        history={history}
-      />
+      <LoginForm showLogin={showLogin} />
       </div>
     )
   }
