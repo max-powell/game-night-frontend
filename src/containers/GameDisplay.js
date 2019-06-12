@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+
 import GameDisplayBanner from '../components/GameDisplayBanner'
 import GameList from './GameList'
 import GameSearch from './GameSearch';
@@ -39,10 +40,18 @@ class GameDisplay extends Component {
 
     return (
       <div id='game-display' className='dashboard-item'>
-        <GameDisplayBanner selectedFriend={selectedFriend} showCurrentUserList={showCurrentUserList} showSearch={showSearch} search={search} />
+        <GameDisplayBanner
+          selectedFriend={selectedFriend} showCurrentUserList={showCurrentUserList}
+          showSearch={showSearch}
+          search={search}
+          />
         {
           search
-          ? <GameSearch addGame={addGame} excludedGames={userGames} showSearch={showSearch} />
+          ? <GameSearch
+            addGame={addGame}
+            excludedGames={userGames}
+            showSearch={showSearch}
+          />
         : <GameList games={displayedGames} />
         }
       </div>

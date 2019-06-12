@@ -16,8 +16,16 @@ const GameDisplayBanner = ({selectedFriend, search, showSearch, showCurrentUserL
     </h2>
     {
       Object.keys(selectedFriend).length > 0 || search
-      ? <FontAwesomeIcon onClick={showCurrentUserList} icon="chevron-left" size='lg' />
-      : <FontAwesomeIcon onClick={() => showSearch(true)} icon="plus" size='lg' />
+      ? <FontAwesomeIcon
+        icon="chevron-left"
+        size='lg'
+        onClick={showCurrentUserList}
+      />
+      : <FontAwesomeIcon
+        icon="plus"
+        size='lg'
+        onClick={() => showSearch(true)}
+      />
     }
   </div>
 )

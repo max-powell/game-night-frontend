@@ -5,9 +5,9 @@ const selectFriend = (state, action) => {
 }
 
 const clearSelectedFriend = (state, action) => {
-  return {}
+  return null
 }
 
-export default createReducer({}, {
+export default createReducer(null, {
   SELECT_FRIEND: selectFriend
 })
