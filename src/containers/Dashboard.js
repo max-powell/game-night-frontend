@@ -75,13 +75,13 @@ class Dashboard extends Component {
         <Profile />
         <EventDisplay />
         <FriendDisplay
-          selectFriend={selectFriend}
           addSentFriendRequest={addSentFriendRequest}
           sentFriendRequests={sentFriendRequests}
           cancelFriendRequest={cancelFriendRequest}
         />
         <GameDisplay
           selectedFriend={selectedFriend}
+          selectFriend={selectFriend}
           userGames={games}
           addGame={addGame}
         />
