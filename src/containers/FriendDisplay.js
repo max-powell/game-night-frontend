@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+
 import FriendDisplayBanner from '../components/FriendDisplayBanner'
 import FriendList from './FriendList'
 import FriendSearch from './FriendSearch'
@@ -33,4 +35,10 @@ class FriendDisplay extends Component {
 
 }
 
-export default FriendDisplay
+const mapStateToProps = state => {
+  return {
+    friends: state.currentUser.friends
+  }
+}
+
+export default connect(mapStateToProps)(FriendDisplay)
