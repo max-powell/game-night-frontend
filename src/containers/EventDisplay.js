@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+
 import EventDisplayBanner from '../components/EventDisplayBanner'
 import EventList from './EventList'
 import NewEvent from './NewEvent'
@@ -44,4 +46,11 @@ class EventDisplay extends Component {
 
 }
 
-export default EventDisplay
+const mapStateToProps = state => {
+  return {
+    events: state.currentUser.events,
+    friends: state.currentUser.friends
+  }
+}
+
+export default connect(mapStateToProps)(EventDisplay)

@@ -189,8 +189,6 @@ class Dashboard extends Component {
           rejectEventInvite={rejectEventInvite}
         />
         <EventDisplay
-          events={events}
-          friends={friends}
           createEvent={createEvent}
           updateEvent={updateEvent}
           leaveEvent={leaveEvent}
