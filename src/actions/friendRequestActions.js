@@ -1,6 +1,6 @@
 import gnApi from '../api/gnApi'
 
-const acceptFriendRequest = friendRequest => {
+export const acceptFriendRequest = friendRequest => {
   return dispatch => {
     gnApi.acceptFriendRequest(friendRequest)
       .then(friend => {
