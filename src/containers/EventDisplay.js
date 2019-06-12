@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { createEvent, updateEvent } from '../actions/eventActions'
+import { createEvent, updateEvent, leaveEvent } from '../actions/eventActions'
 
 import EventDisplayBanner from '../components/EventDisplayBanner'
 import EventList from './EventList'
@@ -54,4 +54,11 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, {createEvent, updateEvent})(EventDisplay)
+export default connect(
+  mapStateToProps,
+  {
+    createEvent,
+    updateEvent,
+    leaveEvent
+  }
+)(EventDisplay)
