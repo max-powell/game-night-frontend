@@ -31,9 +31,10 @@ const gnApi = (() => {
   const createUser = creds => {
     return fetch(_baseUrl + 'users', _configBuilder('POST', creds))
       .then(res => res.json())
-      .then(({jwt, error}) => {
+      .then(({user, jwt, error}) => {
         if (jwt) {
           localStorage.setItem('token', jwt)
+          return user
         } else {
           alert(error.join('\n'))
         }

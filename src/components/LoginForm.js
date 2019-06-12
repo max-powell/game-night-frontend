@@ -21,7 +21,7 @@ class LoginForm extends Component {
   handleSubmit = () => {
     this.props.showLogin
     ? this.props.login(this.state)
-    : this.props.signUp(this.state)
+    : this.props.signup(this.state)
   }
 
   render() {
@@ -69,7 +69,7 @@ class LoginForm extends Component {
             type='submit'
           >
             {
-              login ? 'Login' : 'Sign Up'
+              showLogin ? 'Login' : 'Sign Up'
             }
           </Button>
         </Form>

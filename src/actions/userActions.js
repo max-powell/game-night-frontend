@@ -17,6 +17,7 @@ export const signup = creds => {
   return dispatch => {
     gnApi.createUser(creds)
       .then(user => {
+        debugger;
         user &&
         dispatch({
         type: 'SET_USER',
