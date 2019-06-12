@@ -129,7 +129,6 @@ class Dashboard extends Component {
         <Profile
           acceptFriendRequest={acceptFriendRequest}
           rejectFriendRequest={rejectFriendRequest}
-          acceptEventInvite={acceptEventInvite}
           rejectEventInvite={rejectEventInvite}
         />
         <EventDisplay />

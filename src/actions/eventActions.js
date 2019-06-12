@@ -4,7 +4,7 @@ export const createEvent = event => {
   const newEvent = {
     location: event.location,
     dateTime: event.dateTime.toString(),
-    invited_guest_ids: event.invited.map(i => i.id)
+    invitedGuestIds: event.invited.map(i => i.id)
   }
 
   return dispatch => {
