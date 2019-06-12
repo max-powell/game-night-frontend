@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
+import { selectFriend } from '../actions/friendActions'
+
 import GameDisplayBanner from '../components/GameDisplayBanner'
 import GameList from './GameList'
 import GameSearch from './GameSearch'
@@ -37,7 +39,9 @@ class GameDisplay extends Component {
     const { selectedFriendGames, search } = this.state
     const { showCurrentUserList, showSearch } = this
 
-    const displayedGames = Object.keys(this.props.selectedFriend).length > 0 ? selectedFriendGames : userGames
+    const displayedGames = Object.keys(this.props.selectedFriend).length > 0
+      ? selectedFriendGames
+      : userGames
 
     return (
       <div id='game-display' className='dashboard-item'>
@@ -67,4 +71,9 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(GameDisplay)
+export default connect(
+  mapStateToProps,
+  {
+    selectFriend
+  }
+)(GameDisplay)

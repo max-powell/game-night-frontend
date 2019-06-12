@@ -43,8 +43,8 @@ class Dashboard extends Component {
 
   render() {
 
-    const { selectFriend, addGame } = this
-    const { currentUser, selectedFriend } = this.state
+    const { addGame } = this
+    const { currentUser } = this.state
     const { games } = currentUser
 
     return (
@@ -53,7 +53,6 @@ class Dashboard extends Component {
         <EventDisplay />
         <FriendDisplay />
         <GameDisplay
-          selectFriend={selectFriend}
           userGames={games}
           addGame={addGame}
         />
