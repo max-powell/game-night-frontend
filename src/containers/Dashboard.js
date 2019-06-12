@@ -118,7 +118,7 @@ class Dashboard extends Component {
 
   render() {
 
-    const { selectFriend, addSentFriendRequest, cancelFriendRequest, addGame, acceptFriendRequest, rejectFriendRequest, acceptEventInvite, rejectEventInvite } = this
+    const { selectFriend, addSentFriendRequest, cancelFriendRequest, addGame, acceptFriendRequest, rejectFriendRequest } = this
     const { history } = this.props
     const { currentUser, selectedFriend } = this.state
     const { friends, sentFriendRequests, games } = currentUser
@@ -129,7 +129,6 @@ class Dashboard extends Component {
         <Profile
           acceptFriendRequest={acceptFriendRequest}
           rejectFriendRequest={rejectFriendRequest}
-          rejectEventInvite={rejectEventInvite}
         />
         <EventDisplay />
         <FriendDisplay

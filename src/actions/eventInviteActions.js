@@ -12,3 +12,15 @@ export const acceptEventInvite = eventInvite => {
     })
   }
 }
+
+export const rejectEventInvite = eventInvite => {
+  return dispatch => {
+    gnApi.rejectEventInvite(eventInvite)
+      .then(() => {
+        dispatch({
+          type: 'REJECT_EVENT_INVITE',
+          eventInvite
+        })
+      })
+  }
+}

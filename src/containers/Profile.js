@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { acceptEventInvite } from '../actions/eventInviteActions'
+import { acceptEventInvite, rejectEventInvite } from '../actions/eventInviteActions'
 
 import AlertModal from './AlertModal'
 import UserDetails from '../components/UserDetails'
@@ -43,6 +43,7 @@ export default connect(
     user: state.currentUser
   }),
   {
-    acceptEventInvite
+    acceptEventInvite,
+    rejectEventInvite
   }
 )(Profile)
