@@ -90,32 +90,6 @@ class Dashboard extends Component {
     })
   }
 
-  acceptEventInvite = eventInvite => {
-    gnApi.acceptEventInvite(eventInvite)
-      .then(event => {this.setState({
-        currentUser: {
-          ...this.state.currentUser,
-          events: [
-            ...this.state.currentUser.events,
-            event
-          ],
-          eventInvites: this.state.currentUser.eventInvites.filter(eI => eI.id !== eventInvite.id)
-        }
-      })
-    })
-  }
-
-  rejectEventInvite = eventInvite => {
-    gnApi.rejectEventInvite(eventInvite)
-      .then(event => {this.setState({
-        currentUser: {
-          ...this.state.currentUser,
-          eventInvites: this.state.currentUser.eventInvites.filter(eI => eI.id !== eventInvite.id)
-        }
-      })
-    })
-  }
-
   render() {
 
     const { selectFriend, addSentFriendRequest, cancelFriendRequest, addGame, acceptFriendRequest, rejectFriendRequest } = this
