@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import { acceptEventInvite, rejectEventInvite } from '../actions/eventInviteActions'
+import { acceptFriendRequest } from '../actions/friendRequestActions'
 
 import AlertModal from './AlertModal'
 import UserDetails from '../components/UserDetails'
@@ -44,6 +45,7 @@ export default connect(
   }),
   {
     acceptEventInvite,
-    rejectEventInvite
+    rejectEventInvite,
+    acceptFriendRequest
   }
 )(Profile)
