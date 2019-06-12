@@ -9,7 +9,7 @@ const removeEvent = (state, action) => {
 }
 
 const updateEvent = (state, action) => {
-  return [...removeEvent(state,action), action.event]
+  return [...removeEvent(state, action), action.event]
 }
 
 const setEvents = (state, action) => {

@@ -18,3 +18,23 @@ export const createEvent = event => {
     })
   }
 }
+
+export const updateEvent = event => {
+  const updatedEvent = {
+    id: event.id,
+    dateTime: event.dateTime.toString(),
+    location: event.location,
+    gameId: event.gameId
+  }
+
+  return dispatch => {
+    gnApi.updateEvent(updatedEvent)
+    .then(event => {
+      event &&
+      dispatch({
+        type: 'UPDATE_EVENT',
+        event
+      })
+    })
+  }
+}
