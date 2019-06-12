@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { selectFriend, sendFriendRequest } from '../actions/friendActions'
+import { selectFriend,
+  sendFriendRequest,
+  cancelFriendRequest
+} from '../actions/friendActions'
 
 import FriendDisplayBanner from '../components/FriendDisplayBanner'
 import FriendList from './FriendList'
@@ -19,9 +22,14 @@ class FriendDisplay extends Component {
 
   render() {
 
-    const { search } = this.state
-    const { friends, selectFriend, sendFriendRequest, sentFriendRequests, cancelFriendRequest } = this.props
     const { showSearch } = this
+    const { search } = this.state
+    const { friends,
+      selectFriend,
+      sentFriendRequests,
+      sendFriendRequest,
+      cancelFriendRequest
+    } = this.props
 
     return (
       <div id='friend-display' className='dashboard-item'>
@@ -56,6 +64,7 @@ export default connect(
   mapStateToProps,
   {
     selectFriend,
-    sendFriendRequest
+    sendFriendRequest,
+    cancelFriendRequest
   }
   )(FriendDisplay)

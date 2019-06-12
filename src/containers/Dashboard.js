@@ -66,7 +66,7 @@ class Dashboard extends Component {
 
   render() {
 
-    const { selectFriend, cancelFriendRequest, addGame } = this
+    const { selectFriend, addGame } = this
     const { currentUser, selectedFriend } = this.state
     const { games } = currentUser
 
@@ -74,9 +74,7 @@ class Dashboard extends Component {
       <div id='dashboard' className='main-container-item'>
         <Profile />
         <EventDisplay />
-        <FriendDisplay
-          cancelFriendRequest={cancelFriendRequest}
-        />
+        <FriendDisplay />
         <GameDisplay
           selectedFriend={selectedFriend}
           selectFriend={selectFriend}
