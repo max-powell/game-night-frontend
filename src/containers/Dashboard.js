@@ -119,13 +119,11 @@ class Dashboard extends Component {
   render() {
 
     const { selectFriend, addSentFriendRequest, cancelFriendRequest, addGame, acceptFriendRequest, rejectFriendRequest } = this
-    const { history } = this.props
     const { currentUser, selectedFriend } = this.state
     const { friends, sentFriendRequests, games } = currentUser
 
     return (
       <div id='dashboard' className='main-container-item'>
-        {!!localStorage.token || history.push('/')}
         <Profile
           acceptFriendRequest={acceptFriendRequest}
           rejectFriendRequest={rejectFriendRequest}
