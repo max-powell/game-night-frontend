@@ -39,7 +39,8 @@ class FriendDisplay extends Component {
 
 const mapStateToProps = state => {
   return {
-    friends: state.currentUser.friends
+    friends: state.currentUser.friends,
+    sentFriendRequests: state.currentUser.sentFriendRequests
   }
 }
 
