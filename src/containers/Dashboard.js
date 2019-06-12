@@ -92,15 +92,13 @@ class Dashboard extends Component {
 
   render() {
 
-    const { selectFriend, addSentFriendRequest, cancelFriendRequest, addGame, rejectFriendRequest } = this
+    const { selectFriend, addSentFriendRequest, cancelFriendRequest, addGame } = this
     const { currentUser, selectedFriend } = this.state
     const { friends, sentFriendRequests, games } = currentUser
 
     return (
       <div id='dashboard' className='main-container-item'>
-        <Profile
-          rejectFriendRequest={rejectFriendRequest}
-        />
+        <Profile />
         <EventDisplay />
         <FriendDisplay
           selectFriend={selectFriend}
