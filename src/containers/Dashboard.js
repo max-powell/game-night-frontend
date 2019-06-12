@@ -116,61 +116,6 @@ class Dashboard extends Component {
     })
   }
 
-  createEvent = event => {
-    const newEvent = {
-      location: event.location,
-      dateTime: event.dateTime.toString(),
-      invited_guest_ids: event.invited.map(i => i.id)
-    }
-
-    gnApi.createEvent(newEvent)
-      .then(event => {
-        event &&
-        this.setState({
-          currentUser: {
-            ...this.state.currentUser,
-            events: [
-              ...this.state.currentUser.events,
-              event
-            ]
-          }
-      })
-    })
-  }
-
-  updateEvent = event => {
-    const updatedEvent = {
-      id: event.id,
-      dateTime: event.dateTime.toString(),
-      location: event.location,
-      gameId: event.gameId
-    }
-
-    gnApi.updateEvent(updatedEvent)
-      .then(event => {
-        event &&
-        this.setState({
-          currentUser: {
-            ...this.state.currentUser,
-            events: [...this.state.currentUser.events.filter(e => e.id !== event.id), event]
-          }
-        })
-      })
-  }
-
-  leaveEvent = event => {
-    gnApi.leaveEvent(event)
-      .then(message => {
-        message &&
-        this.setState({
-          currentUser: {
-            ...this.state.currentUser,
-            events: [...this.state.currentUser.events.filter(e => e.id !== event.id)]
-          }
-        })
-      })
-  }
-
   render() {
 
     const { selectFriend, addSentFriendRequest, cancelFriendRequest, addGame, acceptFriendRequest, rejectFriendRequest, acceptEventInvite, rejectEventInvite } = this
