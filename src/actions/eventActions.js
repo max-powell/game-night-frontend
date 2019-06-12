@@ -7,11 +7,14 @@ export const createEvent = event => {
     invited_guest_ids: event.invited.map(i => i.id)
   }
 
-  gnApi.createEvent(newEvent)
+  return dispatch => {
+    gnApi.createEvent(newEvent)
     .then(event => {
       event &&
       dispatch({
         type: 'ADD_EVENT',
         event
-      }))
+      })
+    })
+  }
 }
