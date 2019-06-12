@@ -18,3 +18,15 @@ export const sendFriendRequest = user => {
       })
   }
 }
+
+export const cancelFriendRequest = friendRequest => {
+  return dispatch => {
+    gnApi.cancelFriendRequest(friendRequest)
+      .then(() => {
+        dispatch({
+          type: 'CANCEL_FRIEND_REQUEST',
+          friendRequest
+        })
+      })
+  }
+}
