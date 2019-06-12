@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import gnApi from '../api/gnApi'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
@@ -8,7 +7,6 @@ class GameSearchItem extends Component {
   render() {
 
     const { result, addGame } = this.props
-    const { handleClick } = this
 
     return (
       <div className='dashboard-search-item'>
