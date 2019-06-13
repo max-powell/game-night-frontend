@@ -16,12 +16,11 @@ The app is live at https://gamenight-final-project.herokuapp.com/.
 
 ## Tech/frameworks used
 
-* React for frontend
-* [React Datepicker](https://reactdatepicker.com/) by HackerOne
-* Ruby on Rails for backend API
-* [Board Game Atals API](https://www.boardgameatlas.com/api/docs) to retrieve board game data
-* Heroku for deployment
+* Frontend: React, Redux
+* Backend: Ruby on Rails
+* Deployment: Heroku
 
 ## Credits
-* This app relies on Board Game Atlas, who provide a free and easy-to-use API with information on over 25,000 board games
+* This app relies on the [Board Game Atals API](https://www.boardgameatlas.com/api/docs), a free and easy-to-use API with information on over 25,000 board games
+* This app ustilises the [React Datepicker](https://reactdatepicker.com/) component by HackerOne
 * All icons are from FontAwesome
