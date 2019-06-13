@@ -2,10 +2,12 @@ import { combineReducers } from 'redux'
 
 import currentUser from './currentUser'
 import selectedFriendReducer from './selectedFriendReducer'
+import selectedFriendGamesReducer from './selectedFriendGamesReducer'
 
 const appReducer = combineReducers({
   currentUser,
-  selectedFriend: selectedFriendReducer
+  selectedFriend: selectedFriendReducer,
+  selectedFriendGames: selectedFriendGamesReducer
 })
 
 const rootReducer = (state, action) => {

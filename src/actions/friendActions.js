@@ -1,10 +1,20 @@
 import gnApi from '../api/gnApi'
 
 export const selectFriend = friend => {
-  return {
-    type: 'SELECT_FRIEND',
-    friend
+  return dispatch => {
+    gnApi.getFriendsGames(friend)
+      .then(games => {
+        dispatch({
+          type: 'SELECT_FRIEND',
+          games,
+          friend
+        })
+      })
   }
+}
+
+export const clearSelectedFriend = () => {
+  return {type: 'CLEAR_SELECTED_FRIEND'}
 }
 
 export const sendFriendRequest = user => {

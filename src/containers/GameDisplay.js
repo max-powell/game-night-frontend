@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { selectFriend } from '../actions/friendActions'
+import { selectFriend, clearSelectedFriend } from '../actions/friendActions'
 import { addGame } from '../actions/gameActions'
 
 import GameDisplayBanner from '../components/GameDisplayBanner'
@@ -15,22 +15,13 @@ import '../css/GameDisplay.css'
 class GameDisplay extends Component {
 
   state = {
-    selectedFriendGames: [],
     search: false
-  }
-
-  componentDidUpdate (prevProps) {
-    if (this.props.selectedFriend !== prevProps.selectedFriend
-    && Object.keys(this.props.selectedFriend).length > 0) {
-        gnApi.getFriendsGames(this.props.selectedFriend)
-          .then(selectedFriendGames => this.setState({selectedFriendGames}))
-    }
   }
 
   showSearch = bool => {this.setState({search: bool })}
 
   showCurrentUserList = () => {
-    this.props.selectFriend({})
+    this.props.clearSelectedFriend()
     this.showSearch(false)
   }
 
@@ -41,11 +32,11 @@ class GameDisplay extends Component {
 
   render() {
 
-    const { selectedFriend, games } = this.props
-    const { selectedFriendGames, search } = this.state
+    const { games, selectedFriend, selectedFriendGames } = this.props
+    const { search } = this.state
     const { showCurrentUserList, showSearch, addGame } = this
 
-    const displayedGames = Object.keys(this.props.selectedFriend).length > 0
+    const displayedGames = selectedFriendGames.length > 0
       ? selectedFriendGames
       : games
 
@@ -70,6 +61,7 @@ class GameDisplay extends Component {
 const mapStateToProps = state => {
   return {
     selectedFriend: state.selectedFriend,
+    selectedFriendGames: state.selectedFriendGames,
     games: state.currentUser.games
   }
 }
@@ -78,6 +70,7 @@ export default connect(
   mapStateToProps,
   {
     selectFriend,
+    clearSelectedFriend,
     addGame
   }
 )(GameDisplay)
