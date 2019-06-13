@@ -57,7 +57,7 @@ class EventModal extends Component {
   render() {
 
     const { location, dateTime, attendees, invited, availableGames, gameId, host, showFilter } = this.state
-    const { handleLocationChange, changeDateTime, selectGame, changeFilter, gameStillValid } = this
+    const { handleLocationChange, changeDateTime, selectGame, changeFilter } = this
     const { updateEvent, leaveEvent } = this.props
 
     const uniqueAvailableGames = []

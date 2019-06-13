@@ -8,8 +8,6 @@ import GameDisplayBanner from '../components/GameDisplayBanner'
 import GameList from './GameList'
 import GameSearch from './GameSearch'
 
-import gnApi from '../api/gnApi'
-
 import '../css/GameDisplay.css'
 
 class GameDisplay extends Component {

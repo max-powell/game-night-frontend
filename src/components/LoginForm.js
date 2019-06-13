@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import { Form, Button } from 'semantic-ui-react'
 
-import { connect } from 'react-redux'
-import { login, signup } from '../actions/userActions'
+import gnApi from '../api/gnApi'
 
 class LoginForm extends Component {
 
@@ -18,10 +17,19 @@ class LoginForm extends Component {
     })
   }
 
+  validate = (validation) => {
+    validation(this.state)
+      .then(() => {
+        !!localStorage.getItem('token') &&
+        this.props.routerProps.history.push('/')
+      }
+      )
+  }
+
   handleSubmit = () => {
     this.props.showLogin
-    ? this.props.login(this.state)
-    : this.props.signup(this.state)
+    ? this.validate(gnApi.login)
+    : this.validate(gnApi.createUser)
   }
 
   render() {
@@ -79,4 +87,4 @@ class LoginForm extends Component {
 
 }
 
-export default connect(null, {login, signup})(LoginForm)
+export default LoginForm

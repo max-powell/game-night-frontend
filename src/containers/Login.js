@@ -4,10 +4,11 @@ import LoginSignUpContainer from './LoginSignUpContainer';
 
 import '../css/Login.css'
 
-const Login = () => {
+const Login = ({routerProps}) => {
+  !!localStorage.getItem('token') && routerProps.history.push('/')
   return (
   <div className='main-container-item'>
-    <LoginSignUpContainer />
+    <LoginSignUpContainer routerProps={routerProps} />
   </div>
 )}
 
