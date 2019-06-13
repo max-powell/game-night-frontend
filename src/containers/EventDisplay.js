@@ -35,11 +35,21 @@ class EventDisplay extends Component {
 
     return (
       <div id='event-display' className='dashboard-item'>
-        <EventDisplayBanner newEvent={newEvent} showNewEvent={showNewEvent} />
+        <EventDisplayBanner
+          newEvent={newEvent}
+          showNewEvent={showNewEvent}
+        />
         {
           newEvent
-          ? <NewEvent friends={friends} handleSubmit={handleSubmit} />
-        : <EventList events={displayedEvents} updateEvent={updateEvent} leaveEvent={leaveEvent} />
+          ? <NewEvent
+            friends={friends}
+            handleSubmit={handleSubmit}
+          />
+          : <EventList
+            events={displayedEvents}
+            updateEvent={updateEvent}
+            leaveEvent={leaveEvent}
+          />
         }
       </div>
     )

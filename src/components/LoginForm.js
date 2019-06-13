@@ -56,7 +56,7 @@ class LoginForm extends Component {
             !showLogin &&
             <Form.Field>
               <label>
-                Avatar:
+                Avatar (optional):
               </label>
               <input
                 name='avatarUrl'

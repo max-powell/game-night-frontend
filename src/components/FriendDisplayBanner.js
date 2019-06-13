@@ -7,8 +7,16 @@ const FriendDisplayBanner = ({search, showSearch}) => (
     <h2>Your Friends</h2>
     {
       search
-      ? <FontAwesomeIcon onClick={() => showSearch(false)} icon="chevron-left" size='lg' />
-      :<FontAwesomeIcon onClick={() => showSearch(true)} icon="plus" size='lg' />
+      ? <FontAwesomeIcon
+        icon="chevron-left"
+        size='lg'
+        onClick={() => showSearch(false)}
+      />
+      : <FontAwesomeIcon
+        onClick={() => showSearch(true)}
+        icon="plus"
+        size='lg'
+      />
     }
   </div>
 )

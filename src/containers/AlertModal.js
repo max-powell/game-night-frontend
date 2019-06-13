@@ -13,13 +13,33 @@ const AlertModal = ({user, acceptFriendRequest, rejectFriendRequest, acceptEvent
       <Header>Friend Requests</Header>
       {
         user.friendRequests.length > 0
-        ? user.friendRequests.map(r => <AlertItem key={`r${r.id}`} item={r} accept={acceptFriendRequest} reject={rejectFriendRequest} type='fR' />)
+        ? user.friendRequests.map(r => {
+          return (
+            <AlertItem
+              key={`r${r.id}`}
+              item={r}
+              accept={acceptFriendRequest}
+              reject={rejectFriendRequest}
+              type='fR'
+            />
+          )
+        })
         : <div className='alert-item no-alerts'>No friend requests</div>
       }
       <Header>Event Invites</Header>
       {
         user.eventInvites.length > 0
-        ? user.eventInvites.map(i => <AlertItem key={`i${i.id}`} item={i} accept={acceptEventInvite} reject={rejectEventInvite} type='eI' />)
+        ? user.eventInvites.map(i => {
+          return (
+            <AlertItem
+              key={`i${i.id}`}
+              item={i}
+              accept={acceptEventInvite}
+              reject={rejectEventInvite}
+              type='eI'
+            />
+          )
+        })
         : <div className='alert-item no-alerts'>No event invites</div>
       }
     </Modal.Content>
