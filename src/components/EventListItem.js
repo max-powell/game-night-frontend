@@ -19,7 +19,11 @@ const EventListItem = ({event, updateEvent, leaveEvent}) => {
           <p>Game: {event.game}</p>
       </div>
       <div className='event-options'>
-        <EventModal event={event} updateEvent={updateEvent} leaveEvent={leaveEvent} />
+        <EventModal
+          event={event}
+          updateEvent={updateEvent}
+          leaveEvent={leaveEvent}
+        />
       </div>
     </div>
   )

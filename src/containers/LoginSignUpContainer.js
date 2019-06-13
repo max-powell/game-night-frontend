@@ -7,21 +7,24 @@ import '../css/LoginSignUpContainer.css'
 class LoginSignUpContainer extends Component {
 
   state = {
-    login: true
+    showLogin: true
   }
 
-  showLogin = bool => {this.setState({login: bool})}
+  changeShowLogin = bool => {this.setState({showLogin: bool})}
 
   render() {
 
-    const {history} = this.props
-    const {login} = this.state
-    const {showLogin} = this
+    const { routerProps } = this.props
+    const {showLogin} = this.state
+    const {changeShowLogin} = this
 
     return (
       <div id='login-signup-container'>
-        <LoginSignUpButtons showLogin={showLogin} login={login} />
-        <LoginForm login={login} history={history}/>
+        <LoginSignUpButtons
+          changeShowLogin={changeShowLogin}
+          showLogin={showLogin}
+        />
+      <LoginForm showLogin={showLogin} routerProps={routerProps} />
       </div>
     )
   }

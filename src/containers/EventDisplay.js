@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { createEvent, updateEvent, leaveEvent } from '../actions/eventActions'
+
 import EventDisplayBanner from '../components/EventDisplayBanner'
 import EventList from './EventList'
 import NewEvent from './NewEvent'
@@ -32,11 +35,21 @@ class EventDisplay extends Component {
 
     return (
       <div id='event-display' className='dashboard-item'>
-        <EventDisplayBanner newEvent={newEvent} showNewEvent={showNewEvent} />
+        <EventDisplayBanner
+          newEvent={newEvent}
+          showNewEvent={showNewEvent}
+        />
         {
           newEvent
-          ? <NewEvent friends={friends} handleSubmit={handleSubmit} />
-        : <EventList events={displayedEvents} updateEvent={updateEvent} leaveEvent={leaveEvent} />
+          ? <NewEvent
+            friends={friends}
+            handleSubmit={handleSubmit}
+          />
+          : <EventList
+            events={displayedEvents}
+            updateEvent={updateEvent}
+            leaveEvent={leaveEvent}
+          />
         }
       </div>
     )
@@ -44,4 +57,18 @@ class EventDisplay extends Component {
 
 }
 
-export default EventDisplay
+const mapStateToProps = state => {
+  return {
+    events: state.currentUser.events,
+    friends: state.currentUser.friends
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  {
+    createEvent,
+    updateEvent,
+    leaveEvent
+  }
+)(EventDisplay)

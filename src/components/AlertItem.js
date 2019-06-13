@@ -26,10 +26,20 @@ class AlertItem extends Component {
           {type === 'eI' && `${item.event.host.username} invited you to a game night on ${getFormattedDateString(item.event.dateTime)}`}
         </div>
         <div className='alert-button'>
-          <FontAwesomeIcon icon='check-circle' color='green' size='lg' onClick={() => accept(item)} />
+          <FontAwesomeIcon
+            icon='check-circle'
+            color='green'
+            size='lg'
+            onClick={() => accept(item)}
+          />
         </div>
         <div className='alert-button'>
-          <FontAwesomeIcon icon='times-circle' color='red' size='lg' onClick={() => reject(item)}/>
+          <FontAwesomeIcon
+            icon='times-circle'
+            color='red'
+            size='lg'
+            onClick={() => reject(item)}
+          />
         </div>
       </div>
     )

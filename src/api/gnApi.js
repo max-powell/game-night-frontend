@@ -30,9 +30,10 @@ const gnApi = (() => {
   const createUser = creds => {
     return fetch(_baseUrl + 'users', _configBuilder('POST', creds))
       .then(res => res.json())
-      .then(({jwt, error}) => {
+      .then(({user, jwt, error}) => {
         if (jwt) {
           localStorage.setItem('token', jwt)
+          return user
         } else {
           alert(error.join('\n'))
         }
@@ -45,18 +46,8 @@ const gnApi = (() => {
       .then(res => res.json())
   }
 
-  const getItems = route => {
-    return fetch(_baseUrl + route, {headers: _auth()})
-      .then(res => res.json())
-  }
-
   const search = searchTerm => {
     return fetch(_baseUrl + 'search/' + searchTerm, {headers: _auth()})
-      .then(res => res.json())
-  }
-
-  const addFriend = id => {
-    return fetch(_baseUrl + 'friends', _configBuilder('POST', {id}, 'friend'))
       .then(res => res.json())
   }
 
@@ -136,9 +127,7 @@ const gnApi = (() => {
     login,
     createUser,
     getProfile,
-    getItems,
     search,
-    addFriend,
     getFriendsGames,
     searchGames,
     addGame,

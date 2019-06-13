@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Form, Button } from 'semantic-ui-react'
+
 import gnApi from '../api/gnApi'
 
 class LoginForm extends Component {
@@ -16,25 +17,24 @@ class LoginForm extends Component {
     })
   }
 
+  validate = (validation) => {
+    validation(this.state)
+      .then(() => {
+        !!localStorage.getItem('token') &&
+        this.props.routerProps.history.push('/')
+      }
+      )
+  }
+
   handleSubmit = () => {
-    this.props.login
-    ? this.login()
-    : this.signUp()
-  }
-
-  login = async () => {
-    await gnApi.login(this.state)
-    this.props.history.push('/dashboard')
-  }
-
-  signUp = () => {
-    gnApi.createUser(this.state)
-      .then(() => this.props.history.push('/dashboard'))
+    this.props.showLogin
+    ? this.validate(gnApi.login)
+    : this.validate(gnApi.createUser)
   }
 
   render() {
 
-    const {login} = this.props
+    const {showLogin} = this.props
     const { username, password, avatarUrl } = this.state
     const {handleInputChange, handleSubmit} = this
 
@@ -42,21 +42,44 @@ class LoginForm extends Component {
       <div id='login-form'>
         <Form onSubmit={handleSubmit}>
           <Form.Field>
-            <label>Username:</label>
-            <input value={username} name='username' onChange={handleInputChange} />
+            <label>
+              Username:
+            </label>
+            <input
+              name='username'
+              value={username}
+              onChange={handleInputChange} />
           </Form.Field>
           <Form.Field>
-            <label>Password:</label>
-            <input type='password' value={password} name='password' onChange={handleInputChange} />
+            <label>
+              Password:
+            </label>
+            <input
+              name='password'
+              type='password'
+              value={password}
+              onChange={handleInputChange} />
           </Form.Field>
           {
-            !login &&
+            !showLogin &&
             <Form.Field>
-              <label>Avatar:</label>
-              <input value={avatarUrl} name='avatarUrl' onChange={handleInputChange} />
+              <label>
+                Avatar (optional):
+              </label>
+              <input
+                name='avatarUrl'
+                value={avatarUrl}
+                onChange={handleInputChange}
+              />
             </Form.Field>
           }
-          <Button type='submit'>{login ? 'Login' : 'Sign Up'}</Button>
+          <Button
+            type='submit'
+          >
+            {
+              showLogin ? 'Login' : 'Sign Up'
+            }
+          </Button>
         </Form>
       </div>
     )

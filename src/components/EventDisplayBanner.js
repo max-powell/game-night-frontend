@@ -13,8 +13,16 @@ const EventDisplayBanner = ({newEvent, showNewEvent}) => (
     </h2>
     {
       newEvent
-      ? <FontAwesomeIcon icon="chevron-left" size='2x' onClick={() => showNewEvent(false)} />
-      : <FontAwesomeIcon icon="calendar-plus" size='2x' onClick={() => showNewEvent(true)} />
+      ? <FontAwesomeIcon
+        icon="chevron-left"
+        size='2x'
+        onClick={() => showNewEvent(false)}
+      />
+      : <FontAwesomeIcon
+        icon="calendar-plus"
+        size='2x'
+        onClick={() => showNewEvent(true)}
+      />
     }
   </div>
 )

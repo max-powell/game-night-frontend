@@ -45,7 +45,11 @@ class EventModal extends Component {
   changeFilter = () => {this.setState({showFilter: !this.state.showFilter})}
 
   gameStillValid = () => {
-    if (this.state.host && this.state.gameId && !this.state.availableGames.map(g => g.id).includes(this.state.gameId)) {
+    if (
+      this.state.host &&
+      this.state.gameId &&
+      !this.state.availableGames.map(g => g.id).includes(this.state.gameId)
+    ) {
       alert(`The user who owns the selected game for your game night on ${this.state.dateTime.toDateString()} has left the event. Please select another game.`)
     }
   }
@@ -53,7 +57,7 @@ class EventModal extends Component {
   render() {
 
     const { location, dateTime, attendees, invited, availableGames, gameId, host, showFilter } = this.state
-    const { handleLocationChange, changeDateTime, selectGame, changeFilter, gameStillValid } = this
+    const { handleLocationChange, changeDateTime, selectGame, changeFilter } = this
     const { updateEvent, leaveEvent } = this.props
 
     const uniqueAvailableGames = []
@@ -64,8 +68,10 @@ class EventModal extends Component {
     })
 
     const filteredGames = uniqueAvailableGames.filter(g => {
-      return (g.minPlayers <= attendees.length &&
-      g.maxPlayers >= attendees.length)
+      return (
+        g.minPlayers <= attendees.length &&
+        g.maxPlayers >= attendees.length
+      )
     })
 
     return (

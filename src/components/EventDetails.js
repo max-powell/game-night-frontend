@@ -3,7 +3,9 @@ import React, { Fragment } from 'react'
 const EventDetails = ({location, dateTime, attendees, invited, gameId, availableGames}) => (
   <Fragment>
     <p>Location: {location}</p>
-    <p>When: {`${dateTime.toString().match(/\d{2}:\d{2}/)} ${dateTime.toString().slice(0,3)},${dateTime.toString().slice(3,15)}`}</p>
+    <p>When: {
+      `${dateTime.toString().match(/\d{2}:\d{2}/)} ${dateTime.toString().slice(0,3)},${dateTime.toString().slice(3,15)}`}
+    </p>
     <div id='guests'>
       <label>Going:</label>
       <ul>

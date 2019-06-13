@@ -1,24 +1,11 @@
-import React, {Fragment} from 'react'
-import Header from './Header'
-import Login from './Login'
-import Dashboard from './Dashboard'
-import NewEvent from './NewEvent'
+import React, { Fragment } from 'react'
 
-const Layout = ({routerProps, display}) => (
+import Header from './Header'
+
+const Layout = ({routerProps, child}) => (
   <Fragment>
-    <Header {...routerProps} />
-    {
-      (() => {
-        switch (display) {
-        case 'dashboard':
-          return <Dashboard {...routerProps} />
-        case 'new-event':
-          return <NewEvent {...routerProps} />
-        default:
-          return <Login {...routerProps} />
-        }
-      })()
-    }
+    <Header routerProps={routerProps} />
+    {child}
   </Fragment>
 )
 

@@ -7,7 +7,9 @@ const FriendListItem = ({friend, selectFriend}) => (
     <img src={friend.avatarUrl} alt='user avatar' />
     <div>
       <h2>{friend.username}</h2>
-      <p><FontAwesomeIcon icon='dice-d20'/>{friend.gameCount} games</p>
+      <p>
+        <FontAwesomeIcon icon='dice-d20'/>{friend.gameCount} games
+      </p>
       <p onClick={() => selectFriend(friend)}>See collection >></p>
     </div>
   </div>

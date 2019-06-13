@@ -22,15 +22,19 @@ class GameSearch extends Component {
   render() {
 
     const { searchTerm, results } = this.state
-    const { addGame, excludedGames, showSearch } = this.props
+    const { addGame, excludedGames } = this.props
     const { updateSearch, handleSubmit } = this
 
     const filteredResults = results.filter(r => !excludedGames.map(g => g.bgaId).includes(r.bgaId))
 
     return (
       <div className='dashboard-item-search'>
-        <Search updateSearch={updateSearch} handleSubmit={handleSubmit} searchTerm={searchTerm} />
-        <GameSearchResults results={filteredResults} addGame={addGame} showSearch={showSearch} />
+        <Search
+          searchTerm={searchTerm}
+          updateSearch={updateSearch}
+          handleSubmit={handleSubmit}
+        />
+        <GameSearchResults results={filteredResults} addGame={addGame} />
       </div>
     )
   }
