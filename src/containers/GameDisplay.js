@@ -34,7 +34,7 @@ class GameDisplay extends Component {
     const { search } = this.state
     const { showCurrentUserList, showSearch, addGame } = this
 
-    const displayedGames = selectedFriendGames.length > 0
+    const displayedGames = selectedFriend.id
       ? selectedFriendGames
       : games
 
