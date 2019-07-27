@@ -7,9 +7,9 @@
 }
 
 #profile img {
-  height: 20vh;
-  max-width: 25vh;
-  margin: 0 1vw
+  max-height: 20vh;
+  width: 25vh;
+  margin: 0 1vw;
 }
 
 #details {
