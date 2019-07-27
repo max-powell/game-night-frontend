@@ -13,6 +13,7 @@ import GameDisplay from './GameDisplay'
 class Dashboard extends Component {
 
   componentDidMount () {
+    !!localStorage.getItem('token') &&
     this.props.fetchUser()
   }
 
