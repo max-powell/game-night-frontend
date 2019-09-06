@@ -42,18 +42,21 @@
 .dashboard-list-item {
   width: 90%;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   border: 1px solid black;
   margin-bottom: 1vh;
 }
 
 .dashboard-list-item img {
-  height: 10vh;
+  max-height: 10vh;
+  max-width: 10vw;
   margin-left: 1vw
 }
 
 .dashboard-list-item div {
-  padding: 1vh 1vw
+  padding: 1vh 2vw;
+  align-self: flex-start;
 }
 
 .dashboard-list-item h2 {
