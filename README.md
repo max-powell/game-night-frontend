@@ -22,5 +22,5 @@ The app is live at https://gamenight-final-project.herokuapp.com/.
 
 ## Credits
 * This app relies on the [Board Game Atals API](https://www.boardgameatlas.com/api/docs), a free and easy-to-use API with information on over 25,000 board games
-* This app ustilises the [React Datepicker](https://reactdatepicker.com/) component by HackerOne
+* This app utilises the [React Datepicker](https://reactdatepicker.com/) component by HackerOne
 * All icons are from FontAwesome
